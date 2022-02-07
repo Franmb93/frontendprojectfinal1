@@ -1,0 +1,20 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    min-width: 66%;
+}
+.banner {
+    display: flex;
+    justify-content: center;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    color: #00B6D3;
+}
+
+.categoryBanner {
+    display: flex;
+    justify-content: center;
+    
+}
+

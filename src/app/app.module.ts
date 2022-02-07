@@ -7,12 +7,16 @@ import { MaterialModule } from './material/material.module';
 import { HeaderComponent } from './components/header/header.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ProductComponent } from './components/product/product.component';
+import { HomeComponent } from './components/home/home.component';
+import { CategoryBannerComponent } from './components/category-banner/category-banner.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    ProductComponent
+    ProductComponent,
+    HomeComponent,
+    CategoryBannerComponent
   ],
   imports: [
     BrowserModule,

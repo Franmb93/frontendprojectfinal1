@@ -1,0 +1,16 @@
+.categoryContainer {
+    // display: flex;
+    // justify-content: center;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-content: center;
+    flex: 0.8 1 auto;
+   
+}
+
+.cat {
+    background-color: red;
+    margin: 10%;
+    
+}
