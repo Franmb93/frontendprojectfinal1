@@ -16,5 +16,3 @@ export interface Product {
   category: Category;
   deal: Deal;
 }
-
-//TODO falta deal y fechas
