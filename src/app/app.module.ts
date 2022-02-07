@@ -9,6 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ProductComponent } from './components/product/product.component';
 import { HomeComponent } from './components/home/home.component';
 import { CategoryBannerComponent } from './components/category-banner/category-banner.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { CategoryBannerComponent } from './components/category-banner/category-b
     HeaderComponent,
     ProductComponent,
     HomeComponent,
-    CategoryBannerComponent
+    CategoryBannerComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
