@@ -1,0 +1,33 @@
+.mat-toolbar-single-row {
+    background: #030e4d !important;
+    color: #fff;
+    height: 5.5rem;
+}
+
+.wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.material-icons.md-48 {
+    font-size: 36px;
+}
+
+.mat-toolbar-single-row p {
+    font-size: 54px;
+}
+
+#example-spacer-before {
+    flex: 0.1 1 auto;
+}
+
+#example-spacer-after {
+    flex: 0.8 1 auto;
+}
+
+#header-title {
+    font-size: 52px;
+}
