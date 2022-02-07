@@ -1,3 +1,9 @@
+$corporative-color: #00B6D3;
+$white-color: #fff;
+#header-toolbar {
+    background-color: #fff;
+}
+
 .wrapper {
     display: flex;
     flex-direction: row;
@@ -18,11 +24,11 @@
 
 .form-control {
     border-radius: 35px;
-    border: 0.2px solid gray;
+    border: 0.2px solid rgb(170, 170, 170);
     min-width: 35vw;
     min-height: 4vh;
     transition: 0.5s;
-    background: lightgray;
+    background: rgb(241, 241, 241);
     &::placeholder {
         color: gray;
     }
@@ -35,7 +41,7 @@
 
 .md-form input:focus {
     outline: none;
-    border: 0.2px solid aquamarine;
+    border: 0.2px solid $corporative-color;
     background-color: white;
     transition: 0.5s;
 }
@@ -61,4 +67,27 @@
 #searchbar-buttons {
     min-width: 33vw;
     border: none;
+}
+
+#login-button {
+    background-color: #fff;
+    border: 1.3px solid $corporative-color;
+    border-radius: 35px;
+    color: $corporative-color;
+    font-weight: 500;
+    &:hover {
+        background-color: $corporative-color;
+        color: $white-color;
+    }
+}
+
+#new-product-button {
+    color: $white-color;
+    background-color: $corporative-color;
+    border: 1.3px solid $corporative-color;
+    border-radius: 35px;
+    &:hover {
+        background-color: $white-color;
+        color: $corporative-color;
+    }
 }
