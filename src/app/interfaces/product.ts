@@ -1,3 +1,9 @@
+import { User } from "./user";
+import { Category } from "./category"
+import { Deal } from "./deal"
+
+
+
 export interface Product {
   id: number;
   name: string;
@@ -5,6 +11,10 @@ export interface Product {
   price: number;
   weight: number;
   image: string;
+  published_date: string;
+  user: User;
+  category: Category;
+  deal: Deal;
 }
 
 //TODO falta deal y fechas
