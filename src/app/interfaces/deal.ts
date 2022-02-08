@@ -11,4 +11,5 @@ export interface Deal {
   ordered_date: string;
   product: Product;
   user: User;
+
 }
