@@ -1,0 +1,31 @@
+$corporative-color: #00B6D3;
+$white-color: #fff;
+
+.searchbar {
+    display: flex;
+    align-items: center;
+    
+}
+.form-control {
+    border-radius: 35px;
+    border: 0.2px solid rgb(170, 170, 170);
+    min-width: 35vw;
+    min-height: 4vh;
+    transition: 0.5s;
+    background: rgb(241, 241, 241);
+    &::placeholder {
+        color: gray;
+    }
+}
+
+.md-form input {
+    text-indent: 10px;
+    font-size: 0.7rem;
+}
+
+.md-form input:focus {
+    outline: none;
+    border: 0.2px solid $corporative-color;
+    background-color: white;
+    transition: 0.5s;
+}

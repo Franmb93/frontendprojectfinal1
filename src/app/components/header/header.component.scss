@@ -7,43 +7,25 @@ $white-color: #fff;
 .wrapper {
     display: flex;
     flex-direction: row;
-    align-items: center;
+    // align-items: center;
     justify-content: space-between;
     flex: 0.8 1 auto;
 }
 
 .icon-wrapper {
-    margin: 18px 15px 0px 0px;
+    // display: flex;
+    // align-items: center;
+    // margin: 18px 15px 0px 0px;
+    background-color: red;
+    
 }
+
+
 
 .iconsearchwrapper {
     display: flex;
-    flex-direction: row;
+    // flex-direction: row;
     align-items: center;
-}
-
-.form-control {
-    border-radius: 35px;
-    border: 0.2px solid rgb(170, 170, 170);
-    min-width: 35vw;
-    min-height: 4vh;
-    transition: 0.5s;
-    background: rgb(241, 241, 241);
-    &::placeholder {
-        color: gray;
-    }
-}
-
-.md-form input {
-    text-indent: 10px;
-    font-size: 0.7rem;
-}
-
-.md-form input:focus {
-    outline: none;
-    border: 0.2px solid $corporative-color;
-    background-color: white;
-    transition: 0.5s;
 }
 
 .button-wrapper {

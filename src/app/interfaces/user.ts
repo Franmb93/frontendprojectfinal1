@@ -17,4 +17,5 @@ export interface User {
   n_valorations: number;
   deals: Deal[];
   products: Product[];
+
 }
