@@ -11,6 +11,8 @@ import { HomeComponent } from './components/home/home.component';
 import { CategoryBannerComponent } from './components/category-banner/category-banner.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { CategoryComponent } from './components/category/category.component';
+import { SearchBarComponent } from './components/search-bar/search-bar.component';
+
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { CategoryComponent } from './components/category/category.component';
     HomeComponent,
     CategoryBannerComponent,
     FooterComponent,
-    CategoryComponent
+    CategoryComponent,
+    SearchBarComponent
+
   ],
   imports: [
     BrowserModule,
