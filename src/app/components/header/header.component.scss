@@ -1,0 +1,75 @@
+$corporative-color: #00B6D3;
+$white-color: #fff;
+#header-toolbar {
+    background-color: #fff;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    // align-items: center;
+    justify-content: space-between;
+    flex: 0.8 1 auto;
+}
+
+.icon-wrapper {
+    // display: flex;
+    // align-items: center;
+    // margin: 18px 15px 0px 0px;
+    background-color: red;
+    
+}
+
+
+
+.iconsearchwrapper {
+    display: flex;
+    // flex-direction: row;
+    align-items: center;
+}
+
+.button-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    min-width: 20vw;
+}
+
+.button-wrapper button {
+    max-width: 145px;
+    max-height: 30px;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+}
+
+#searchbar-buttons {
+    min-width: 33vw;
+    border: none;
+}
+
+#login-button {
+    background-color: #fff;
+    border: 1.3px solid $corporative-color;
+    border-radius: 35px;
+    color: $corporative-color;
+    font-weight: 500;
+    &:hover {
+        background-color: $corporative-color;
+        color: $white-color;
+    }
+}
+
+#new-product-button {
+    color: $white-color;
+    background-color: $corporative-color;
+    border: 1.3px solid $corporative-color;
+    border-radius: 35px;
+    &:hover {
+        background-color: $white-color;
+        color: $corporative-color;
+    }
+}

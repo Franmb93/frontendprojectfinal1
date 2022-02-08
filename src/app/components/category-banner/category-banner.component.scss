@@ -1,0 +1,21 @@
+.categoryContainer {
+    // display: flex;
+    // justify-content: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-content: center;
+    flex: 0.8 1 auto;
+   
+}
+
+.cat {
+    background-color: red;
+    margin-left: 10%;
+    margin-right: 10%;
+    min-width: 60%;
+    min-height: 80px;
+    border-radius: 50px;
+    text-align: center;
+    
+}
