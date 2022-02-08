@@ -7,35 +7,44 @@ $white-color: #fff;
     align-items: center;
     background-color: $corporative-color;
     border-top: 1.2px solid #008fa5;
+    min-height: 250px;
+    
 }
-
 .links-copy-wrapper {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
 }
 
-.links-wrapper {
+.linksWrapper {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
+    min-width: 500px;
+}
+.about {
+    
+    margin-left: 10%;
+    margin-right: 10%;
+}
+.contact {
+    
+    margin-left: 10%;
+    margin-right: 10%;
 }
 
-.links {
-    margin-right: 50%;
-    font-size: 18px;
-    text-decoration: none;
-    color: $white-color;
-}
+
 
 .links {
-    margin-right: 50%;
-    font-size: 18px;
+    // display: flex;
+    // justify-content: flex-start;
+    // margin-right: 50%;
+    font-size: 0.8rem;
     text-decoration: none;
     color: $white-color;
-    min-width: 50%;
+    // min-width: 50%;
 }
 
 .title {
@@ -47,7 +56,7 @@ $white-color: #fff;
 }
 
 .title h3 {
-    font-size: 18px;
+    font-size: 1rem;
     color: $white-color;
 }
 
@@ -61,11 +70,12 @@ $white-color: #fff;
 }
 
 .ul-links {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
+    // display: flex;
+    // flex-direction: column;
+    // justify-content: center;
+    // align-items: flex-start;
     list-style: none;
+    color: #fff;
 }
 
 .ul-links ul {
@@ -95,6 +105,7 @@ ul li:before {
 }
 
 .copyright {
+    margin-top: 30px;
     color: $white-color;
     font-size: 0.8rem;
 }
