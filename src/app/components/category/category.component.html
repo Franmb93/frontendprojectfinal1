@@ -1,1 +1,16 @@
-<p>category works!</p>
+
+<div id="wrapper">
+    <div id="titulos">
+        <h1>{{ category.name }}</h1>
+    </div>
+    <div id="searchBar">
+        <app-search-bar></app-search-bar>
+        <button mat-button>hola</button>
+    </div>
+
+
+</div>
+
+<div *ngFor="let product of products">
+<app-product></app-product>
+</div>
