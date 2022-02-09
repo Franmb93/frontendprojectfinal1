@@ -1,0 +1,17 @@
+.product-card {
+    max-width: 320px;
+    height: 460px;
+    display: flex;
+    flex-direction: column;
+    margin: 5px;
+    transition: box-shadow .3s;
+    &:hover {
+        box-shadow: 0 0 11px rgba(33, 33, 33, .2);
+    }
+}
+
+.product-card img {
+    border-radius: 12px;
+    padding: 4px;
+    padding-top: 8px
+}
