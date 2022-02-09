@@ -12,6 +12,8 @@ import { CategoryBannerComponent } from './components/category-banner/category-b
 import { FooterComponent } from './components/footer/footer.component';
 import { CategoryComponent } from './components/category/category.component';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
+import { FeaturedProductsComponent } from './components/featured-products/featured-products.component';
+import { FeaturedCardComponent } from './components/featured-card/featured-card.component';
 
 
 @NgModule({
@@ -23,7 +25,9 @@ import { SearchBarComponent } from './components/search-bar/search-bar.component
     CategoryBannerComponent,
     FooterComponent,
     CategoryComponent,
-    SearchBarComponent
+    SearchBarComponent,
+    FeaturedProductsComponent,
+    FeaturedCardComponent
 
   ],
   imports: [
