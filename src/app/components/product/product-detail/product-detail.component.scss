@@ -1,0 +1,57 @@
+.container {
+	max-width: 50vw;
+	width: 681px;
+    height: 460px;
+	padding: 0;
+	margin: 5px;
+
+	.product-card {
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		
+		transition: box-shadow .3s;
+		&:hover {
+			box-shadow: 0 0 11px rgba(33, 33, 33, .2);
+		}
+
+		img {
+			border-radius: 12px;
+			padding: 4px;
+			padding-top: 8px
+		}
+	}
+
+	.product-user {
+		display: grid;
+		grid-template-rows: 1fr 1fr;
+		grid-template-columns: 0.5fr 1fr 1fr 1.5fr;
+		grid-template-areas: 
+		"image name valoration chat"
+		"image products n_valorations chat";
+
+		.image {
+			grid-area: image;
+		}
+
+		.name {
+			grid-area: name;
+		}
+
+		.products {
+			grid-area: products;
+		}
+		
+		.valoration {
+			grid-area: valoration;
+		}
+
+		.n_valorations {
+			grid-area: n_valorations;
+		}
+
+		.chat {
+			grid-area: chat;			
+		}
+	}
+}

@@ -1,15 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { map, tap } from 'rxjs';
 import { Product } from 'src/app/interfaces/product';
 import { ProductService } from 'src/app/services/product.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
-	selector: 'app-product',
-	templateUrl: './product.component.html',
-	styleUrls: ['./product.component.scss']
+  selector: 'app-product-card',
+  templateUrl: './product-card.component.html',
+  styleUrls: ['./product-card.component.scss']
 })
-export class ProductComponent implements OnInit {
+export class ProductCardComponent implements OnInit {
+	public id!: number;
+	public product!: Product;
+	public image!: string;
 
 	products: Product[] = [];
 
@@ -25,14 +28,10 @@ export class ProductComponent implements OnInit {
 		
 		this.route.params.subscribe(
 			params => {
-				const id = params['id'];
-				console.log(this.route);
-				
+				this.id = +params['id'];
+				this.getProduct(this.id);
 			}
 		);
-
-		this.getProducts();
-		
 	}
 	
 	ngOnInit(): void {
@@ -42,11 +41,19 @@ export class ProductComponent implements OnInit {
 	getProducts() {
 		this.service.getProducts().subscribe(
 			data => {
-				this.products = data._embedded.productList
-				console.log(this.products);
-				
+				this.products = data._embedded.productList;				
 			}
 		);
 	}
 
-}	
+	getProduct(id: number) {
+		this.service.getProduct(id).subscribe(
+			data => {
+				this.product = data;
+				console.log(data);
+					
+				this.image = `${environment.apiURL}resources/images/${this.product.image}`
+			}
+		);
+	}
+}

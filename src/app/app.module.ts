@@ -6,20 +6,19 @@ import { AppComponent } from './app.component';
 import { MaterialModule } from './material/material.module';
 import { HeaderComponent } from './components/header/header.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ProductComponent } from './components/product/product.component';
 import { HomeComponent } from './components/home/home.component';
 import { CategoryBannerComponent } from './components/category-banner/category-banner.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { CategoryComponent } from './components/category/category.component';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { MatButtonModule } from '@angular/material/button';
+import { ProductModule } from './components/product/product.module';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    ProductComponent,
     HomeComponent,
     CategoryBannerComponent,
     FooterComponent,
@@ -32,7 +31,8 @@ import { MatButtonModule } from '@angular/material/button';
     AppRoutingModule,
     MaterialModule,
     BrowserAnimationsModule,
-    MatButtonModule
+    MatButtonModule,
+    ProductModule
   ],
   providers: [],
   bootstrap: [AppComponent]

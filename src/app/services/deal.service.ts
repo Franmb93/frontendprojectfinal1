@@ -1,17 +1,21 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Deal } from '../interfaces/deal';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
-  providedIn: 'root'
+	providedIn: 'root'
 })
 export class DealService {
-
-  private url = "http://localhost:8080/api/deal";
-  constructor(private http: HttpClient) { }
-
-  getDeal(): Observable<Deal[]> {
-    return this.http.get<Deal[]>(this.url);
-  }
+	
+	private url = environment.apiURL + "deals";
+	constructor(private http: HttpClient) { }
+	
+	getDeals(): Observable<any> {
+		return this.http.get<any>(this.url);
+	}
+	
+	getDeal(id: any): Observable<any>{		
+		return this.http.get<any>(`${this.url}/${id}`);
+	}
 }
