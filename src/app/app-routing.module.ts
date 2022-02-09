@@ -18,7 +18,8 @@ const routes: Routes = [
 			},
 		]
 		//loadChildren: () => import('./components/product/product.module').then(m => m.ProductModule)
-	}
+	},
+	{ path: 'user-store/:id', loadChildren: () => import('./components/user-store/user-store.module').then(m => m.UserStoreModule) }
 ];
 
 @NgModule({
@@ -27,4 +28,3 @@ const routes: Routes = [
 		exports: [RouterModule]
 	})
 	export class AppRoutingModule { }
-	

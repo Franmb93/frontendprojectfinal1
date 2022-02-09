@@ -12,6 +12,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { CategoryComponent } from './components/category/category.component';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { ProductModule } from './components/product/product.module';
+import { ProductCardComponent } from './components/product/product-card/product-card.component';
 
 
 @NgModule({
@@ -22,16 +23,16 @@ import { ProductModule } from './components/product/product.module';
     CategoryBannerComponent,
     FooterComponent,
     CategoryComponent,
-    SearchBarComponent
+    SearchBarComponent,
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     MaterialModule,
+    ProductModule,
     BrowserAnimationsModule,
-    ProductModule
-  ],
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
