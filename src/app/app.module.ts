@@ -13,6 +13,7 @@ import { CategoryComponent } from './components/category/category.component';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { FeaturedProductsComponent } from './components/featured-products/featured-products.component';
 import { FeaturedCardComponent } from './components/featured-card/featured-card.component';
+import { MatButtonModule } from '@angular/material/button';
 import { ProductModule } from './components/product/product.module';
 
 
@@ -34,6 +35,7 @@ import { ProductModule } from './components/product/product.module';
     AppRoutingModule,
     MaterialModule,
     BrowserAnimationsModule,
+    MatButtonModule,
     ProductModule
   ],
   providers: [],
