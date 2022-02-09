@@ -41,6 +41,7 @@ export class GaleryComponent implements OnInit {
 
   getProducts() {
     this.service.getProducts().subscribe(
+
       (response) => {
         this.products = response._embedded.productList;
       }

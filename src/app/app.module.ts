@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { MaterialModule } from './material/material.module';
 import { HeaderComponent } from './components/header/header.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ProductComponent } from './components/product/product.component';
 import { HomeComponent } from './components/home/home.component';
 import { CategoryBannerComponent } from './components/category-banner/category-banner.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -14,13 +13,13 @@ import { CategoryComponent } from './components/category/category.component';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { FeaturedProductsComponent } from './components/featured-products/featured-products.component';
 import { FeaturedCardComponent } from './components/featured-card/featured-card.component';
+import { ProductModule } from './components/product/product.module';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    ProductComponent,
     HomeComponent,
     CategoryBannerComponent,
     FooterComponent,
@@ -34,7 +33,8 @@ import { FeaturedCardComponent } from './components/featured-card/featured-card.
     BrowserModule,
     AppRoutingModule,
     MaterialModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ProductModule
   ],
   providers: [],
   bootstrap: [AppComponent]
