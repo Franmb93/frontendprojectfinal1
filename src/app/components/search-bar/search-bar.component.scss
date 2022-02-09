@@ -1,12 +1,11 @@
 $corporative-color: #00B6D3;
 $white-color: #fff;
-
 .searchbar {
     display: flex;
     align-items: center;
-    
 }
-.form-control {
+
+.form-inp {
     border-radius: 35px;
     border: 0.2px solid rgb(170, 170, 170);
     min-width: 35vw;
