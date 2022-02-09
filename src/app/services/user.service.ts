@@ -1,17 +1,21 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { User } from '../interfaces/user';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
-  providedIn: 'root'
+	providedIn: 'root'
 })
 export class UserService {
-
-  private url = "http://localhost:8080/api/user";
-  constructor(private http: HttpClient) { }
-
-  getUser(): Observable<User[]>{
-    return this.http.get<User[]>(this.url);
-  }
+	
+	private url = environment.apiURL + "users";
+	constructor(private http: HttpClient) { }
+	
+	getUsers(): Observable<any>{
+		return this.http.get<any>(this.url);
+	}
+	
+	getUser(id: any): Observable<any>{		
+		return this.http.get<any>(`${this.url}/${id}`);
+	}
 }
