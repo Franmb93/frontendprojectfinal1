@@ -1,3 +1,4 @@
+$purpleDark: #672c67;
 .categoryContainer {
     // display: flex;
     // justify-content: center;
@@ -9,13 +10,32 @@
    
 }
 
-.cat {
-    background-color: red;
+.catIcon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin-left: 10%;
     margin-right: 10%;
-    min-width: 60%;
-    min-height: 80px;
-    border-radius: 50px;
-    text-align: center;
+    // height: 80px;
+    width: 80px;
+    // background-color: red;
+    // min-width: 80px;
+    // min-height: 80px;
     
+}
+.icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem !important;
+    // width: 100px;
+    color: #00B6D3;
+    transition: 0.1s;
+    &:hover{
+        color: $purpleDark;
+        
+    }
+}
+a {
+    text-decoration: none;
 }

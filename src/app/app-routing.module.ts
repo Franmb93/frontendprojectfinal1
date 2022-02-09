@@ -5,8 +5,11 @@ import { HomeComponent } from './components/home/home.component';
 import { ProductComponent } from './components/product/product.component';
 
 const routes: Routes = [
-  {path: '', component: HomeComponent},
-  {path: "products", component:ProductComponent},
+  { path: '', component: HomeComponent },
+  { path: 'home', component: HomeComponent },
+  { path: "products", component: ProductComponent },
+  { path: 'galery', loadChildren: () => import('./components/galery/galery.module').then(m => m.GaleryModule) },
+  { path: '**', redirectTo: 'home', pathMatch: 'full' },
 ];
 
 @NgModule({
