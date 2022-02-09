@@ -1,10 +1,14 @@
 <div class="container">
-    <div class="featuredOne" >
+    <h2 class="featurerTitle">Destacados en nombrecategoria</h2>
+    <div class="featured" >
         <ng-container *ngFor="let f of featuredProductsOne">
-            <app-featured-card></app-featured-card>
+            <app-featured-card [item]="f"></app-featured-card>
         </ng-container>
     </div>
-    <!-- <div class="featuredTwo">
-        <app-featured-card></app-featured-card>
-    </div> -->
+    <h2 class="featurerTitle">Destacados en nombrecategoria</h2>
+    <div class="featured" >
+        <ng-container *ngFor="let f of featuredProductsTwo">
+            <app-featured-card [item]="f"></app-featured-card>
+        </ng-container>
+    </div>
 </div>
