@@ -1,0 +1,22 @@
+$corporativeColor: #00B6D3;
+
+.container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    min-width: 300px;
+    // background-color: red;
+}
+
+.featured {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    // margin-bottom: .5rem;
+}
+
+h2 {
+    margin-top: 1.5rem;
+    color: $corporativeColor;
+}
+
