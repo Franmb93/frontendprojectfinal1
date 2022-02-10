@@ -1,20 +1,31 @@
+$corporativeColor: #00B6D3;
+
 .container {
     display: flex;
     flex-direction: column;
     align-content: center;
-    min-width: 66%;
+    min-width: 90%;
 }
 .banner {
     display: flex;
     justify-content: center;
-    margin-top: 10%;
-    margin-bottom: 10%;
-    color: #00B6D3;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    h1 {
+        color: $corporativeColor;
+        font-weight: 500;
+        font-size: 2rem;
+    }
 }
 
 .categoryBanner {
     display: flex;
     justify-content: center;
-    
+    margin-bottom: 3rem;
+}
+
+.featured {
+    display: flex;
+    justify-content: center;
 }
 
