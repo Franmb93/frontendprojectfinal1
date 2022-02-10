@@ -15,6 +15,7 @@ import { FeaturedProductsComponent } from './components/featured-products/featur
 import { FeaturedCardComponent } from './components/featured-card/featured-card.component';
 import { MatButtonModule } from '@angular/material/button';
 import { ProductModule } from './components/product/product.module';
+import { ProductCardComponent } from './components/product/product-card/product-card.component';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import { ProductModule } from './components/product/product.module';
     FooterComponent,
     CategoryComponent,
     SearchBarComponent,
+    User-ruta
     FeaturedProductsComponent,
     FeaturedCardComponent
 
@@ -34,10 +36,14 @@ import { ProductModule } from './components/product/product.module';
     BrowserModule,
     AppRoutingModule,
     MaterialModule,
+    ProductModule,
     BrowserAnimationsModule,
+    User-ruta ,
     MatButtonModule,
     ProductModule
-  ],
+    ],
+  
+
   providers: [],
   bootstrap: [AppComponent]
 })
