@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Category } from 'src/app/interfaces/category';
 import { Product } from 'src/app/interfaces/product';
+import { CategoryService } from 'src/app/services/category.service';
 import { ProductService } from 'src/app/services/product.service';
 import { environment } from 'src/environments/environment';
 
@@ -13,7 +15,9 @@ export class ProductDetailComponent implements OnInit {
 
 	public id!: number;
 	public product!: Product;
+	public category!: Category;
 	public image!: string;
+	public valoration!: number;
 
 	products: Product[] = [];
 
@@ -25,6 +29,7 @@ export class ProductDetailComponent implements OnInit {
 	
 	constructor(
 	  private service: ProductService,
+	  private categoryService: CategoryService,
 	  private route: ActivatedRoute) {
 		
 		this.route.params.subscribe(
@@ -51,9 +56,27 @@ export class ProductDetailComponent implements OnInit {
 		this.service.getProduct(id).subscribe(
 			data => {
 				this.product = data;
+				this.getCategory(this.product.category);
+
 				console.log(data);
 					
-				this.image = `${environment.apiURL}resources/images/${this.product.image}`
+				this.image = `${environment.apiURL}resources/images/${this.product.image}`;
+
+				console.log(this.product.user.valoration);
+				
+				this.valoration = this.product.user.valoration * 20;
+
+				console.log(this.valoration);
+				
+			}
+		);
+	}
+
+	getCategory(id: number) {
+		this.categoryService.getCategory(id).subscribe(
+			data => {
+				this.category = data;
+				console.log(data);
 			}
 		);
 	}

@@ -9,15 +9,15 @@ import { MaterialModule } from 'src/app/material/material.module';
 
 
 @NgModule({
-  declarations: [
-    ProductDetailComponent,
-    ProductCardComponent,
-    ProductsComponent
-  ],
-  imports: [
-    CommonModule,
-	  MaterialModule,
-    ProductRoutingModule
-  ]
+	declarations: [
+		ProductDetailComponent,
+		ProductCardComponent,
+		ProductsComponent
+	],
+	imports: [
+		CommonModule,
+		MaterialModule,
+		ProductRoutingModule
+	]
 })
 export class ProductModule { }
