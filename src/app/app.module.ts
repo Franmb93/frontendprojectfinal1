@@ -27,7 +27,6 @@ import { ProductCardComponent } from './components/product/product-card/product-
     FooterComponent,
     CategoryComponent,
     SearchBarComponent,
-    User-ruta
     FeaturedProductsComponent,
     FeaturedCardComponent
 
@@ -38,7 +37,6 @@ import { ProductCardComponent } from './components/product/product-card/product-
     MaterialModule,
     ProductModule,
     BrowserAnimationsModule,
-    User-ruta ,
     MatButtonModule,
     ProductModule
     ],

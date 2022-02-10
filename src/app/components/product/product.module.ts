@@ -18,6 +18,9 @@ import { MaterialModule } from 'src/app/material/material.module';
 		CommonModule,
 		MaterialModule,
 		ProductRoutingModule
+	],
+	exports: [
+		ProductCardComponent
 	]
 })
 export class ProductModule { }
