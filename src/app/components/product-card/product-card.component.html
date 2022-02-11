@@ -1,12 +1,12 @@
 <mat-card class="product-card">
-	<div id="foto-container">
-		<div *ngIf="image != null">
-			<img mat-card-image src="{{ image }}" alt="Foto1">
-		</div>
-		<div *ngIf="image == null">
-			<img mat-card-image src="assets/no-disponible.jpg" alt="Foto">
-		</div>
-	</div>
+
+
+			<img mat-card-image *ngIf="image != null" src="assets/chaqueta.jpg" alt="Foto1">
+
+			<img mat-card-image *ngIf="image == null" src="{{ image }}" alt="Foto1">
+
+			<img mat-card-image *ngIf="image == null" src="assets/no-disponible.jpg" alt="Foto">
+
 	<mat-card-title>{{ product?.name }}</mat-card-title>
 	<mat-card-content>
 		<p> {{ product?.description }}
