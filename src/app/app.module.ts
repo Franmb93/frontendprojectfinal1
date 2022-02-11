@@ -16,9 +16,6 @@ import { ProductDetailsModule } from './modules/product-details/product-details.
 import { ProductEditModule } from './modules/product-edit/product-edit.module';
 import { UserEditModule } from './modules/user-edit/user-edit.module';
 import { LoginComponent } from './components/modals/login/login.component';
-import { ProductRegisterComponent } from './components/modals/product-register/product-register.component';
-import { UserRegisterComponent } from './components/modals/user-register/user-register.component';
-
 
 @NgModule({
 	declarations: [
@@ -33,13 +30,11 @@ import { UserRegisterComponent } from './components/modals/user-register/user-re
 		HomeComponent,
 		CategoryBannerComponent,
 		FeaturedProductsComponent,
-		// ProductCardComponent,
-		// UserCardComponent,
 		
 		// Modals
-		LoginComponent,
-		ProductRegisterComponent,
-		UserRegisterComponent
+		LoginComponent
+		// ProductRegisterComponent,
+		// UserRegisterComponent
 	],
 	imports: [
 		AppRoutingModule,
@@ -53,9 +48,6 @@ import { UserRegisterComponent } from './components/modals/user-register/user-re
 		ProductDetailsModule,
 		ProductEditModule,
 		UserEditModule
-	],
-	exports: [
-		
 	],
 	providers: [],
 	bootstrap: [AppComponent]
