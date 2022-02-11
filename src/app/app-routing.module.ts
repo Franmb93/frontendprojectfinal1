@@ -2,6 +2,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
+import { LoginComponent } from './components/login/login.component';
 import { ProductEditComponent } from './modules/product-edit/product-edit.component';
 import { UserEditComponent } from './modules/user-edit/user-edit.component';
 
@@ -11,6 +12,7 @@ const routes: Routes = [
 	{ path: 'producto', loadChildren: () => import('./modules/product-details/product-details.module').then(m => m.ProductDetailsModule) },
 	//TODO: delete productedit path
 	{ path: 'productedit', loadChildren: () => import('./modules/product-edit/product-edit.module').then(m => m.ProductEditModule) },
+  { path: 'login', component: LoginComponent },
 
 	{ path: 'home', component: HomeComponent },
 	//{ path: "products", loadChildren: () => import('./components/product/product.module').then(m => m.ProductModule) },

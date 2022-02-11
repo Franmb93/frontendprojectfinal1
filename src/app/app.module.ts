@@ -16,21 +16,22 @@ import { GalleryModule } from './modules/gallery/gallery.module';
 import { ProductDetailsModule } from './modules/product-details/product-details.module';
 import { UserCardComponent } from './components/user-card/user-card.component';
 import { ProductCardComponent } from './components/product-card/product-card.component';
+import { LoginComponent } from './components/login/login.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-
     HeaderComponent,
 	SearchBarComponent,
 	FooterComponent,
-
     HomeComponent,
     CategoryBannerComponent,
     FeaturedProductsComponent,
     UserCardComponent,
 	ProductCardComponent,
+ LoginComponent,
 
   ],
   imports: [
@@ -41,8 +42,9 @@ import { ProductCardComponent } from './components/product-card/product-card.com
     MatButtonModule,
     GalleryModule,
     ProductDetailsModule,
+    FormsModule
     ],
-  
+
 
   providers: [],
   bootstrap: [AppComponent]
