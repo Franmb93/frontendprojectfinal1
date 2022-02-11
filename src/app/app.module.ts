@@ -16,35 +16,51 @@ import { GalleryModule } from './modules/gallery/gallery.module';
 import { ProductDetailsModule } from './modules/product-details/product-details.module';
 import { UserCardComponent } from './components/user-card/user-card.component';
 import { ProductCardComponent } from './components/product-card/product-card.component';
+import { ProductEditModule } from './modules/product-edit/product-edit.module';
+import { UserEditModule } from './modules/user-edit/user-edit.module';
+import { LoginComponent } from './components/modals/login/login.component';
+import { ProductRegisterComponent } from './components/modals/product-register/product-register.component';
+import { UserRegisterComponent } from './components/modals/user-register/user-register.component';
 
 
 @NgModule({
-  declarations: [
-    AppComponent,
-
-    HeaderComponent,
-	SearchBarComponent,
-	FooterComponent,
-
-    HomeComponent,
-    CategoryBannerComponent,
-    FeaturedProductsComponent,
-    UserCardComponent,
-	ProductCardComponent
-
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    MaterialModule,
-    BrowserAnimationsModule,
-    MatButtonModule,
-    GalleryModule,
-    ProductDetailsModule
-    ],
-  
-
-  providers: [],
-  bootstrap: [AppComponent]
+	declarations: [
+		AppComponent,
+		
+		// Shared
+		HeaderComponent,
+		SearchBarComponent,
+		FooterComponent,
+		
+		// Specifics
+		HomeComponent,
+		CategoryBannerComponent,
+		FeaturedProductsComponent,
+		// ProductCardComponent,
+		// UserCardComponent,
+		
+		// Modals
+		LoginComponent,
+		ProductRegisterComponent,
+		UserRegisterComponent
+	],
+	imports: [
+		AppRoutingModule,
+		
+		BrowserModule,
+		BrowserAnimationsModule,
+		
+		MaterialModule,
+		
+		GalleryModule,
+		ProductDetailsModule,
+		ProductEditModule,
+		UserEditModule
+	],
+	exports: [
+		
+	],
+	providers: [],
+	bootstrap: [AppComponent]
 })
 export class AppModule { }

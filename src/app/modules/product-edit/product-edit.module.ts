@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { ProductEditRoutingModule } from './product-edit-routing.module';
 import { ProductEditComponent } from './product-edit.component';
+import { MaterialModule } from 'src/app/material/material.module';
 
 
 @NgModule({
@@ -11,6 +12,7 @@ import { ProductEditComponent } from './product-edit.component';
   ],
   imports: [
     CommonModule,
+	MaterialModule,
     ProductEditRoutingModule
   ]
 })
