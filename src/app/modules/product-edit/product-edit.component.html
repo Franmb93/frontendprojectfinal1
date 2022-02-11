@@ -1,1 +1,13 @@
-<p>product-edit works!</p>
+<div class="container">
+
+    <form class="form" #submitForm="ngForm">
+        <mat-form-field class="form_element">
+            <input matInput placeholder="Name" required [(ngModel)]="product.name" name="name" #name="ngModel">
+            <mat-error *ngIf="!name.valid || name.pristine">Nombre del producto incorrecto</mat-error>
+        </mat-form-field>
+
+       
+    </form>
+    <button (click)="onNoClick()">Cerrar</button>
+    
+</div>

@@ -24,43 +24,32 @@ import { UserRegisterComponent } from './components/modals/user-register/user-re
 
 
 @NgModule({
-	declarations: [
-		AppComponent,
-		
-		// Shared
-		HeaderComponent,
-		SearchBarComponent,
-		FooterComponent,
-		
-		// Specifics
-		HomeComponent,
-		CategoryBannerComponent,
-		FeaturedProductsComponent,
-		// ProductCardComponent,
-		// UserCardComponent,
-		
-		// Modals
-		LoginComponent,
-		ProductRegisterComponent,
-		UserRegisterComponent
-	],
-	imports: [
-		AppRoutingModule,
-		
-		BrowserModule,
-		BrowserAnimationsModule,
-		
-		MaterialModule,
-		
-		GalleryModule,
-		ProductDetailsModule,
-		ProductEditModule,
-		UserEditModule
-	],
-	exports: [
-		
-	],
-	providers: [],
-	bootstrap: [AppComponent]
+  declarations: [
+    AppComponent,
+
+    HeaderComponent,
+	SearchBarComponent,
+	FooterComponent,
+
+    HomeComponent,
+    CategoryBannerComponent,
+    FeaturedProductsComponent,
+    UserCardComponent,
+	ProductCardComponent,
+
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    MaterialModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    GalleryModule,
+    ProductDetailsModule,
+    ],
+  
+
+  providers: [],
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

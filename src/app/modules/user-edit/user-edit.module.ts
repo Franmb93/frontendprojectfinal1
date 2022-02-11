@@ -12,8 +12,8 @@ import { MaterialModule } from 'src/app/material/material.module';
   ],
   imports: [
     CommonModule,
-	MaterialModule,
-    UserEditRoutingModule
+    UserEditRoutingModule,
+    MaterialModule
   ]
 })
 export class UserEditModule { }
