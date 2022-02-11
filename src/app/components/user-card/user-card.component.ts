@@ -5,12 +5,13 @@ import { UserService } from 'src/app/services/user.service';
 import { environment } from 'src/environments/environment';
 
 @Component({
-  selector: 'app-user-store',
-  templateUrl: './user-store.component.html',
-  styleUrls: ['./user-store.component.scss']
+  selector: 'app-user-card',
+  templateUrl: './user-card.component.html',
+  styleUrls: ['./user-card.component.scss']
 })
-export class UserStoreComponent implements OnInit {
-    public id!:number;
+export class UserCardComponent implements OnInit {
+
+	public id!:number;
     public user!: User;
     public image!: string;
 
@@ -36,4 +37,5 @@ export class UserStoreComponent implements OnInit {
 			}
 		);
 	}
+
 }

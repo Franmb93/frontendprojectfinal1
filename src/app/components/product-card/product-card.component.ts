@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Product } from 'src/app/interfaces/product';
 import { ProductService } from 'src/app/services/product.service';
@@ -10,6 +10,12 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./product-card.component.scss']
 })
 export class ProductCardComponent implements OnInit {
+
+
+	@Input() item: any;
+
+
+
 	public id!: number;
 	public product!: Product;
 	public image!: string;
