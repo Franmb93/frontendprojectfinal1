@@ -1,0 +1,57 @@
+// .user1 {
+//     float: left;
+//     margin-left: -200px;
+//     padding: 15px;
+// }
+
+// .peepoimg {
+//     width: 50px;
+    
+// }
+
+// div {
+//     display: inline-block;
+// }
+
+// button {
+//     display: block;
+// }
+
+.container {
+    max-width: 50vw;
+	width: 5500px;
+    height: 700px;
+	padding: 0;
+	margin: 5px;
+
+    .user-card {
+        width: 900px;
+        height: 150px;
+    }
+
+    .peepoimg {
+        width: 70px;
+        margin-top: 20px;
+        float: left;
+        margin-right: 15px;
+        border: 1px solid #B2BABB;
+    }
+
+    .user-info {
+        font-size: medium;
+        margin-top: 40px;
+        float: left;
+    }
+
+    .btn_userCard {
+        display: flex;
+        flex-direction: column;
+        margin-top: 10x;
+        align-items: flex-end;
+    }
+
+    button {
+        width: 150px;
+        margin: 5px;
+    }
+}

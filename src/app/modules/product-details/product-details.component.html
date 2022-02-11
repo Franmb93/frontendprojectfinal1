@@ -3,7 +3,7 @@
 		<div class="user-details">
 			<mat-card-content>
 				<div class="image">
-					{{ product?.user?.image }}
+					{{ product?.user?.image }}			
 				</div>
 				<div class="name">
 					{{ product?.user?.username }} 
@@ -19,7 +19,7 @@
 					<p><strong>{{ product?.user?.n_valorations }}</strong> Valoraciones</p>
 				</div>
 				<div class="chat">
-					<button mat-raised-button color="primary">???</button>
+					<button mat-raised-button color="primary">Comenzar chat</button>
 				</div>
 			</mat-card-content>
 		</div>
@@ -31,7 +31,7 @@
 
 
 			<div *ngIf="image == null">
-				<img mat-card-image src="{{ image }}" alt="Foto1">
+				<img mat-card-image src="{{ image }}" alt="Foto1Null">
 			</div>
 
 
