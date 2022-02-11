@@ -10,17 +10,17 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 
 @NgModule({
-  declarations: [],
-  imports: [
-    CommonModule,
-  ],
-  exports: [
-    MatToolbarModule,
-    MatIconModule,
-    MatButtonModule,
-    MatDividerModule,
-    MatCardModule,
-	MatProgressBarModule
-  ]
+	declarations: [],
+	imports: [
+		CommonModule,
+	],
+	exports: [
+		MatToolbarModule,
+		MatIconModule,
+		MatButtonModule,
+		MatDividerModule,
+		MatCardModule,
+		MatProgressBarModule
+	]
 })
 export class MaterialModule { }
