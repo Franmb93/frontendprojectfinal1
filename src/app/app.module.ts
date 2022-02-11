@@ -34,8 +34,7 @@ import { UserRegisterComponent } from './components/modals/user-register/user-re
     HomeComponent,
     CategoryBannerComponent,
     FeaturedProductsComponent,
-    UserCardComponent,
-	ProductCardComponent,
+   
 
   ],
   imports: [

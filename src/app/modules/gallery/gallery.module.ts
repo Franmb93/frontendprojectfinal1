@@ -11,17 +11,17 @@ import { MaterialModule } from 'src/app/material/material.module';
 @NgModule({
   declarations: [
     GalleryComponent,
-	ProductCardComponent,
-	UserCardComponent
+    ProductCardComponent,
+    UserCardComponent
   ],
   imports: [
     CommonModule,
-	MaterialModule,
+    MaterialModule,
     GalleryRoutingModule
   ],
   exports: [
-	ProductCardComponent,
-	UserCardComponent
+    ProductCardComponent,
+    UserCardComponent
   ]
 })
 export class GalleryModule { }
