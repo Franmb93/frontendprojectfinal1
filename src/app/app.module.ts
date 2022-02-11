@@ -30,7 +30,7 @@ import { ProductCardComponent } from './components/product-card/product-card.com
     CategoryBannerComponent,
     FeaturedProductsComponent,
     UserCardComponent,
-	ProductCardComponent
+	ProductCardComponent,
 
   ],
   imports: [
@@ -40,7 +40,7 @@ import { ProductCardComponent } from './components/product-card/product-card.com
     BrowserAnimationsModule,
     MatButtonModule,
     GalleryModule,
-    ProductDetailsModule
+    ProductDetailsModule,
     ],
   
 
