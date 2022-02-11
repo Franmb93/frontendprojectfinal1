@@ -5,7 +5,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatCardModule} from '@angular/material/card';
-
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 
 
@@ -19,7 +19,8 @@ import {MatCardModule} from '@angular/material/card';
     MatIconModule,
     MatButtonModule,
     MatDividerModule,
-    MatCardModule
+    MatCardModule,
+	MatProgressBarModule
   ]
 })
 export class MaterialModule { }

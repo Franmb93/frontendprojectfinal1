@@ -1,0 +1,52 @@
+<div class="container">
+	<mat-card class="product-card">
+		<div class="user-details">
+			<mat-card-content>
+				<div class="image">
+					{{ product?.user?.image }}
+				</div>
+				<div class="name">
+					{{ product?.user?.username }} 
+				</div>
+				<div class="products gray">
+					{{ product?.user?.products?.length }} Productos
+				</div>
+				<div class="valoration">
+					{{ valoration }}
+					<mat-progress-bar mode="determinate" [value]="valoration"></mat-progress-bar>
+				</div>
+				<div class="n_valorations gray">
+					<p><strong>{{ product?.user?.n_valorations }}</strong> Valoraciones</p>
+				</div>
+				<div class="chat">
+					<button mat-raised-button color="primary">???</button>
+				</div>
+			</mat-card-content>
+		</div>
+		<div class="photo-container">
+			<div *ngIf="image != null">
+				<img mat-card-image src="assets/chaqueta.jpg" alt="Foto1">
+			</div>
+
+
+
+			<div *ngIf="image == null">
+				<img mat-card-image src="{{ image }}" alt="Foto1">
+			</div>
+
+
+
+			<div *ngIf="image == null">
+				<img mat-card-image src="assets/no-disponible.jpg" alt="Foto">
+			</div>
+		</div>
+		<div class="product-details">
+			<mat-card-title>{{ product?.price }} EUR</mat-card-title>
+			<mat-card-content>
+				<h1>{{ product?.name }}</h1>
+				<button mat-raised-button color="primary">{{ category?.name }}</button>
+				<p>{{ product?.description }}</p>
+			</mat-card-content>
+		</div>
+	</mat-card>
+</div>
