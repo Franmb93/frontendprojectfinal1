@@ -6,6 +6,10 @@ import { HomeComponent } from './components/home/home.component';
 
 const routes: Routes = [
 	{ path: '', component: HomeComponent },
+	{ path: '', loadChildren: () => import('./modules/gallery/gallery.module').then(m => m.GalleryModule) },
+	{ path: 'producto', loadChildren: () => import('./modules/product-details/product-details.module').then(m => m.ProductDetailsModule) },
+
+
 	{ path: 'home', component: HomeComponent },
 	//{ path: "products", loadChildren: () => import('./components/product/product.module').then(m => m.ProductModule) },
 	{ path: 'galery', loadChildren: () => import('./components/galery/galery.module').then(m => m.GaleryModule) },
