@@ -20,20 +20,17 @@ import { LoginComponent } from './components/login/login.component';
 import { FormsModule } from '@angular/forms';
 import { ProductEditModule } from './modules/product-edit/product-edit.module';
 import { UserEditModule } from './modules/user-edit/user-edit.module';
-import { LoginComponent } from './components/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-	SearchBarComponent,
-	FooterComponent,
+	  SearchBarComponent,
+	  FooterComponent,
     HomeComponent,
     CategoryBannerComponent,
     FeaturedProductsComponent,
-    UserCardComponent,
-	ProductCardComponent,
- LoginComponent,
+    LoginComponent,
 
   ],
   imports: [
@@ -41,7 +38,6 @@ import { LoginComponent } from './components/login.component';
     AppRoutingModule,
     MaterialModule,
     BrowserAnimationsModule,
-    MatButtonModule,
     GalleryModule,
     ProductDetailsModule,
     FormsModule,
