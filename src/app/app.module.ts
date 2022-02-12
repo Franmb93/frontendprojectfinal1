@@ -14,8 +14,6 @@ import { FeaturedProductsComponent } from './components/featured-products/featur
 import { GalleryModule } from './modules/gallery/gallery.module';
 import { ProductDetailsModule } from './modules/product-details/product-details.module';
 
-import { UserCardComponent } from './components/user-card/user-card.component';
-import { ProductCardComponent } from './components/product-card/product-card.component';
 import { LoginComponent } from './components/login/login.component';
 import { FormsModule } from '@angular/forms';
 import { ProductEditModule } from './modules/product-edit/product-edit.module';
@@ -31,7 +29,6 @@ import { UserEditModule } from './modules/user-edit/user-edit.module';
     CategoryBannerComponent,
     FeaturedProductsComponent,
     LoginComponent,
-
   ],
   imports: [
     BrowserModule,
