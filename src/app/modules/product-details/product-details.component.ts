@@ -56,7 +56,8 @@ export class ProductDetailsComponent implements OnInit {
 		this.service.getProduct(id).subscribe(
 			data => {
 				this.product = data;
-				this.getCategory(this.product.category);
+		
+				this.getCategory(this.product.category.id);
 
 				console.log(data);
 					
@@ -79,6 +80,19 @@ export class ProductDetailsComponent implements OnInit {
 				console.log(data);
 			}
 		);
+	}
+
+	priceShipping() {
+		if (this.product.weight <= 2) {
+			this.product.price = this.product.price + 2.95;
+		}
+		else if (2 > this.product.weight && this.product.weight <= 5) {
+			this.product.price = this.product.price + 4.95;
+		}
+		else {
+			this.product.price = this.product.price + 7.95;
+		}
+
 	}
 
 }

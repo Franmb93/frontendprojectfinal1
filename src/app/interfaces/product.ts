@@ -14,6 +14,6 @@ export interface Product {
   image: string;
   published_date: string;
   user: User;
-  category: number;
+  category: Category;
   deal: Deal;
 }
