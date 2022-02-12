@@ -21,6 +21,8 @@
 				<div class="chat">
 					<button mat-raised-button color="primary">Comenzar chat</button>
 				</div>
+				
+				
 			</mat-card-content>
 		</div>
 		<div class="photo-container">
@@ -47,6 +49,15 @@
 				<button mat-raised-button color="primary">{{ category?.name }}</button>
 				<p>{{ product?.description }}</p>
 			</mat-card-content>
+		</div>
+
+		<div class="btn2">
+			<div class="btnComprar" *ngIf="image == null">
+				<a [routerLink]="['/usuario']"><button (click)="priceShipping()" mat-raised-button color="secundary">Comprar</button></a>
+			</div>
+			<div class="btnEdit" *ngIf="image != null">
+				<a [routerLink]="['/producto/', product?.id, 'edit']"><button mat-raised-button color="secundary">Editar</button></a>
+			</div>
 		</div>
 	</mat-card>
 </div>
