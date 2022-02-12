@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Product } from 'src/app/interfaces/product';
 import { ProductService } from 'src/app/services/product.service';
@@ -13,6 +13,11 @@ export class ProductCardComponent implements OnInit {
 
 	@Input() product!: Product;
 
+	@Input() item: any;
+	@Output() featuredEvent = new EventEmitter();
+
+	
+	
 	public image!: string;
 	
 	constructor() {
@@ -24,5 +29,7 @@ export class ProductCardComponent implements OnInit {
 			this.image = `${environment.apiURL}resources/images/${this.product.image}`;
 		}
 	}
+
+	
 
 }
