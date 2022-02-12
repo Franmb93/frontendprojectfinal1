@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Category } from 'src/app/interfaces/category';
 import { Product } from 'src/app/interfaces/product';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 import { CategoryService } from 'src/app/services/category.service';
 import { ProductService } from 'src/app/services/product.service';
 import { environment } from 'src/environments/environment';
@@ -18,6 +19,7 @@ export class ProductDetailsComponent implements OnInit {
 	public category!: Category;
 	public image!: string;
 	public valoration!: number;
+	
 
 	products: Product[] = [];
 
@@ -29,6 +31,7 @@ export class ProductDetailsComponent implements OnInit {
 	
 	constructor(
 	  private service: ProductService,
+	  private authService: AuthenticationService,
 	  private categoryService: CategoryService,
 	  private route: ActivatedRoute) {
 		
