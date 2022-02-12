@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { ProductEditComponent } from './modules/product-edit/product-edit.component';
+import { ProductRegisterComponent } from './components/modals/product-register/product-register.component';
 
 @Component({
   selector: 'app-root',
@@ -14,7 +14,7 @@ export class AppComponent {
   ) {}
 
   openDialog(): void {
-    const dialogRef = this.dialog.open(ProductEditComponent, {});
+    const dialogRef = this.dialog.open(ProductRegisterComponent, {});
     dialogRef.afterClosed().subscribe(res => {
       console.log("res", res)
     })
