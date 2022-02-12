@@ -32,7 +32,8 @@ export class UserCardComponent implements OnInit {
 		this.service.getUser(id).subscribe(
 			data => {
 				this.user = data;
-
+				console.log(data);
+				
 				this.image = `${environment.apiURL}resources/images/${this.user.image}`
 			}
 		);

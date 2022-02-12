@@ -1,17 +1,6 @@
-.mainContainer {
-    display: flex;
-    justify-content: center;
-    
-}
-
-.container {
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-    flex-wrap: wrap;
-    min-width: 50%;
-}
-
-.card {
-    margin: 0.3rem;
+.product-gallery {
+	width: 80vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+	gap: 16px 16px;
 }

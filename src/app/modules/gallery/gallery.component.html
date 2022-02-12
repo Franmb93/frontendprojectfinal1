@@ -1,3 +1,8 @@
+<app-user-card *ngIf="isUserType"></app-user-card>
+
+<div class="product-gallery">
+	<app-product-card *ngFor="let product of products" [product]="product"></app-product-card>
+</div>
 <!-- <div class="mainContainer">
 	<div class="container">
 		<div *ngFor="let product of products">

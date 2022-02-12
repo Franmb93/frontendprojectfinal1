@@ -9,7 +9,12 @@ import { UserEditComponent } from './modules/user-edit/user-edit.component';
 const routes: Routes = [
 	{ path: '', component: HomeComponent },
 	{ path: '', loadChildren: () => import('./modules/gallery/gallery.module').then(m => m.GalleryModule) },
+
+	{ path: '', loadChildren: () => import('./modules/product-edit/product-edit.module').then(m => m.ProductEditModule) },
+	{ path: '', loadChildren: () => import('./modules/user-edit/user-edit.module').then(m => m.UserEditModule) },
+
 	{ path: 'producto', loadChildren: () => import('./modules/product-details/product-details.module').then(m => m.ProductDetailsModule) },
+
 	//TODO: delete productedit path
 	{ path: 'productedit', loadChildren: () => import('./modules/product-edit/product-edit.module').then(m => m.ProductEditModule) },
   { path: 'login', component: LoginComponent },

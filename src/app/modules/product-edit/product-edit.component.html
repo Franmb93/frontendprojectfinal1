@@ -1,13 +1,40 @@
 <div class="container">
 
     <form class="form" #submitForm="ngForm">
+        <input matInput  [(ngModel)]="product.id" name="id" #id="ngModel" hidden>
         <mat-form-field class="form_element">
             <input matInput placeholder="Name" required [(ngModel)]="product.name" name="name" #name="ngModel">
             <mat-error *ngIf="!name.valid || name.pristine">Nombre del producto incorrecto</mat-error>
         </mat-form-field>
+        <mat-form-field class="form_element">
+            <input matInput placeholder="Descripción" required [(ngModel)]="product.description" name="description" #description="ngModel">
+            <mat-error *ngIf="!description.valid || description.pristine">Descripción del producto incorrecta</mat-error>
+        </mat-form-field>
+        <mat-form-field class="form_element">
+            <input matInput placeholder="Precio" required [(ngModel)]="product.price" name="price" #price="ngModel">
+            <mat-error *ngIf="!price.valid || price.pristine">Precio del producto incorrecto</mat-error>
+        </mat-form-field>
+        <mat-form-field class="form_element">
+            <input matInput placeholder="Peso" required [(ngModel)]="product.weight" name="weight" #weight="ngModel">
+            <mat-error *ngIf="!weight.valid || weight.pristine">Peso del producto incorrecto</mat-error>
+        </mat-form-field>
+        
 
        
     </form>
     <button (click)="onNoClick()">Cerrar</button>
     
 </div>
+id: number;
+  name: string;
+  description: string;
+  price: number;
+  weight: number;
+  image: string;
+  published_date: string;
+  user: User;
+  category: number;
+  deal: Deal;
+
+
+<!-- <app-product-register></app-product-register> -->

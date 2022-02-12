@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Product } from 'src/app/interfaces/product';
+import { ProductService } from 'src/app/services/product.service';
+
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-featured-products',
@@ -7,21 +12,41 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FeaturedProductsComponent implements OnInit {
 
-  featuredProductsOne = [
-    {name: "hdmi", description: "un cable"},
-    {name: "impresora", description: "un cable"},
-    {name: "Docking Station", description: "Un dock pa conectar toda cosa chico"},
-  ]
 
-  featuredProductsTwo = [
-    {name: "adidas", description: "zapas"},
-    {name: "camiseta", description: "de usa chan"},
-    {name: "hdmi", description: "un cable"},
-  ]
+  public id!: number;
+	public product!: Product;
+	public image!: string;
 
-  constructor() { }
+	products1: Product[] = [];
+  products2: Product[] = [];
+
+  constructor(
+    private service: ProductService,
+	  private route: ActivatedRoute
+  ) { }
 
   ngOnInit(): void {
+    this.getProducts()
   }
+
+
+  getProducts() {
+    let featuredProducts = []
+		this.service.getProducts().subscribe(
+			data => {
+        // this.products = data._embedded.productList
+        featuredProducts = data._embedded.productList;
+        for (let i = 0; i<3; i ++) {
+          this.products1.push(featuredProducts[i])
+        }
+        for (let i = 3; i<6; i ++) {
+          this.products2.push(featuredProducts[i])
+        }
+			}
+		);
+	}
+
+
+
 
 }
