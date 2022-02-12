@@ -12,17 +12,6 @@ import { environment } from 'src/environments/environment';
 })
 export class FeaturedProductsComponent implements OnInit {
 
-  // featuredProductsOne = [
-  //   {name: "hdmi", description: "un cable"},
-  //   {name: "impresora", description: "un cable"},
-  //   {name: "Docking Station", description: "Un dock pa conectar toda cosa chico"},
-  // ]
-
-  // featuredProductsTwo = [
-  //   {name: "adidas", description: "zapas"},
-  //   {name: "camiseta", description: "de usa chan"},
-  //   {name: "hdmi", description: "un cable"},
-  // ]
 
   public id!: number;
 	public product!: Product;
@@ -34,14 +23,7 @@ export class FeaturedProductsComponent implements OnInit {
   constructor(
     private service: ProductService,
 	  private route: ActivatedRoute
-  ) {
-    // this.route.params.subscribe(
-		// 	params => {
-		// 		this.id = +params['id'];
-		// 		this.getProduct(this.id);
-		// 	}
-		// );
-   }
+  ) { }
 
   ngOnInit(): void {
     this.getProducts()
@@ -64,20 +46,7 @@ export class FeaturedProductsComponent implements OnInit {
 		);
 	}
 
-	getProduct(id: number) {
-		this.service.getProduct(id).subscribe(
-			data => {
-				this.product = data;
-				console.log(data);
-					
-				this.image = `${environment.apiURL}resources/images/${this.product.image}`
-			}
-		);
-	}
 
-  handleGalery(product: any) {
-    // this.items.push(newItem);
-    console.log("padre", product.name)
-  }
+
 
 }

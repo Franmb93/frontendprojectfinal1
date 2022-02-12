@@ -30,8 +30,6 @@ export class ProductCardComponent implements OnInit {
 		}
 	}
 
-	openFeatured() {
-		this.featuredEvent.emit(this.item)
-	}
+	
 
 }
