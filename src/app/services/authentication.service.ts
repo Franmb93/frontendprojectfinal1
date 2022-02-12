@@ -11,6 +11,7 @@ export class AuthenticationService {
 
   private url = environment.apiURL + "sesions/";
   private sesion!: Sesion;
+  private loggedOk!: Boolean;
 
   constructor(private http: HttpClient) { }
 
@@ -25,7 +26,7 @@ export class AuthenticationService {
           localStorage.setItem('currentUser', response.id)
           return true;
         } else {
-           return false;
+          return false;
         }
       }
     )

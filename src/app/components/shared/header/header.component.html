@@ -3,7 +3,7 @@
         <div class="iconsearchwrapper">
             <div class="icon-wrapper">
                 <mat-icon>
-                    <a  routerLink="home">
+                    <a routerLink="home">
                         <span class="material-icons md-48">account_circle</span>
                     </a>
                 </mat-icon>
@@ -13,7 +13,7 @@
         </div>
         <mat-divider id="searchbar-buttons"></mat-divider>
         <div class="button-wrapper">
-            <button mat-stroked-button id="login-button">Log in / Registrarse</button>
+            <button (click)="openDialog()" mat-stroked-button id="login-button">Log in / Registrarse</button>
             <button mat-flat-button id="new-product-button">Nuevo Producto</button>
         </div>
         <span id="example-spacer-after"></span>
