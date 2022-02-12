@@ -11,40 +11,45 @@ import { CategoryBannerComponent } from './components/category-banner/category-b
 import { FooterComponent } from './components/shared/footer/footer.component';
 import { SearchBarComponent } from './components/shared/search-bar/search-bar.component';
 import { FeaturedProductsComponent } from './components/featured-products/featured-products.component';
-import { MatButtonModule } from '@angular/material/button';
 import { GalleryModule } from './modules/gallery/gallery.module';
 import { ProductDetailsModule } from './modules/product-details/product-details.module';
-import { UserCardComponent } from './components/user-card/user-card.component';
-import { ProductCardComponent } from './components/product-card/product-card.component';
-
+import { ProductEditModule } from './modules/product-edit/product-edit.module';
+import { UserEditModule } from './modules/user-edit/user-edit.module';
+import { LoginComponent } from './components/modals/login/login.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-
-    HeaderComponent,
-	SearchBarComponent,
-	FooterComponent,
-
-    HomeComponent,
-    CategoryBannerComponent,
-    FeaturedProductsComponent,
-    UserCardComponent,
-	ProductCardComponent,
-
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    MaterialModule,
-    BrowserAnimationsModule,
-    MatButtonModule,
-    GalleryModule,
-    ProductDetailsModule,
-    ],
-  
-
-  providers: [],
-  bootstrap: [AppComponent]
+	declarations: [
+		AppComponent,
+		
+		// Shared
+		HeaderComponent,
+		SearchBarComponent,
+		FooterComponent,
+		
+		// Specifics
+		HomeComponent,
+		CategoryBannerComponent,
+		FeaturedProductsComponent,
+		
+		// Modals
+		LoginComponent
+		// ProductRegisterComponent,
+		// UserRegisterComponent
+	],
+	imports: [
+		AppRoutingModule,
+		
+		BrowserModule,
+		BrowserAnimationsModule,
+		
+		MaterialModule,
+		
+		GalleryModule,
+		ProductDetailsModule,
+		ProductEditModule,
+		UserEditModule
+	],
+	providers: [],
+	bootstrap: [AppComponent]
 })
 export class AppModule { }

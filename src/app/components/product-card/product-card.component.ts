@@ -11,20 +11,27 @@ import { environment } from 'src/environments/environment';
 })
 export class ProductCardComponent implements OnInit {
 
+	@Input() product!: Product;
 
 	@Input() item: any;
 	@Output() featuredEvent = new EventEmitter();
 
 	
-	constructor() { }
+	
+	public image!: string;
+	
+	constructor() {
+
+	}
 	
 	ngOnInit(): void {
-
-	};
-
+		if(this.product.image != undefined){
+			this.image = `${environment.apiURL}resources/images/${this.product.image}`;
+		}
+	}
 
 	openFeatured() {
 		this.featuredEvent.emit(this.item)
 	}
-	
+
 }

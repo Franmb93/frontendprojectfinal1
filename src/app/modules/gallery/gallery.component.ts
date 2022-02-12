@@ -1,47 +1,98 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Product } from 'src/app/interfaces/product';
+import { CategoryService } from 'src/app/services/category.service';
+import { ProductService } from 'src/app/services/product.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
-  selector: 'app-gallery',
-  templateUrl: './gallery.component.html',
-  styleUrls: ['./gallery.component.scss']
+	selector: 'app-gallery',
+	templateUrl: './gallery.component.html',
+	styleUrls: ['./gallery.component.scss']
 })
 export class GalleryComponent implements OnInit {
+	
+	products: Product[] = [];
 
-	// products : Product[] = [];
+	isUserType: boolean = false;
+	
+	constructor(
+		private route: ActivatedRoute,
+		private categoryService: CategoryService,
+		private userService: UserService,
+		private productService: ProductService) {
+			
+			this.route.data.subscribe(
+				data => {
 
-// 	products: Product[] = [];
-  
-//   constructor(
-//     private service: ProductService
-//     ) { }
+					// console.log(data['type']);
 
-//   ngOnInit(): void {
-//     // this.service.getProduct()
-// 		// .pipe(tap((data) => { this.products = data._embedded.productList
-//     //    console.log(this.products) }))
-// 		// .subscribe()
+					switch (data['type']) {
+						case 'results':
+							this.getProducts(); // TODO metodo que regrese resultados de la busqueda
+							
+							break;
+						case 'category':
+							this.getProductsByCategory(data["category"]);
 
-//     this.getProducts()
-    
-//   }
-
-
-//   getProducts() {
-//     this.service.getProducts().subscribe(
-
-//       (response) => {
-//         this.products = response._embedded.productList;
-//       }
-//     )
-//   }
-  
-
-  
+							break;
+						case 'user':
+							this.isUserType = true;
+							this.route.params.subscribe(
+								params => {
+									this.getProductsByUser(+params['id'])
+								}
+							);
+							
+							break;
+						default:
+							this.getProducts();
 
 
-  constructor() { }
+							break;
+					}
+					
+				}
+			);
+			
+	}
+			
+	ngOnInit(): void {
+		
+	}
+	
+	getProducts() {
+		this.productService.getProducts().subscribe(
+			(response) => {
+				this.products = response._embedded.productList;
+			});
+	}
 
-  ngOnInit(): void {
-  }
+	getProductsByCategory(category: string) {
+		// this.categoryService.getCategory
+		switch (category) {
+			case "ropa":
+				this.categoryService.getCategory(1).subscribe(
+					category => {
+						this.products = category.products;
+						// console.log(this.products);
+					}
+				)
+				break;
+		
+			default:
+				break;
+		}
+	}
 
+	getProductsByUser(id: number) {
+		this.userService.getUser(id).subscribe(
+			user => {
+				this.products = user.products;
+				// console.log(this.products);
+			}
+		)
+	}
+		
 }
+			
