@@ -6,12 +6,12 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
 
-  username = 'javainuse'
-  password = ''
+  username = 'franmb931'
+  password = '12345623'
   invalidLogin = false
 
   constructor(private router: Router,
@@ -21,12 +21,26 @@ export class LoginComponent implements OnInit {
   }
 
   checkLogin() {
-    if (this.loginservice.authenticate(this.username, this.password)
-    ) {
-      this.router.navigate([''])
-      this.invalidLogin = false
-    } else
-      this.invalidLogin = true
+
+   this.loginservice.authenticate(this.username, this.password).subscribe(
+      (response) => {
+        console.log(response);
+      }
+    );
+
+    // if (this.loginservice.authenticate(this.username, this.password)
+    // ) {
+
+    //   this.router.navigate([''])
+    //   this.invalidLogin = false
+    // } else{
+    //   console.log("Entro error")
+    //   this.invalidLogin = true
+    // }
+
   }
 
+  logOut(){
+    this.loginservice.logOut();
+  }
 }
