@@ -21,8 +21,18 @@ export class ProductService {
 		return this.http.get<any>(`${this.url}/${id}`);
 	}
 
-	saveProduct(product: Product): Observable<Product> {
-		return this.http.post<Product>(`${this.url}`, product);
+	saveProduct(product: any): Observable<any> {
+		const headers = { 
+			'content-type': 'multipart/form-data;',
+			"Access-Control-Allow-Origin": 'http://localhost:8080/api/products',
+			'Access-Control-Request-Method': 'POST'
+
+			// 'content-type': 'multipart/form-data;',
+		}
+		// 'content-type': 'multipart/form-data; boundary=l3iPy71otz',
+		// const json = JSON.stringify(product)
+		
+		return this.http.post<any>(this.url, product, {'headers': headers});
 	}
 	
 }

@@ -39,8 +39,11 @@ export class FeaturedProductsComponent implements OnInit {
         for (let i = 0; i<3; i ++) {
           this.products1.push(featuredProducts[i])
         }
-        for (let i = 3; i<6; i ++) {
-          this.products2.push(featuredProducts[i])
+        // for (let i = 3; i<6; i ++) {
+        //   this.products2.push(featuredProducts[i])
+        // }
+        for (let i = 0; i<featuredProducts.length; i ++) {
+          this.products2.push(featuredProducts[i]) 
         }
 			}
 		);
