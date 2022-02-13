@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { ProductDetailsRoutingModule } from './product-details-routing.module';
 import { ProductDetailsComponent } from './product-details.component';
-import { MaterialModule } from 'src/app/material/material.module';
+import { MaterialModule } from 'src/app/modules/material/material.module';
 
 
 @NgModule({
@@ -13,7 +13,7 @@ import { MaterialModule } from 'src/app/material/material.module';
   imports: [
     CommonModule,
 	MaterialModule,
-    ProductDetailsRoutingModule
+    ProductDetailsRoutingModule,
   ]
 })
 export class ProductDetailsModule { }
