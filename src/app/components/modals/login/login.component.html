@@ -3,6 +3,9 @@
         <p>Username</p> <input type="text" name="username" [(ngModel)]="username">
         <p>Password</p><input type="password" name="password" [(ngModel)]="password">
     </div>
+    <div *ngIf="validLogin == false && loginCount > 0">
+        <p>Error al meter la contraseña.</p>
+    </div>
 </div>
 <button (click)=checkLogin() class="btn btn-success">
     Login

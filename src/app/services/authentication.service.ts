@@ -27,8 +27,10 @@ export class AuthenticationService {
 					localStorage.setItem('currentUser', response.username);
           localStorage.setItem('currentSesionId', response.id);
           localStorage.setItem('currentUserId', response.user_id)
+          this.loggedOk = true;
 					return true;
 				} else {
+          this.loggedOk = false;
 					return false;
 				}
 			}
@@ -45,10 +47,15 @@ export class AuthenticationService {
 			return !(user === null)
 		}
 
+    getLoggedOk(): Boolean{
+      return this.loggedOk;
+    }
+
 
 		logOut() {
 			this.http.delete<any>(`${this.url}${localStorage.getItem('currentSesionId')}`).subscribe();
 			localStorage.removeItem('currentUser');
       localStorage.removeItem('currentSesionId');
+      localStorage.removeItem('currentUserId');
 		}
 	}

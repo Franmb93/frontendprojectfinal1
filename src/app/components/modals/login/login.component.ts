@@ -11,7 +11,8 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
 export class LoginComponent implements OnInit {
   username = 'franmb931';
   password = '12345623';
-  validLogin!: boolean;
+  validLogin = false;
+  loginCount = 0;
 
   constructor(
     private router: Router,
@@ -26,10 +27,14 @@ export class LoginComponent implements OnInit {
     this.dialogRef.close();
   }
   checkLogin() {
+    this.loginCount++;
     this.loginservice
       .authenticate(this.username, this.password)
-      .subscribe((response) => (this.validLogin = response));
-    return this.validLogin;
+      .subscribe((response) => {
+        (this.validLogin = response)
+        console.log(this.validLogin);
+      });
+
   }
 
   loggedOk(): boolean {
