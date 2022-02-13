@@ -12,7 +12,7 @@
             </div>
         </div>
         <div class="user-valorations"></div>
-        <div class="btn_userCard" *ngIf="(2 == 2)">
+        <div class="btn_userCard" *ngIf="isEqualLoggedThanThisUser()">
             <a [routerLink]="['/usuario', user?.id, 'editar']"><button mat-raised-button type="submit">Edit user</button></a>
             <button mat-raised-button type="submit">Create product</button>
         </div>

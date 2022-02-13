@@ -23,7 +23,7 @@ import { InfoPageModule } from './modules/info-page/info-page.module';
 @NgModule({
 	declarations: [
 		AppComponent,
-		
+
 		HeaderComponent,
 		SearchBarComponent,
 		FooterComponent,
@@ -45,9 +45,11 @@ import { InfoPageModule } from './modules/info-page/info-page.module';
 		GalleryModule,
 		ProductDetailsModule,
 		ProductEditModule,
+
 		UserEditModule,
   InfoPageModule
 	],	
+
 	providers: [],
 	bootstrap: [AppComponent]
 })
