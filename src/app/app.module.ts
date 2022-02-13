@@ -22,7 +22,7 @@ import { UserEditModule } from './modules/user-edit/user-edit.module';
 @NgModule({
 	declarations: [
 		AppComponent,
-		
+
 		HeaderComponent,
 		SearchBarComponent,
 		FooterComponent,
@@ -45,7 +45,7 @@ import { UserEditModule } from './modules/user-edit/user-edit.module';
 		ProductDetailsModule,
 		ProductEditModule,
 		UserEditModule
-	],	
+	],
 	providers: [],
 	bootstrap: [AppComponent]
 })

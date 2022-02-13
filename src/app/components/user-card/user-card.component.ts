@@ -14,14 +14,16 @@ export class UserCardComponent implements OnInit {
 	public id!:number;
     public user!: User;
     public image!: string;
+    public userNow!: User;
 
   constructor(private service: UserService,  private route: ActivatedRoute) {
     this.route.params.subscribe(
 			params => {
 				this.id = +params['id'];
-				this.getUser(this.id);
 			}
 		);
+
+    this.getUser(this.id);
   }
 
   ngOnInit(): void {
@@ -32,11 +34,16 @@ export class UserCardComponent implements OnInit {
 		this.service.getUser(id).subscribe(
 			data => {
 				this.user = data;
-				console.log(data);
-				
+
 				this.image = `${environment.apiURL}resources/images/${this.user.image}`
 			}
 		);
 	}
+
+    isEqualLoggedThanThisUser() : Boolean{
+    if(this.user.username === localStorage.getItem('currentUser')){
+      return true;
+    } else { return false; }
+  }
 
 }
