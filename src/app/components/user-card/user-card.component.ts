@@ -40,7 +40,7 @@ export class UserCardComponent implements OnInit {
 		);
 	}
 
-    isEqualLoggedThanThisUser() : Boolean{
+    isEqualLoggedThanThisUser() : Boolean {
     if(this.user.username === localStorage.getItem('currentUser')){
       return true;
     } else { return false; }

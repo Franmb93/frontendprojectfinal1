@@ -50,10 +50,10 @@
 		</div>
 
 		<div class="btn2">
-			<div class="btnComprar" *ngIf="image == null">
+			<div class="btnComprar" *ngIf="isUserLogged()">
 				<a [routerLink]="['/usuario']"><button (click)="priceShipping()" mat-raised-button color="secundary">Comprar</button></a>
 			</div>
-			<div class="btnEdit" *ngIf="image != null">
+			<div class="btnEdit" *ngIf="isEqualLoggedThanThisUser()">
 				<a [routerLink]="['/producto/', product?.id, 'editar']"><button mat-raised-button color="secundary">Editar</button></a>
 			</div>
 		</div>
