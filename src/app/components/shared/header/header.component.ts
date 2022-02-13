@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { LoginComponent } from '../../modals/login/login.component';
+import { ProductRegisterComponent } from '../../modals/product-register/product-register.component';
 
 @Component({
   selector: 'app-header',
@@ -17,5 +18,12 @@ export class HeaderComponent implements OnInit {
     dialogRef.afterClosed().subscribe((res) => {
       console.log('res', res);
     });
+  }
+
+  openDialog2(): void {
+    const dialogRef = this.dialog.open(ProductRegisterComponent, {});
+    dialogRef.afterClosed().subscribe(res => {
+      console.log("res", res)
+    })
   }
 }

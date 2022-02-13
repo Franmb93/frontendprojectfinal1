@@ -13,10 +13,5 @@ export class AppComponent {
     public dialog: MatDialog
   ) {}
 
-  openDialog(): void {
-    const dialogRef = this.dialog.open(ProductRegisterComponent, {});
-    dialogRef.afterClosed().subscribe(res => {
-      console.log("res", res)
-    })
-  }
+  
 }

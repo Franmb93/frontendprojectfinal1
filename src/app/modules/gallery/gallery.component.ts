@@ -72,7 +72,25 @@ export class GalleryComponent implements OnInit {
 		// this.categoryService.getCategory
 		switch (category) {
 			case "ropa":
+				this.categoryService.getCategory(3).subscribe(
+					category => {
+						this.products = category.products;
+						// console.log(this.products);
+					}
+				)
+				break;
+			
+			case "coches":
 				this.categoryService.getCategory(1).subscribe(
+					category => {
+						this.products = category.products;
+						// console.log(this.products);
+					}
+				)
+				break;
+
+			case "tecnologia":
+				this.categoryService.getCategory(7).subscribe(
 					category => {
 						this.products = category.products;
 						// console.log(this.products);

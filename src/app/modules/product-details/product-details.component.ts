@@ -26,10 +26,10 @@ export class ProductDetailsComponent implements OnInit {
 			
 		this.route.params.subscribe(
 			params => {
-				this.id = +params['id'];
+				this.id = +params['id'];			
 				this.getProduct(this.id);
 			}
-			);
+		);
 	}
 			
 	ngOnInit(): void {

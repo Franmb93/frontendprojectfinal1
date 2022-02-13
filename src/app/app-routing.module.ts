@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/modals/login/login.component';
+import { UserRegisterComponent } from './components/modals/user-register/user-register.component';
 
 const routes: Routes = [
 	{ path: '', component: HomeComponent },
@@ -13,8 +14,9 @@ const routes: Routes = [
 	
 	{ path: '', loadChildren: () => import('./modules/product-details/product-details.module').then(m => m.ProductDetailsModule) },
 	
-	//TODO: delete productedit path
+	// Paths temporales (testing de componentes)
 	{ path: 'login', component: LoginComponent },
+	{ path: 'register', loadChildren: () => import('./modules/user-edit/user-edit.module').then(m => m.UserEditModule) },
 	
 	{ path: 'home', component: HomeComponent },
 ];
