@@ -5,6 +5,7 @@ import { switchMap, tap } from 'rxjs';
 import { Category } from 'src/app/interfaces/category';
 import { Product } from 'src/app/interfaces/product';
 import { CategoryService } from 'src/app/services/category.service';
+import { FileUploadService } from 'src/app/services/file-upload.service';
 import { ProductService } from 'src/app/services/product.service';
 import { environment } from 'src/environments/environment';
 
@@ -32,66 +33,89 @@ export class ProductEditComponent implements OnInit {
 	// 	deal: Deal,
 	// };
 	public category!: Category;
-	public image!: string;
 	public valoration!: number;
 
 	user = true;
 	products: Product[] = [];
+	image!: File;
 
-	model = {
+	model: any = {
 		name: "",
 		description: "",
 		price: "",
 		weight: "",
+		image: ""
 	}
-	product = {
-		name: "Adidas",
-		description: "Zapatillas",
-		price: "13",
-		weight: "2",
-	}
+	product: any = {}
+	// product: any = {
+	// 	name: "Adidas",
+	// 	description: "Zapatillas",
+	// 	price: "13",
+	// 	weight: "2",
+	// }
 
 	constructor(
 		private service: ProductService,
 		private categoryService: CategoryService,
-		private router: Router
+		private router: Router,
+		private uploadService: FileUploadService
 	) { }
 
 	ngOnInit(): void {
 	}
 
+	onFilechange(event: any) {
+		console.log(event.target.files[0])
+		this.image = event.target.files[0]
+	}
+
+	// upload() {
+	// 	if (this.file) {
+	// 		this.uploadService.uploadfile(this.file).subscribe(resp => {
+	// 			alert("Uploaded")
+	// 		})
+	// 	} else {
+	// 		alert("Please select a file first")
+	// 	}
+	// }
+
 	private getCurrentDate(): string {
 		return new Date().toLocaleDateString();
 	}
 
-	onSubmit({value: formData}: NgForm): void {
+	onSubmit({ value: formData }: NgForm): void {
 		console.log("formData", formData)
 		let price: number = +formData.price;
 		let weight: number = +formData.weight;
 		this.product = {
-		  ...formData,
-		  price: price,
-		  weight: weight,
-		  published_date: this.getCurrentDate(),
+			...formData,
+			price: price,
+			weight: weight,
+			// file: this.image,
+			// published_date: this.getCurrentDate(),
+			// published_date: "2021-01-01",
+			user: {id: 1},
+			category: {id: 1},
 		}
 		console.log("product", this.product)
-
-		// this.service.saveProduct(this.product)
-		// .pipe(
+		console.log("el jason: ",JSON.stringify(this.product))
+		
+		this.service.saveProduct(this.product)
+		.pipe(
 		// 	tap( res => console.log("la orden", res)),
 
-			//   switchMap(({id: orderId}) => {
-			// 	const details = this.prepareDetails();
-			// 	return this.dataService.saveDetailsOrder({details, orderId});
-			//   }),
-			//Necesitamos el modulo route
+		//   switchMap(({id: orderId}) => {
+		// 	const details = this.prepareDetails();
+		// 	return this.dataService.saveDetailsOrder({details, orderId});
+		//   }),
+		//Necesitamos el modulo route
 
-			// tap(() => this.router.navigate(['/home'])),
-			//   delay(5000),
-			//   tap( () => this.shoppingCartService.resetCart())
+		//   delay(5000),
+		//   tap( () => this.shoppingCartService.resetCart())
+		tap(() => this.router.navigate(['/home'])),
 
-		// ).subscribe();
-	  }
+		).subscribe();
+	}
 
 	handleFileUpload() {
 		console.log("image")
@@ -123,84 +147,3 @@ export class ProductEditComponent implements OnInit {
 }
 
 
-// export class CheckoutComponent implements OnInit {
-
-//     model = {
-//       name: "",
-//       store: "",
-//       shippingAddress: "",
-//       city: ""
-//     }
-  
-//     isDelivery: boolean = true;
-  
-//     stores: Store[] = [];
-  
-//     cart: Product[] = [];
-  
-//     constructor(
-//       private dataService: DataService,
-//       private productService: ProductService,
-//       private router: Router,
-//       private shoppingCartService: ShoppingCartService,
-  
-//       ) {
-//         this.isCartEmpty();
-//        }
-  
-//     ngOnInit(): void {
-//       this.getStores();
-//       this.getDataCart();
-//       this.prepareDetails();
-//     }
-  
-//     onPickupDelivery(value: boolean):void {
-//       this.isDelivery = value;
-//     }
-  
-//     private getStores(): void {
-//       this.dataService.getStores().pipe(
-//         tap((stores: Store[]) => this.stores = stores)
-//       )
-//         .subscribe(); 
-//     }
-  
-    
-  
-//     private getCurrentDate(): string {
-//       return new Date().toLocaleDateString();
-//     }
-  
-//     private prepareDetails(): Details[] {
-//       const details: Details[] = [];
-//       this.cart.forEach((product: Product) => {
-//         const { id: productId, name: productName, qty: quantity, stock } = product;
-//         const updateStock = (stock - quantity);
-//         //necesitamos actualizar el stock con metodo updateStock de productService
-//         this.productService.updateStock(productId, updateStock)
-//         .pipe(
-//           tap(()=> details.push({productId, productName, quantity} ))
-//         ).subscribe();
-//       })
-//       return details; 
-//     }
-  
-//     private getDataCart(): void {
-//       this.shoppingCartService.cartAction$
-//         .pipe(
-//           tap( (products: Product[]) => this.cart = products)
-//         ).subscribe()
-//     }
-  
-//     private isCartEmpty(): void {
-//       this.shoppingCartService.cartAction$
-//         .pipe(
-//           tap((products: Product[]) => {
-//             if (!products.length) {
-//               this.router.navigate(['/products']);
-//             }  
-//           })
-//         ).subscribe();
-//     }
-  
-//   }

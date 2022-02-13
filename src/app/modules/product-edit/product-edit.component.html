@@ -2,10 +2,8 @@
 
     <div *ngIf="user == true">
         <mat-label>Subir producto</mat-label>
-        <form class="form" #submitForm="ngForm">
+        <form class="form" #submitForm="ngForm" enctype="multipart/form-data">
             <!-- <input matInput [(ngModel)]="product.id" name="id" #id="ngModel" hidden> -->
-    
-            <!-- <input matInput type="text"  placeholder="Name" required [(ngModel)]="model.name" name="name" #name="ngModel"> -->
             <mat-form-field class="form_element">
                 <input matInput placeholder="Name" required [(ngModel)]="model.name" name="name" #name="ngModel">
                 <mat-error *ngIf="!name.valid || name.pristine">Nombre del producto incorrecto</mat-error>
@@ -28,12 +26,20 @@
                 <input matInput placeholder="Categoría" required [(ngModel)]="product.category" name="weight" #category="ngModel">
                 <mat-error *ngIf="!category.valid || category.pristine">Peso del producto incorrecto</mat-error>
             </mat-form-field> -->
+            <!-- <div class="mb-3">
+                <label for="file" class="form-label">Upload file example</label>
+                <input (change)="this.onFilechange($event)" class="form-control" type="file" name="file">
+               
+              </div> -->
+
             <!-- <div class="img_upload">
                 <label for="productPic">Seleccionar archivo</label>
                 <input 
                     class="input_file_btn"
                     type="file"
-                    id="productPic" name="productPic"
+                    id="image" name="image"
+                    [(ngModel)]="model.image"
+                    #image="ngModel"
                     >
             </div> -->
         </form>
