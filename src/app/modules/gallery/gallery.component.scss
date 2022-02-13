@@ -1,0 +1,6 @@
+.product-gallery {
+	width: 80vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+	gap: 16px 16px;
+}

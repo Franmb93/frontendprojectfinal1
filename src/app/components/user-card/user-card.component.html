@@ -1,0 +1,22 @@
+<div class="container">
+    <mat-card class="user-card">
+        <div class="user1">
+            <div class="user-photo">
+                <!-- TODO Cambiar por imagenes de la base de datos -->
+                <img class="peepoimg" src="./assets/peepo3.jpg" alt="ImagenDePrueba">
+            </div>
+            <div class="user-info">
+                {{ user?.username }}
+                <!-- TODO Añadir valoraciones/estrellas -->
+                {{ user?.valoration }}
+            </div>
+        </div>
+        <div class="user-valorations"></div>
+        <div class="btn_userCard" *ngIf="(2 == 2)">
+            <a [routerLink]="['/usuario', user?.id, 'editar']"><button mat-raised-button type="submit">Edit user</button></a>
+            <button mat-raised-button type="submit">Create product</button>
+        </div>
+    </mat-card>
+    <div class="each-product"></div>
+
+</div>

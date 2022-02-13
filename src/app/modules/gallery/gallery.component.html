@@ -1,0 +1,28 @@
+<app-user-card *ngIf="isUserType"></app-user-card>
+
+<div class="product-gallery">
+	<app-product-card *ngFor="let product of products" [product]="product"></app-product-card>
+</div>
+<!-- <div class="mainContainer">
+	<div class="container">
+		<div *ngFor="let product of products">
+			
+		</div>
+	</div>
+</div> -->
+
+<!-- <div id="wrapper">
+    <div id="titulos">
+        <h1>{{ category.name }}</h1>
+    </div>
+    <div id="searchBar">
+        <app-search-bar></app-search-bar>
+        <button mat-button>hola</button>
+    </div>
+
+
+</div>
+
+<div *ngFor="let product of products">
+<app-product-card></app-product-card>
+</div> -->

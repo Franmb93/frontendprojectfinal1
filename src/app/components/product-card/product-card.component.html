@@ -1,0 +1,11 @@
+<a [routerLink]="['/producto', product?.id]">
+	<mat-card class="product-card">
+		<img mat-card-image *ngIf="image != null" src="assets/chaqueta.jpg" alt="Foto1">
+		<img mat-card-image *ngIf="image == null" src="{{ image }}" alt="Foto1">
+		<img mat-card-image *ngIf="image == null" src="assets/no-disponible.jpg" alt="Foto">
+	
+		<mat-card-title>{{ product?.name }}</mat-card-title>
+		
+		<mat-card-content><p>{{ product?.description }}</p></mat-card-content>
+	</mat-card>
+</a>

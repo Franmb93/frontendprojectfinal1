@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { ProductRegisterComponent } from './components/modals/product-register/product-register.component';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'frontendprojectfinal';
+  constructor (
+    public dialog: MatDialog
+  ) {}
+
+  
 }
