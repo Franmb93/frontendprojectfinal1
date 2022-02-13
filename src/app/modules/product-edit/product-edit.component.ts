@@ -69,16 +69,6 @@ export class ProductEditComponent implements OnInit {
 		this.image = event.target.files[0]
 	}
 
-	// upload() {
-	// 	if (this.file) {
-	// 		this.uploadService.uploadfile(this.file).subscribe(resp => {
-	// 			alert("Uploaded")
-	// 		})
-	// 	} else {
-	// 		alert("Please select a file first")
-	// 	}
-	// }
-
 	private getCurrentDate(): string {
 		return new Date().toLocaleDateString();
 	}
@@ -91,7 +81,7 @@ export class ProductEditComponent implements OnInit {
 			...formData,
 			price: price,
 			weight: weight,
-			// file: this.image,
+			file: this.image,
 			// published_date: this.getCurrentDate(),
 			// published_date: "2021-01-01",
 			user: {id: 1},
@@ -99,7 +89,7 @@ export class ProductEditComponent implements OnInit {
 		}
 		console.log("product", this.product)
 		console.log("el jason: ",JSON.stringify(this.product))
-		
+
 		this.service.saveProduct(this.product)
 		.pipe(
 		// 	tap( res => console.log("la orden", res)),

@@ -9,21 +9,21 @@ import { Product } from '../interfaces/product';
 	providedIn: 'root'
 })
 export class ProductService {
-	
+
 	private url = environment.apiURL + "products";
 	private urele = "http://localhost:8010/proxy/api/products"
 	constructor(private http: HttpClient, private router: Router) {  }
-	
-	getProducts(): Observable<any>{	  
+
+	getProducts(): Observable<any>{
 		return this.http.get<any>(this.url);
 	}
-	
-	getProduct(id: any): Observable<any>{		
+
+	getProduct(id: any): Observable<any>{
 		return this.http.get<any>(`${this.url}/${id}`);
 	}
 
 	saveProduct(product: any): Observable<any> {
-		// const headers = { 
+		// const headers = {
 		// 	'content-type': 'multipart/form-data;',
 			// "Access-Control-Allow-Origin": 'http://localhost:8080/api/products',
 			// 'Access-Control-Request-Method': 'POST'
@@ -32,12 +32,14 @@ export class ProductService {
 		// }
 		// 'content-type': 'multipart/form-data; boundary=l3iPy71otz',
 
-		const headers = new HttpHeaders;
-		headers.set('Content-Type', 'application/json' );
-		headers.set('Vary', 'Origin')
+		const headers = new HttpHeaders({
+      Authorization: 'Bearer ' + sessionStorage.getItem("authToken")
+    });
+    headers.set('Content-Type', 'multipart/form-data');
+
 		const json = JSON.stringify(product)
-		
-		return this.http.post<any>(this.url, json, {headers: headers});
+
+		return this.http.post<any>(this.url, product, {headers: headers});
 	}
-	
+
 }

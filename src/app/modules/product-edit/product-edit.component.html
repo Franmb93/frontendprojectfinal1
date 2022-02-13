@@ -9,8 +9,7 @@
                 <mat-error *ngIf="!name.valid || name.pristine">Nombre del producto incorrecto</mat-error>
             </mat-form-field>
             <mat-form-field class="form_element">
-                <input matInput placeholder="Descripción" required [(ngModel)]="model.description" name="description"
-                    #description="ngModel">
+                <input matInput placeholder="Descripción" required [(ngModel)]="model.description" name="description" #description="ngModel">
                 <mat-error *ngIf="!description.valid || description.pristine">Descripción del producto incorrecta
                 </mat-error>
             </mat-form-field>
@@ -26,11 +25,11 @@
                 <input matInput placeholder="Categoría" required [(ngModel)]="product.category" name="weight" #category="ngModel">
                 <mat-error *ngIf="!category.valid || category.pristine">Peso del producto incorrecto</mat-error>
             </mat-form-field> -->
-            <!-- <div class="mb-3">
+            <div class="mb-3">
                 <label for="file" class="form-label">Upload file example</label>
                 <input (change)="this.onFilechange($event)" class="form-control" type="file" name="file">
-               
-              </div> -->
+
+            </div>
 
             <!-- <div class="img_upload">
                 <label for="productPic">Seleccionar archivo</label>
@@ -44,31 +43,24 @@
             </div> -->
         </form>
         <div class="actions">
-            <button
-                mat-raised-button
-                color="primary"
-                class="actions__btn"
-                type="submit"
-                (click)="onSubmit(submitForm)"
-            >
+            <button mat-raised-button color="primary" class="actions__btn" type="submit" (click)="onSubmit(submitForm)">
                 Enviar
             </button>
-            
+
         </div>
     </div>
     <div *ngIf="user != true">
         <mat-label>Editar producto</mat-label>
         <form class="form" #submitForm="ngForm">
             <!-- <input matInput [(ngModel)]="product.id" name="id" #id="ngModel" hidden> -->
-    
+
             <!-- <input matInput type="text"  placeholder="Name" required [(ngModel)]="model.name" name="name" #name="ngModel"> -->
             <mat-form-field class="form_element">
                 <input matInput placeholder="Name" required [(ngModel)]="product.name" name="name" #name="ngModel">
                 <mat-error *ngIf="!name.valid || name.pristine">Nombre del producto incorrecto</mat-error>
             </mat-form-field>
             <mat-form-field class="form_element">
-                <input matInput placeholder="Descripción" required [(ngModel)]="product.description" name="description"
-                    #description="ngModel">
+                <input matInput placeholder="Descripción" required [(ngModel)]="product.description" name="description" #description="ngModel">
                 <mat-error *ngIf="!description.valid || description.pristine">Descripción del producto incorrecta
                 </mat-error>
             </mat-form-field>
@@ -94,16 +86,10 @@
             </div> -->
         </form>
         <div class="actions">
-            <button
-                mat-raised-button
-                color="primary"
-                class="actions__btn"
-                type="submit"
-                (click)="onSubmit(submitForm)"
-            >
+            <button mat-raised-button color="primary" class="actions__btn" type="submit" (click)="onSubmit(submitForm)">
                 Enviar
             </button>
-            
+
         </div>
     </div>
 
