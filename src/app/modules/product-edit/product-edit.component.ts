@@ -32,12 +32,14 @@ export class ProductEditComponent implements OnInit {
 	// 	category: number,
 	// 	deal: Deal,
 	// };
-	public category!: Category;
+	public category!:  number;
+  public selectedOption!: number;
 	public valoration!: number;
 
 	user = true;
 	products: Product[] = [];
 	image!: File;
+  categories: Category[] = [];
 
 	model: any = {
 		name: "",
@@ -62,6 +64,7 @@ export class ProductEditComponent implements OnInit {
 	) { }
 
 	ngOnInit(): void {
+    this.getCategories();
 	}
 
 	onFilechange(event: any) {
@@ -84,8 +87,8 @@ export class ProductEditComponent implements OnInit {
 			file: this.image,
 			// published_date: this.getCurrentDate(),
 			// published_date: "2021-01-01",
-			user: {id: 1},
-			category: {id: 1},
+			user: {id: localStorage.getItem('currentUserId')},
+			category: {id: this.category},
 		}
 		console.log("product", this.product)
 		console.log("el jason: ",JSON.stringify(this.product))
@@ -106,6 +109,15 @@ export class ProductEditComponent implements OnInit {
 
 		).subscribe();
 	}
+
+  getCategories(){
+    this.categoryService.getCategories().subscribe(
+      data => {
+        this.categories = data._embedded.categoryList;
+        console.log(this.categories);
+      }
+    )
+  }
 
 	handleFileUpload() {
 		console.log("image")
@@ -133,6 +145,7 @@ export class ProductEditComponent implements OnInit {
 	// 		}
 	// 	);
 	// }
+
 
 }
 
