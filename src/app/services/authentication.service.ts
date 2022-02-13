@@ -26,6 +26,7 @@ export class AuthenticationService {
           console.log(response.username)
 					localStorage.setItem('currentUser', response.username);
           localStorage.setItem('currentSesionId', response.id);
+          localStorage.setItem('currentUserId', response.user_id)
 					return true;
 				} else {
 					return false;
@@ -34,6 +35,10 @@ export class AuthenticationService {
 			)
 			);
 		}
+
+    getUserByUsername(username: String){
+      this.http.get<any>(`${this.url}`)
+    }
 
 		isUserLoggedIn() {
 			let user = localStorage.getItem('currentUser')
