@@ -5,7 +5,7 @@ import { GalleryRoutingModule } from './gallery-routing.module';
 import { GalleryComponent } from './gallery.component';
 import { ProductCardComponent } from 'src/app/components/product-card/product-card.component';
 import { UserCardComponent } from 'src/app/components/user-card/user-card.component';
-import { MaterialModule } from 'src/app/material/material.module';
+import { MaterialModule } from 'src/app/modules/material/material.module';
 
 
 @NgModule({

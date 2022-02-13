@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MaterialModule } from './material/material.module';
+import { MaterialModule } from './modules/material/material.module';
 import { HeaderComponent } from './components/shared/header/header.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './components/home/home.component';
@@ -14,40 +14,39 @@ import { FeaturedProductsComponent } from './components/featured-products/featur
 import { GalleryModule } from './modules/gallery/gallery.module';
 import { ProductDetailsModule } from './modules/product-details/product-details.module';
 
-import { UserCardComponent } from './components/user-card/user-card.component';
-import { ProductCardComponent } from './components/product-card/product-card.component';
-import { LoginComponent } from './components/login/login.component';
+import { LoginComponent } from './components/modals/login/login.component';
 import { FormsModule } from '@angular/forms';
 import { ProductEditModule } from './modules/product-edit/product-edit.module';
 import { UserEditModule } from './modules/user-edit/user-edit.module';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HeaderComponent,
-	  SearchBarComponent,
-	  FooterComponent,
-    HomeComponent,
-    CategoryBannerComponent,
-    FeaturedProductsComponent,
-    LoginComponent,
+	declarations: [
+		AppComponent,
+		
+		HeaderComponent,
+		SearchBarComponent,
+		FooterComponent,
 
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    MaterialModule,
-    BrowserAnimationsModule,
-    GalleryModule,
-    ProductDetailsModule,
-    FormsModule,
-    ProductEditModule,
-    UserEditModule
-    ],
+		HomeComponent,
+		CategoryBannerComponent,
+		FeaturedProductsComponent,
+		LoginComponent
+	],
+	imports: [
+		BrowserModule,
+		BrowserAnimationsModule,
 
+		MaterialModule,
+		FormsModule,
 
-  providers: [],
-  bootstrap: [AppComponent]
+		AppRoutingModule,
 
+		GalleryModule,
+		ProductDetailsModule,
+		ProductEditModule,
+		UserEditModule
+	],	
+	providers: [],
+	bootstrap: [AppComponent]
 })
 export class AppModule { }
