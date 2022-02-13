@@ -8,22 +8,24 @@ import { Sesion } from '../interfaces/sesion';
 	providedIn: 'root'
 })
 export class AuthenticationService {
-	
+
 	private url = environment.apiURL + "sesions/";
 	private sesion!: Sesion;
 	private loggedOk!: Boolean;
-	
+
 	constructor(private http: HttpClient) { }
-	
+
 	authenticate(username: string, password: string):Observable<boolean> {
 		const headers = { 'content-type': 'application/json'}
 		this.sesion = {username, password};
 		const sesionJson = JSON.stringify(this.sesion);
-		
+
 		return this.http.post<any>(this.url, sesionJson, {'headers': headers} ).pipe(
 			map(response => {
 				if (response) {
-					localStorage.setItem('currentUser', response.id)
+          console.log(response.username)
+					localStorage.setItem('currentUser', response.username);
+          localStorage.setItem('currentSesionId', response.id);
 					return true;
 				} else {
 					return false;
@@ -32,20 +34,16 @@ export class AuthenticationService {
 			)
 			);
 		}
-		
+
 		isUserLoggedIn() {
 			let user = localStorage.getItem('currentUser')
 			return !(user === null)
 		}
-		
-		// isUserLoggedInThisUser() {
-		// 	let user = localStorage.getItem('currentUser')
-		// 	return !(user === null)
-		// }
-		
+
+
 		logOut() {
-			this.http.delete<any>(`${this.url}${localStorage.getItem('currentUser')}`).subscribe();
+			this.http.delete<any>(`${this.url}${localStorage.getItem('currentSesionId')}`).subscribe();
 			localStorage.removeItem('currentUser');
+      localStorage.removeItem('currentSesionId');
 		}
 	}
-	
