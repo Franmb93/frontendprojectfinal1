@@ -41,6 +41,8 @@
   		<input type="text" class="form-control" id="shipping_address" required [(ngModel)]="user.shipping_address" name="shipping_address">
 	</div>
 
+	<button mat-raised-button color="primary" class="actions__btn" type="submit" (click)="onSubmit(userForm)">Aceptar</button>
+
 	<!-- <input matInput  [(ngModel)]="product.id" name="id" #id="ngModel" hidden>
 	<mat-form-field class="form_element">
 		<input matInput placeholder="Name" required [(ngModel)]="product.name" name="name" #name="ngModel">

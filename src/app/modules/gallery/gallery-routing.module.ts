@@ -8,8 +8,8 @@ const routes: Routes = [
 	{ path: 'resultados', component: GalleryComponent, data: { type: "results" } },
 
 	{ path: 'ropa', component: GalleryComponent, data: { type: "category", category: "ropa" } },
-	{ path: 'coches', component: GalleryComponent, data: { type: "category", category: "coche" } },
-	{ path: 'smartphones', component: GalleryComponent, data: { type: "category", category: "smartphones" } },
+	{ path: 'coches', component: GalleryComponent, data: { type: "category", category: "coches" } },
+	{ path: 'tecnologia', component: GalleryComponent, data: { type: "category", category: "tecnologia" } },
 
 	{ path: 'usuario/:id', component: GalleryComponent, data: { type: "user" } },
 ];

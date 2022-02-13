@@ -3,6 +3,7 @@ form {
 	flex-direction: column;
 	width: 33vw;
 
+	border-radius: 8px;
 	padding: 16px;
 
 	box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
@@ -12,12 +13,17 @@ form {
 		margin-bottom: 32px;
 	}
 
-	div:not(:last-child) {
-		margin-bottom: 8px;
+	div {
+		margin-bottom: 16px;
 
 		label {
-			margin-bottom: 4px;
+			margin-bottom: 2px;
+			font-size: 13px;
 		}
+	}
+
+	div:last-of-type{
+		margin-bottom: 24px;
 	}
 
 }
