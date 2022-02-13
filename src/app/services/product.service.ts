@@ -1,4 +1,4 @@
-import { HttpClient, HttpEvent, HttpRequest } from '@angular/common/http';
+import { HttpClient, HttpEvent, HttpHeaders, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -11,6 +11,7 @@ import { Product } from '../interfaces/product';
 export class ProductService {
 	
 	private url = environment.apiURL + "products";
+	private urele = "http://localhost:8010/proxy/api/products"
 	constructor(private http: HttpClient, private router: Router) {  }
 	
 	getProducts(): Observable<any>{	  
@@ -22,17 +23,21 @@ export class ProductService {
 	}
 
 	saveProduct(product: any): Observable<any> {
-		const headers = { 
-			'content-type': 'multipart/form-data;',
-			"Access-Control-Allow-Origin": 'http://localhost:8080/api/products',
-			'Access-Control-Request-Method': 'POST'
+		// const headers = { 
+		// 	'content-type': 'multipart/form-data;',
+			// "Access-Control-Allow-Origin": 'http://localhost:8080/api/products',
+			// 'Access-Control-Request-Method': 'POST'
 
 			// 'content-type': 'multipart/form-data;',
-		}
+		// }
 		// 'content-type': 'multipart/form-data; boundary=l3iPy71otz',
-		// const json = JSON.stringify(product)
+
+		const headers = new HttpHeaders;
+		headers.set('Content-Type', 'application/json' );
+		headers.set('Vary', 'Origin')
+		const json = JSON.stringify(product)
 		
-		return this.http.post<any>(this.url, product, {'headers': headers});
+		return this.http.post<any>(this.url, json, {headers: headers});
 	}
 	
 }

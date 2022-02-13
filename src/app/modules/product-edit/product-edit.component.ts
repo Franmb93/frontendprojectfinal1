@@ -91,18 +91,18 @@ export class ProductEditComponent implements OnInit {
 			...formData,
 			price: price,
 			weight: weight,
-			file: this.image,
-			published_date: this.getCurrentDate(),
-			user: 1,
-			category: 1,
+			// file: this.image,
+			// published_date: this.getCurrentDate(),
+			// published_date: "2021-01-01",
+			user: {id: 1},
+			category: {id: 1},
 		}
 		console.log("product", this.product)
+		console.log("el jason: ",JSON.stringify(this.product))
 		
-		
-
 		this.service.saveProduct(this.product)
 		.pipe(
-			tap( res => console.log("la orden", res)),
+		// 	tap( res => console.log("la orden", res)),
 
 		//   switchMap(({id: orderId}) => {
 		// 	const details = this.prepareDetails();
