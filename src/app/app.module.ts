@@ -18,6 +18,7 @@ import { LoginComponent } from './components/modals/login/login.component';
 import { FormsModule } from '@angular/forms';
 import { ProductEditModule } from './modules/product-edit/product-edit.module';
 import { UserEditModule } from './modules/user-edit/user-edit.module';
+import { InfoPageModule } from './modules/info-page/info-page.module';
 
 @NgModule({
 	declarations: [
@@ -44,7 +45,8 @@ import { UserEditModule } from './modules/user-edit/user-edit.module';
 		GalleryModule,
 		ProductDetailsModule,
 		ProductEditModule,
-		UserEditModule
+		UserEditModule,
+  InfoPageModule
 	],	
 	providers: [],
 	bootstrap: [AppComponent]

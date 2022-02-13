@@ -23,7 +23,7 @@ $white-color: #fff;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    min-width: 500px;
+    min-width: 900px; //estaba en 500px
 }
 .about {
     
@@ -85,10 +85,10 @@ $white-color: #fff;
 }
 
 ul li:before {
-    content: ">";
+    //content: ">";
     padding-right: -2px;
     transition: 0.5s;
-    font-weight: 100;
+    font-weight: 0;
 }
 
 .page-links ul>li a {
@@ -110,3 +110,4 @@ ul li:before {
     color: $white-color;
     font-size: 0.8rem;
 }
+

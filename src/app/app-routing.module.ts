@@ -14,6 +14,7 @@ const routes: Routes = [
 	
 	{ path: '', loadChildren: () => import('./modules/product-details/product-details.module').then(m => m.ProductDetailsModule) },
 	
+	{ path: '', loadChildren: () => import('./modules/info-page/info-page.module').then(m => m.InfoPageModule) },
 	// Paths temporales (testing de componentes)
 	{ path: 'login', component: LoginComponent },
 	{ path: 'register', loadChildren: () => import('./modules/user-edit/user-edit.module').then(m => m.UserEditModule) },
