@@ -60,5 +60,17 @@ export class ProductDetailsComponent implements OnInit {
 			this.product.price = this.product.price + 7.95;
 		}
 	}
+
+	isEqualLoggedThanThisUser() : Boolean{
+		if(this.product.user.username === localStorage.getItem('currentUser')){
+		  return true;
+		} else { return false; }
+	  }
+
+	  isUserLogged() : Boolean {
+		if(localStorage.getItem('currentUser')){
+		  return true;
+		} else { return false;}
+	  }
 }
 			
