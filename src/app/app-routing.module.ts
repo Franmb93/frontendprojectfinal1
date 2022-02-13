@@ -16,7 +16,7 @@ const routes: Routes = [
 	
 	// Paths temporales (testing de componentes)
 	{ path: 'login', component: LoginComponent },
-	{ path: 'register', component: UserRegisterComponent },
+	{ path: 'register', loadChildren: () => import('./modules/user-edit/user-edit.module').then(m => m.UserEditModule) },
 	
 	{ path: 'home', component: HomeComponent },
 ];

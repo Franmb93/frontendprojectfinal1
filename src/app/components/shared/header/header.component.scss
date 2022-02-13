@@ -2,6 +2,8 @@ $corporative-color: #00B6D3;
 $white-color: #fff;
 #header-toolbar {
     background-color: #fff;
+
+	margin-bottom: 32px;
 }
 
 .wrapper {
@@ -39,7 +41,7 @@ $white-color: #fff;
 }
 
 #searchbar-buttons {
-    min-width: 33vw;
+    // min-width: 33vw;
     border: none;
 }
 

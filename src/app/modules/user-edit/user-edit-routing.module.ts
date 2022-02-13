@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { UserEditComponent } from './user-edit.component';
 
 const routes: Routes = [
+	{ path: '', component: UserEditComponent },
 	{ path: 'usuario/:id/editar', component: UserEditComponent }
 ];
 
