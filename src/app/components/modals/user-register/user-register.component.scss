@@ -1,54 +1,77 @@
+$corporative-color: #00B6D3;
+$white-color: #fff;
 form {
-	display: flex;
-	flex-direction: column;
-	width: 33vw;
+    display: flex;
+    flex-direction: column;
+    width: 33vw;
+    h1 {
+        align-self: center;
+        margin-bottom: 32px;
+    }
+    >div {
+        margin-bottom: 8px;
+        label {
+            margin-bottom: 2px;
+            font-size: 13px;
+        }
+        >div {
+            margin: 0;
+            padding: 8px 16px;
+            >div {
+                margin: 0;
+            }
+        }
+    }
+    div:last-of-type {
+        margin-bottom: 24px;
+    }
+}
 
-	h1 {
-		align-self: center;
-		margin-bottom: 32px;
-	}
-
-	>div {
-		margin-bottom: 8px;
-
-		label {
-			margin-bottom: 2px;
-			font-size: 13px;
-		}
-
-		>div {
-			margin: 0;
-			padding: 8px 16px;
-
-			>div {
-				margin: 0;
-			}
-		}
-	}
-
-	div:last-of-type{
-		margin-bottom: 24px;
-	}
+.buttons {
+    display: flex;
+    flex-direction: row;
+    margin-right: 15px;
+    button {
+        margin-right: 2rem;
+    }
 }
 
 div.buttons {
-	
-
-	.register {
-		
-	}
-
-	.close {
-		float: right;
-
-		color: #dc3545;
-		background-color: #fff;
-	}
-
-	.close:hover {
-		color: #fff;
-		background-color: #bb2d3b;
-		border-color: #bb2d3b;
-	}
-
+    .register {}
+    .close {
+        float: right;
+        color: #dc3545;
+        background-color: #fff;
+    }
+    .close:hover {
+        color: #fff;
+        background-color: #bb2d3b;
+        border-color: #bb2d3b;
+    }
+    .login-button {
+        min-width: 120px;
+        background-color: #fff;
+        border: 1.3px solid $corporative-color;
+        font-size: 1rem;
+        border-radius: 35px;
+        color: $corporative-color;
+        font-weight: 500;
+        &:hover {
+            background-color: $corporative-color;
+            color: $white-color;
+        }
+    }
+    .new-product-button {
+        min-width: 120px;
+        font-weight: 500;
+        font-size: 1rem;
+        color: $white-color;
+        background-color: $corporative-color;
+        border: 1.3px solid $corporative-color;
+        border-radius: 35px;
+        &:hover {
+            background-color: $white-color;
+            color: $corporative-color;
+        }
+    }
 }
