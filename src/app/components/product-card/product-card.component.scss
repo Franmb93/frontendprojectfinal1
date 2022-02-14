@@ -1,8 +1,9 @@
     .product-card {
-        max-width: 320px;
-        height: 460px;
+        max-width: 280px;
+        height: 350px;
         display: flex;
         flex-direction: column;
+        justify-content: center;
         margin: 5px;
         transition: box-shadow .3s;
         &:hover {
@@ -10,8 +11,17 @@
         }
     }
     
-    .product-card img {
-        border-radius: 12px;
-        padding: 4px;
-        padding-top: 8px
+    .imagen-container {
+        border-radius: 4px;
+        padding: 10px;
+        padding-bottom: 2px;
+        img {
+            max-width: 260px;
+            max-height: 200px;
+        }
+    }
+    
+    .product-title {
+        margin-top: 0.2rem !important;
+        margin-bottom: 1rem;
     }

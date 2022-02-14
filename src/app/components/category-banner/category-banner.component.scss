@@ -8,7 +8,6 @@ $ligtBlue: #74cdd1;
     flex-direction: row;
     align-content: center;
     flex: 0.8 1 auto;
-   
 }
 
 .catIcon {
@@ -22,8 +21,8 @@ $ligtBlue: #74cdd1;
     // background-color: red;
     // min-width: 80px;
     // min-height: 80px;
-    
 }
+
 .icon {
     display: flex;
     justify-content: center;
@@ -32,11 +31,11 @@ $ligtBlue: #74cdd1;
     // width: 100px;
     color: #00B6D3;
     transition: 0.1s;
-    &:hover{
+    &:hover {
         color: $ligtBlue;
-        
     }
 }
+
 a {
     text-decoration: none;
 }
