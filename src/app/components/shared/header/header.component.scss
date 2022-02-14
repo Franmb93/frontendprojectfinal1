@@ -2,8 +2,7 @@ $corporative-color: #00B6D3;
 $white-color: #fff;
 #header-toolbar {
     background-color: #fff;
-
-	margin-bottom: 32px;
+    margin-bottom: 32px;
 }
 
 .wrapper {
@@ -11,6 +10,11 @@ $white-color: #fff;
     flex-direction: row;
     justify-content: space-between;
     flex: 0.8 1 auto;
+}
+
+.mat-divider {
+    min-width: 15rem;
+    border: none;
 }
 
 .icon-wrapper {
@@ -28,6 +32,7 @@ $white-color: #fff;
     justify-content: center;
     align-items: center;
     min-width: 20vw;
+    align-self: flex-end;
 }
 
 .button-wrapper button {
@@ -59,7 +64,7 @@ $white-color: #fff;
     }
 }
 
-.new-product-button{
+.new-product-button {
     min-width: 120px;
     font-weight: 500;
     font-size: 1rem;
@@ -72,6 +77,3 @@ $white-color: #fff;
         color: $corporative-color;
     }
 }
-
-
-

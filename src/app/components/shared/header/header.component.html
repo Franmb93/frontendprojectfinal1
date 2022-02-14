@@ -3,23 +3,30 @@
         <div class="iconsearchwrapper">
             <div class="icon-wrapper">
                 <mat-icon>
-
                     <a routerLink="">
-
                         <span class="material-icons md-48">account_circle</span>
                     </a>
                 </mat-icon>
             </div>
 
             <app-search-bar></app-search-bar>
+            <mat-divider></mat-divider>
         </div>
         <mat-divider id="searchbar-buttons"></mat-divider>
         <div class="button-wrapper">
-            <p *ngIf="loggedOk()"> {{ username }} </p>
-            <button *ngIf="!loggedOk()" (click)="openDialog(0)" mat-stroked-button id="login-button">Iniciar sesión</button>
-			<button *ngIf="!loggedOk()" (click)="openDialog(1)" mat-stroked-button id="login-button">Registrarse</button>            
-            <button *ngIf="loggedOk()" mat-flat-button (click)="openDialog2()" class="new-product-button">Nuevo Producto</button>
-            <button *ngIf="loggedOk()" (click)=logOut() class="login-button">Logout </button>
+            <p *ngIf="loggedOk()">{{ username }}</p>
+            <button *ngIf="!loggedOk()" (click)="openDialog(0)" mat-stroked-button class="login-button">
+        Iniciar sesión
+      </button>
+            <button *ngIf="!loggedOk()" (click)="openDialog(1)" mat-stroked-button class="new-product-button">
+        Registrarse
+      </button>
+            <button *ngIf="loggedOk()" mat-flat-button (click)="openDialog2()" class="new-product-button">
+        Nuevo Producto
+      </button>
+            <button *ngIf="loggedOk()" (click)="logOut()" class="login-button">
+        Logout
+      </button>
         </div>
         <span id="example-spacer-after"></span>
     </div>
