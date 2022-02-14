@@ -52,10 +52,10 @@ export class AuthenticationService {
     }
 
 
-		logOut() {
-			this.http.delete<any>(`${this.url}${localStorage.getItem('currentSesionId')}`).subscribe();
-			localStorage.removeItem('currentUser');
-      localStorage.removeItem('currentSesionId');
-      localStorage.removeItem('currentUserId');
+	logOut() {
+		this.http.delete<any>(`${this.url}${localStorage.getItem('currentSesionId')}`).subscribe();
+		localStorage.removeItem('currentUser');
+      	localStorage.removeItem('currentSesionId');
+      	localStorage.removeItem('currentUserId');
 		}
 	}

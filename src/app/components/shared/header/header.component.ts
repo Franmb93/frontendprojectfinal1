@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 import { LoginComponent } from '../../modals/login/login.component';
 import { ProductRegisterComponent } from '../../modals/product-register/product-register.component';
 
@@ -9,7 +10,9 @@ import { ProductRegisterComponent } from '../../modals/product-register/product-
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-  constructor(public dialog: MatDialog) {}
+  constructor(
+    private loginservice: AuthenticationService,
+    public dialog: MatDialog) {}
 
   ngOnInit(): void {}
 
@@ -26,4 +29,10 @@ export class HeaderComponent implements OnInit {
       console.log("res", res)
     })
   }
+
+  logOut() {
+    this.loginservice.logOut();
+  }
+
+  
 }
