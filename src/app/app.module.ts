@@ -20,6 +20,7 @@ import { ProductEditModule } from './modules/product-edit/product-edit.module';
 import { UserEditModule } from './modules/user-edit/user-edit.module';
 import { InfoPageModule } from './modules/info-page/info-page.module';
 import { FileUploadComponent } from './components/file-upload/file-upload.component';
+import { PurchaseComponent } from './components/modals/purchase/purchase.component';
 
 @NgModule({
 	declarations: [
@@ -34,6 +35,8 @@ import { FileUploadComponent } from './components/file-upload/file-upload.compon
 		FeaturedProductsComponent,
 		LoginComponent,
 //   FileUploadComponent
+  		PurchaseComponent
+		  
 	],
 	imports: [
 		BrowserModule,

@@ -3,20 +3,20 @@
 		<div class="user-details">
 			<mat-card-content>
 				<div class="image">
-					{{ product?.user?.image }}			
+					{{ owner?.image }}			
 				</div>
 				<div class="name">
-					{{ product?.user?.username }} 
+					{{ owner?.username }} 
 				</div>
 				<div class="products gray">
-					{{ product?.user?.products?.length }} Productos
+					{{ owner?.products?.length }} Productos
 				</div>
 				<div class="valoration">
 					{{ valoration }}
 					<mat-progress-bar mode="determinate" [value]="valoration"></mat-progress-bar>
 				</div>
 				<div class="n_valorations gray">
-					<p><strong>{{ product?.user?.n_valorations }}</strong> Valoraciones</p>
+					<p><strong>{{ owner?.n_valorations }}</strong> Valoraciones</p>
 				</div>
 				<div class="chat">
 					<button mat-raised-button color="primary">Comenzar chat</button>
@@ -50,8 +50,8 @@
 		</div>
 
 		<div class="btn2">
-			<div class="btnComprar" *ngIf="isUserLogged()">
-				<a [routerLink]="['/usuario']"><button (click)="priceShipping()" mat-raised-button color="secundary">Comprar</button></a>
+			<div class="btnComprar" *ngIf="isUserLogged() && !isEqualLoggedThanThisUser()">
+				<button (click)="openPurchaseModal()" mat-raised-button color="secundary">Comprar</button>
 			</div>
 			<div class="btnEdit" *ngIf="isEqualLoggedThanThisUser()">
 				<a [routerLink]="['/producto/', product?.id, 'editar']"><button mat-raised-button color="secundary">Editar</button></a>
