@@ -1,7 +1,9 @@
+import { HttpEventType, HttpResponse } from '@angular/common/http';
 import { Component, Inject, OnInit } from '@angular/core';
+import { waitForAsync } from '@angular/core/testing';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { switchMap, tap } from 'rxjs';
+import { Observable, pipe, switchMap, tap, timeout } from 'rxjs';
 import { Category } from 'src/app/interfaces/category';
 import { Product } from 'src/app/interfaces/product';
 import { CategoryService } from 'src/app/services/category.service';
@@ -32,14 +34,20 @@ export class ProductEditComponent implements OnInit {
 	// 	category: number,
 	// 	deal: Deal,
 	// };
-	public category!:  number;
-  public selectedOption!: number;
+	public category!: number;
+	public selectedOption!: number;
 	public valoration!: number;
 
 	user = true;
 	products: Product[] = [];
-	image!: File;
-  categories: Category[] = [];
+	image!: string;
+	categories: Category[] = [];
+	selectedFiles?: FileList;
+	currentFile?: File;
+	progress = 0;
+	message = '';
+	fileInfos?: Observable<any>;
+	fileName?: String;
 
 	model: any = {
 		name: "",
@@ -64,60 +72,123 @@ export class ProductEditComponent implements OnInit {
 	) { }
 
 	ngOnInit(): void {
-    this.getCategories();
+		this.getCategories();
 	}
 
-	onFilechange(event: any) {
-		console.log(event.target.files[0])
-		this.image = event.target.files[0]
-	}
+
 
 	private getCurrentDate(): string {
 		return new Date().toLocaleDateString();
 	}
 
-	onSubmit({ value: formData }: NgForm): void {
-		console.log("formData", formData)
-		let price: number = +formData.price;
-		let weight: number = +formData.weight;
-		this.product = {
-			...formData,
-			price: price,
-			weight: weight,
-			file: this.image,
-			// published_date: this.getCurrentDate(),
-			// published_date: "2021-01-01",
-			user: {id: localStorage.getItem('currentUserId')},
-			category: {id: this.category},
-		}
-		console.log("product", this.product)
-		console.log("el jason: ",JSON.stringify(this.product))
 
-		this.service.saveProduct(this.product)
-		.pipe(
-		// 	tap( res => console.log("la orden", res)),
-
-		//   switchMap(({id: orderId}) => {
-		// 	const details = this.prepareDetails();
-		// 	return this.dataService.saveDetailsOrder({details, orderId});
-		//   }),
-		//Necesitamos el modulo route
-
-		//   delay(5000),
-		//   tap( () => this.shoppingCartService.resetCart())
-		tap(() => this.router.navigate(['/home'])),
-
-		).subscribe();
+	selectFile(event: any): void {
+		this.selectedFiles = event.target.files;
 	}
 
-  getCategories(){
-    this.categoryService.getCategories().subscribe(
-      data => {
-        this.categories = data._embedded.categoryList;
-        console.log(this.categories);
-      }
-    )
-  }
+	upload(): void {
+		this.progress = 0;
+		if (this.selectedFiles) {
+			const file: File | null = this.selectedFiles.item(0);
+			if (file) {
+				this.currentFile = file;
+				this.uploadService.upload(this.currentFile).subscribe({
+					next: (event: any) => {
+						if (event.type === HttpEventType.UploadProgress) {
+							this.progress = Math.round(100 * event.loaded / event.total);
+							this.fileName = this.currentFile?.name;
+
+						} else if (event instanceof HttpResponse) {
+							this.message = event.body.message;
+							this.fileInfos = this.uploadService.getFiles();
+						}
+					},
+					error: (err: any) => {
+						console.log(err);
+						this.progress = 0;
+						if (err.error && err.error.message) {
+							this.message = err.error.message;
+						} else {
+							this.message = 'Could not upload the file!';
+						}
+						this.currentFile = undefined;
+					}
+				});
+			}
+			this.selectedFiles = undefined;
+		}
+	}
+
+
+	onSubmit({ value: formData }: NgForm): void {
+		
+		let arrayImages: any[] = [];
+		let url: any;
+		this.uploadService.getFiles().pipe(
+			tap(
+				(files) => {
+					arrayImages = files;
+				
+				
+				for (let e of arrayImages) {
+					if (e.name === this.fileName) {
+						// let arrayUrl = e.url.split("/");
+						url = e.url.substr(-36)
+						// console.log("url dentro ", arrayUrl[4])
+						// console.log("mierdaaa ", mierda)
+					}
+				}
+				let price: number = +formData.price;
+				let weight: number = +formData.weight;
+				this.product = {
+					...formData,
+					price: price,
+					weight: weight,
+					image: url,
+					// published_date: this.getCurrentDate(),
+					// published_date: "2021-01-01",
+					// user: {id: localStorage.getItem('currentUserId')},
+					user: { id: 1 },
+					category: { id: 1 },
+				}
+				console.log("el jason: ", JSON.stringify(this.product))
+
+				this.service.saveProduct(this.product)
+					.pipe(
+						// 	tap( res => console.log("la orden", res)),
+
+						//   switchMap(({id: orderId}) => {
+						// 	const details = this.prepareDetails();
+						// 	return this.dataService.saveDetailsOrder({details, orderId});
+						//   }),
+						//Necesitamos el modulo route
+
+						//   delay(5000),
+						//   tap( () => this.shoppingCartService.resetCart())
+						tap(() => this.router.navigate(['/home'])),
+
+					).subscribe();
+			})
+		).subscribe();
+		// const splite = url[0].split("/")
+		
+		if(true){
+
+			console.log("url fuera ", url);
+		}
+		
+		
+		
+	}
+
+	getCategories() {
+		this.categoryService.getCategories().subscribe(
+			data => {
+				this.categories = data._embedded.categoryList;
+				console.log(this.categories);
+			}
+		)
+	}
 
 	handleFileUpload() {
 		console.log("image")
