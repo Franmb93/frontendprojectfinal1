@@ -1,4 +1,4 @@
-<a [routerLink]="['/producto', product?.id]">
+<a [routerLink]="['/producto', product?.id]" *ngIf="!sold">
     <mat-card class="product-card">
         <div class="imagen-container">
             <!-- <img mat-card-image *ngIf="image == null" src="assets/chaqueta.jpg" alt="Foto1"> -->

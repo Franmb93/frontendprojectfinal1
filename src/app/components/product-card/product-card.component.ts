@@ -19,6 +19,8 @@ export class ProductCardComponent implements OnInit {
 	
 	public url: string = "http://localhost:8080/files"
 	public image!: string;
+
+	public sold: boolean = false;
 	
 	constructor() {
 
@@ -27,6 +29,10 @@ export class ProductCardComponent implements OnInit {
 	ngOnInit(): void {
 		if(this.product.image != undefined){
 			this.image = `${this.url}/${this.product.image}`;
+		}
+		
+		if (this.product.deal) {
+			this.sold = true;
 		}
 	}
 
