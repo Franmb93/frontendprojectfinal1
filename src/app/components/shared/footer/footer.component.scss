@@ -84,6 +84,8 @@ $white-color: #fff;
     list-style-position: inside;
 }
 
+
+
 ul li:before {
     //content: ">";
     padding-right: -2px;
@@ -110,4 +112,15 @@ ul li:before {
     color: $white-color;
     font-size: 0.8rem;
 }
+
+.li-dir{
+    display: flex;
+    flex: 1 1 auto;
+    margin-top: 15px;
+    li{
+        margin-right: 10px;
+    }
+}
+
+
 
