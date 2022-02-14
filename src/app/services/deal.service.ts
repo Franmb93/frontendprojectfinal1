@@ -18,4 +18,10 @@ export class DealService {
 	getDeal(id: any): Observable<any>{		
 		return this.http.get<any>(`${this.url}/${id}`);
 	}
+
+	postDeal(body: any): Observable<any> {
+		const headers = { 'Content-Type': 'Application/json' };
+
+		return this.http.post<any>(this.url, body, { headers: headers });
+	}
 }
