@@ -10,6 +10,9 @@ import { ProductRegisterComponent } from '../../modals/product-register/product-
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
+
+  username: String = "";
+
   constructor(
     private loginservice: AuthenticationService,
     public dialog: MatDialog) {}
@@ -34,5 +37,13 @@ export class HeaderComponent implements OnInit {
     this.loginservice.logOut();
   }
 
-  
+  loggedOk(){
+    if(localStorage.getItem('currentUserId')){
+      this.username != localStorage.getItem('currentUser');
+      return true;
+    }
+    else{
+      return false;
+    }
+  }
 }

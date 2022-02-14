@@ -57,7 +57,10 @@ $white-color: #fff;
     }
 }
 
-#new-product-button {
+.new-product-button {
+    min-width: 120px;
+    font-weight: 500;
+    font-size: 1rem;
     color: $white-color;
     background-color: $corporative-color;
     border: 1.3px solid $corporative-color;
