@@ -121,15 +121,15 @@ export class ProductEditComponent implements OnInit {
 
 
 	onSubmit({ value: formData }: NgForm): void {
-		
+
 		let arrayImages: any[] = [];
 		let url: any;
 		this.uploadService.getFiles().pipe(
 			tap(
 				(files) => {
 					arrayImages = files;
-				
-				
+
+
 				for (let e of arrayImages) {
 					if (e.name === this.fileName) {
 						// let arrayUrl = e.url.split("/");
@@ -148,7 +148,7 @@ export class ProductEditComponent implements OnInit {
 					// published_date: this.getCurrentDate(),
 					// published_date: "2021-01-01",
 					// user: {id: localStorage.getItem('currentUserId')},
-					user: { id: 1 },
+					user: { id: localStorage.getItem('currentUserId') },
 					category: { id: 1 },
 				}
 				console.log("el jason: ", JSON.stringify(this.product))
@@ -171,14 +171,14 @@ export class ProductEditComponent implements OnInit {
 			})
 		).subscribe();
 		// const splite = url[0].split("/")
-		
+
 		if(true){
 
 			console.log("url fuera ", url);
 		}
-		
-		
-		
+
+
+
 	}
 
 	getCategories() {
