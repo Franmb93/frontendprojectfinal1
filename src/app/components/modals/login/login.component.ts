@@ -30,6 +30,11 @@ export class LoginComponent implements OnInit {
     this.loginservice
       .authenticate(this.username, this.password)
       .subscribe((response) => (this.validLogin = response));
+      // if (this.validLogin == true) {
+      //   this.dialogRef.close();
+      // } else {
+      //   console.log("PATATAAAAAAA!!!!!");
+      // }
     return this.validLogin;
   }
 
