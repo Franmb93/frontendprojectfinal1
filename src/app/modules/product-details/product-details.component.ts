@@ -72,5 +72,6 @@ export class ProductDetailsComponent implements OnInit {
 		  return true;
 		} else { return false;}
 	  }
+
 }
 			
