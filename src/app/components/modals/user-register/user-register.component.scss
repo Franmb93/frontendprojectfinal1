@@ -8,12 +8,21 @@ form {
 		margin-bottom: 32px;
 	}
 
-	div {
-		margin-bottom: 16px;
+	>div {
+		margin-bottom: 8px;
 
 		label {
 			margin-bottom: 2px;
 			font-size: 13px;
+		}
+
+		>div {
+			margin: 0;
+			padding: 8px 16px;
+
+			>div {
+				margin: 0;
+			}
 		}
 	}
 

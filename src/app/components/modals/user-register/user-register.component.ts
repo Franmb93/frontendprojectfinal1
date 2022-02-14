@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
@@ -12,7 +12,7 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class UserRegisterComponent implements OnInit {
 	
-	form: any = {}
+	form: any = {};
 
 	constructor(
 		private route: ActivatedRoute,
@@ -20,15 +20,16 @@ export class UserRegisterComponent implements OnInit {
 		public dialogSelfRef: MatDialogRef<UserRegisterComponent>
 		) {
 		// Descomentar si se quiere probar el formulario sin tener q rellenarlo
-		// this.form = {
-		// 	username: 'Eren Jaeger',
-		// 	password: '123456',
-		// 	first_name: 'Eren',
-		// 	last_name: 'Jaeger',
-		// 	email: 'erenjaeger@rumbling.eldia',
-		// 	phone: '111111111',
-		// 	shipping_address: 'Paradis Island, Wall Maria, Shiganshina District'
-		// }
+		this.form = {
+			username: 'ErenJaeger',
+			password: '123456',
+			first_name: 'Eren',
+			last_name: 'Jaeger',
+			email: 'erenjaeger@rumbling.eldia',
+			phone: '111111111',
+			shipping_address: 'Paradis Island, Wall Maria, Shiganshina District'
+		}
+		
 	}
 	
 	ngOnInit(): void {
@@ -45,7 +46,12 @@ export class UserRegisterComponent implements OnInit {
 		let user: User = {
 			...data
 		}
-			
-		this.service.postUser(user).subscribe();
+		
+		this.service.postUser(user).subscribe(
+			response => {
+				this.closeSelf();
+			}
+		);
 	}
+
 }
