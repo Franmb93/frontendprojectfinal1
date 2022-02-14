@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
+import { UserRegisterComponent } from 'src/app/components/modals/user-register/user-register.component';
 import { User } from 'src/app/interfaces/user';
 import { UserService } from 'src/app/services/user.service';
 
@@ -14,7 +17,7 @@ export class UserEditComponent implements OnInit {
 	public id!: number;
 
 	constructor(
-		private userService: UserService,
+		private service: UserService,
 		private route: ActivatedRoute) {
 		this.route.params.subscribe(
 			params => {
@@ -28,10 +31,22 @@ export class UserEditComponent implements OnInit {
 	}
 	
 	getUser(id: number) {		
-		this.userService.getUser(id).subscribe(
+		this.service.getUser(id).subscribe(
 			data => {
 				this.user = data;
+				// this.openDialog();
 			}
 		);
 	}
+
+	putUser(formData: NgForm): void {
+		const data = formData.form.value;
+
+		this.service.putUser(data['id'], data).subscribe();
+	}
+
+	// openDialog(): void {
+	// 	const dialogRef = this.dialog.open(UserRegisterComponent, {});
+	// }
+
 }

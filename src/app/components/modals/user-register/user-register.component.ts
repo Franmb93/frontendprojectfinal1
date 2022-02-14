@@ -1,6 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { MatDialogRef } from '@angular/material/dialog';
+import { ActivatedRoute } from '@angular/router';
 import { User } from 'src/app/interfaces/user';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
 	selector: 'app-user-register',
@@ -9,19 +12,40 @@ import { User } from 'src/app/interfaces/user';
 })
 export class UserRegisterComponent implements OnInit {
 	
-	@Input() user!: User;
-	
-	constructor() {
-		
+	form: any = {}
+
+	constructor(
+		private route: ActivatedRoute,
+		private service: UserService,
+		public dialogSelfRef: MatDialogRef<UserRegisterComponent>
+		) {
+		// Descomentar si se quiere probar el formulario sin tener q rellenarlo
+		// this.form = {
+		// 	username: 'Eren Jaeger',
+		// 	password: '123456',
+		// 	first_name: 'Eren',
+		// 	last_name: 'Jaeger',
+		// 	email: 'erenjaeger@rumbling.eldia',
+		// 	phone: '111111111',
+		// 	shipping_address: 'Paradis Island, Wall Maria, Shiganshina District'
+		// }
 	}
 	
 	ngOnInit(): void {
-	
-	}
-
-	onSubmit({value: formData}: NgForm): void {
-		console.log(formData);
 		
 	}
-	
+
+	onCloseClick(): void {
+		// this.dialogSelfRef.close();
+	}
+
+	postUser(formData: NgForm){
+		const data = formData.form.value; 
+
+		let user: User = {
+			...data
+		}
+			
+		this.service.postUser(user).subscribe();
+	}
 }

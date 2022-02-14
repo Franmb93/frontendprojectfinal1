@@ -15,8 +15,9 @@
         </div>
         <mat-divider id="searchbar-buttons"></mat-divider>
         <div class="button-wrapper">
-            <button (click)="openDialog()" mat-stroked-button id="login-button">Log in / Registrarse</button>
-            <button mat-flat-button (click)="openDialog2()" id="new-product-button">Nuevo Producto</button>
+            <button (click)="openDialog(0)" mat-stroked-button id="login-button">Iniciar sesión</button>
+			<button (click)="openDialog(1)" mat-stroked-button id="login-button">Registrarse</button>
+            <!-- <button mat-flat-button (click)="openDialog2()" id="new-product-button">Nuevo Producto</button> -->
         </div>
         <span id="example-spacer-after"></span>
 

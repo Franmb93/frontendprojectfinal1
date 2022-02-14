@@ -1,52 +1,38 @@
 <form class="form" #userForm="ngForm">
-
-	<h1>Editar usuario</h1>
 	
-	<input matInput  [(ngModel)]="user.id" name="id" #id="ngModel" hidden>
+	<h1>Registrar usuario</h1>
 
 	<div class="username">
 		<label for="username">Nombre de usuario</label>
-  		<input type="text" class="form-control" id="username" required [(ngModel)]="user.username" name="username">
+		<input type="text" class="form-control" id="username" required [(ngModel)]="form.username" name="username">
 	</div>
 	<div class="password">
 		<label for="password">Contraseña</label>
-  		<input type="text" class="form-control" id="password" required [(ngModel)]="user.password" name="password">
+		<input type="text" class="form-control" id="password" required [(ngModel)]="form.password" name="password">
 	</div>
+	
 	<div class="first_name">
 		<label for="first_name">Nombre</label>
-  		<input type="text" class="form-control" id="first_name" required [(ngModel)]="user.first_name" name="first_name">
+		<input type="text" class="form-control" id="first_name" required [(ngModel)]="form.first_name" name="first_name">
 	</div>
 	<div class="last_name">
 		<label for="last_name">Apellidos</label>
-  		<input type="text" class="form-control" id="last_name" required [(ngModel)]="user.last_name" name="last_name">
+		<input type="text" class="form-control" id="last_name" required [(ngModel)]="form.last_name" name="last_name">
 	</div>
 	<div class="email">
 		<label for="email">Email</label>
-  		<input type="text" class="form-control" id="email" required [(ngModel)]="user.email" name="email">
+		<input type="text" class="form-control" id="email" required [(ngModel)]="form.email" name="email">
 	</div>
 	<div class="phone">
 		<label for="phone">Teléfono</label>
-  		<input type="text" class="form-control" id="phone" required [(ngModel)]="user.phone" name="phone">
+		<input type="text" class="form-control" id="phone" required [(ngModel)]="form.phone" name="phone">
 	</div>
-	<div class="image">
-		<label for="image">Imagen</label>
-  		<input type="text" class="form-control" id="image" required [(ngModel)]="user.image" name="image">
-	</div>
-	<div class="billing_address">
-		<label for="billing_address">Dirección de facturación</label>
-  		<input type="text" class="form-control" id="billing_address" required [(ngModel)]="user.billing_address" name="billing_address">
-	</div>
+
 	<div class="shipping_address">
 		<label for="shipping_address">Dirección de envío</label>
-  		<input type="text" class="form-control" id="shipping_address" required [(ngModel)]="user.shipping_address" name="shipping_address">
+		<input type="text" class="form-control" id="shipping_address" required [(ngModel)]="form.shipping_address" name="shipping_address">
 	</div>
-
-	<button mat-raised-button color="primary" class="actions__btn" type="submit" (click)="onSubmit(userForm)">Aceptar</button>
-
-	<!-- <input matInput  [(ngModel)]="product.id" name="id" #id="ngModel" hidden>
-	<mat-form-field class="form_element">
-		<input matInput placeholder="Name" required [(ngModel)]="product.name" name="name" #name="ngModel">
-		<mat-error *ngIf="!name.valid || name.pristine">Nombre del producto incorrecto</mat-error>
-	</mat-form-field>
--->
+	
 </form>
+
+<button (click)="postUser(userForm)" class="btn btn-success">Registrarse</button>

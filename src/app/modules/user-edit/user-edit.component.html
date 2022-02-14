@@ -1,1 +1,48 @@
-<app-user-register [user]="user"></app-user-register> 
+<div class="container">
+	<form class="form" #userForm="ngForm">
+
+		<h1>Editar usuario</h1>
+		
+		<input matInput  [(ngModel)]="user.id" name="id" #id="ngModel" hidden>
+	
+		<div class="username">
+			<label for="username">Nombre de usuario</label>
+			  <input type="text" class="form-control" id="username" required [(ngModel)]="user.username" name="username">
+		</div>
+		<div class="password">
+			<label for="password">Contraseña</label>
+			  <input type="text" class="form-control" id="password" required [(ngModel)]="user.password" name="password">
+		</div>
+		<div class="first_name">
+			<label for="first_name">Nombre</label>
+			  <input type="text" class="form-control" id="first_name" required [(ngModel)]="user.first_name" name="first_name">
+		</div>
+		<div class="last_name">
+			<label for="last_name">Apellidos</label>
+			  <input type="text" class="form-control" id="last_name" required [(ngModel)]="user.last_name" name="last_name">
+		</div>
+		<div class="email">
+			<label for="email">Email</label>
+			  <input type="text" class="form-control" id="email" required [(ngModel)]="user.email" name="email">
+		</div>
+		<div class="phone">
+			<label for="phone">Teléfono</label>
+			  <input type="text" class="form-control" id="phone" required [(ngModel)]="user.phone" name="phone">
+		</div>
+		<div class="image">
+			<label for="image">Imagen</label>
+			  <input type="text" class="form-control" id="image" required [(ngModel)]="user.image" name="image">
+		</div>
+		<div class="billing_address">
+			<label for="billing_address">Dirección de facturación</label>
+			  <input type="text" class="form-control" id="billing_address" required [(ngModel)]="user.billing_address" name="billing_address">
+		</div>
+		<div class="shipping_address">
+			<label for="shipping_address">Dirección de envío</label>
+			  <input type="text" class="form-control" id="shipping_address" required [(ngModel)]="user.shipping_address" name="shipping_address">
+		</div>
+	
+		<button mat-raised-button color="primary" class="actions__btn" type="submit" (click)="putUser(userForm)">Aceptar</button>
+	
+	</form>
+</div>
