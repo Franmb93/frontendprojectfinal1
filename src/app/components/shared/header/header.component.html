@@ -15,13 +15,16 @@
         </div>
         <mat-divider id="searchbar-buttons"></mat-divider>
         <div class="button-wrapper">
-            <button (click)="openDialog()" mat-stroked-button id="login-button">Log in / Registrarse</button>
-            <button mat-flat-button (click)="openDialog2()" id="new-product-button">Nuevo Producto</button>
+            <p *ngIf="loggedOk()"> {{ username }} </p>
+            <button *ngIf="!loggedOk()" (click)="openDialog()" mat-stroked-button class="login-button">Log in / Registrarse</button>            
+            <button *ngIf="loggedOk()" mat-flat-button (click)="openDialog2()" class="new-product-button">Nuevo Producto</button>
+            <button *ngIf="loggedOk()" (click)=logOut() class="login-button">
+            Logout
+        </button>
         </div>
         <span id="example-spacer-after"></span>
 
-            <button (click)=logOut() class="btn btn-success">
-                Logout
-            </button>
+
+        
     </div>
 </mat-toolbar>

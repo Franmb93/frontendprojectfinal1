@@ -11,7 +11,7 @@ export interface Product {
   description: string;
   price: number;
   weight: number;
-  image: File;
+  image: string;
   published_date: string;
   user: User;
   category: Category;

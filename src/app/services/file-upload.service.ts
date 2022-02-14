@@ -1,5 +1,6 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpEvent, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -7,13 +8,24 @@ import { environment } from 'src/environments/environment';
 })
 export class FileUploadService {
 
-    private url = environment.apiURL;
+    private url = 'http://localhost:8080';
 
     constructor(private http: HttpClient) { }
 
-    public uploadfile(file: File) {
-        let formParams = new FormData();
-        formParams.append('file', file)
-        return this.http.post('http://localhost:3000/uploadFile', formParams)
-    }
+    upload(file: File): Observable<HttpEvent<any>> {
+        const formData: FormData = new FormData();
+        formData.append('file', file);
+        const req = new HttpRequest('POST', `${this.url}/upload`, formData, {
+          reportProgress: true,
+          responseType: 'json'
+        });
+        return this.http.request(req);
+      }
+      getFiles(): Observable<any> {
+        return this.http.get(`${this.url}/files`);
+      }
+
+      getFileByName(name: any): Observable<any> {
+        return this.http.get(`${this.url}/files/${name}`);
+      }
 }

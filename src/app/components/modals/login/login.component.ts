@@ -27,9 +27,19 @@ export class LoginComponent implements OnInit {
     this.dialogRef.close();
   }
   checkLogin() {
+    this.loginCount++;
     this.loginservice
       .authenticate(this.username, this.password)
-      .subscribe((response) => (this.validLogin = response));
+      .subscribe((response) => {
+        this.validLogin = response;
+        
+        if(this.validLogin){
+        this.dialogRef.close();
+      }
+      });
+      
+      
+    
     return this.validLogin;
   }
 

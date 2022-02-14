@@ -1,38 +1,90 @@
+$corporative-color: #00b6d3;
+$white-color: #fff;
+
 .container {
-    max-width: 50vw;
-	width: 5500px;
-    height: 700px;
-	padding: 0;
-	margin: 5px;
+    max-width: 85vw;
+    width: 5500px;
+    height: 240px;
+    padding: 0;
+    margin: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+
+    .user1 {
+        display: flex;
+    }
 
     .user-card {
-        width: 900px;
+        width: 95%;
         height: 150px;
+
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
     }
 
     .peepoimg {
-        width: 70px;
-        margin-top: 20px;
+        width: 7rem;
         float: left;
-        margin-right: 15px;
-        border: 1px solid #B2BABB;
+        margin-right: 2rem;
+        border: 1px solid #b2babb;
+        border-radius: 100%;
     }
 
     .user-info {
-        font-size: medium;
-        margin-top: 40px;
-        float: left;
+        min-width: 400px;
+        font-size: 2rem;
+        margin-top: 1.3rem;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .button-wrapper {
+        display: flex;
+        align-self: flex-end;
     }
 
     .btn_userCard {
         display: flex;
         flex-direction: column;
         margin-top: 10x;
-        align-items: flex-end;
+        align-self: flex-end;
     }
 
     button {
         width: 150px;
         margin: 5px;
+    }
+
+    #edit {
+        background-color: #fff;
+        border: 1.3px solid $corporative-color;
+        border-radius: 35px;
+        color: $corporative-color;
+        font-weight: 500;
+        font-size: 1rem;
+        letter-spacing: 0.8px;
+        &:hover {
+            background-color: $corporative-color;
+            color: $white-color;
+        }
+    }
+
+    #create {
+        min-width: 120px;
+        font-weight: 500;
+        font-size: 1rem;
+        color: $white-color;
+        background-color: $corporative-color;
+        border: 1.3px solid $corporative-color;
+        border-radius: 35px;
+        letter-spacing: 0.8px;
+        &:hover {
+            background-color: $white-color;
+            color: $corporative-color;
+        }
     }
 }

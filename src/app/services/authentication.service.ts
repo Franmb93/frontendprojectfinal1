@@ -24,7 +24,7 @@ export class AuthenticationService {
 			map(response => {
 				if (response) {
           console.log(response.username)
-					localStorage.setItem('currentUser', response.username);
+		  localStorage.setItem('currentUser', response.username);
           localStorage.setItem('currentSesionId', response.id);
           localStorage.setItem('currentUserId', response.user_id)
           this.loggedOk = true;
