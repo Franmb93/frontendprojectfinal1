@@ -35,8 +35,8 @@ export class UserRegisterComponent implements OnInit {
 		
 	}
 
-	onCloseClick(): void {
-		// this.dialogSelfRef.close();
+	closeSelf(): void {
+		this.dialogSelfRef.close();
 	}
 
 	postUser(formData: NgForm){
