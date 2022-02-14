@@ -31,10 +31,16 @@ export class LoginComponent implements OnInit {
     this.loginservice
       .authenticate(this.username, this.password)
       .subscribe((response) => {
-        (this.validLogin = response)
-        console.log(this.validLogin);
+        this.validLogin = response;
+        
+        if(this.validLogin){
+        this.dialogRef.close();
+      }
       });
-
+      
+      
+    
+    return this.validLogin;
   }
 
   loggedOk(): boolean {
