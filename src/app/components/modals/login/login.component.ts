@@ -9,9 +9,10 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
-  username = 'franmb931';
-  password = '12345623';
-  validLogin!: boolean;
+  username = '';
+  password = '';
+  validLogin = false;
+  loginCount = 0;
 
   constructor(
     private router: Router,

@@ -41,10 +41,16 @@ $ligtBlue: #74cdd1;
     }
 }
 
-
-.img_upload .input_file_btn {
- 
-   
+#send-button {
+    background-color: $corporativeColor;
+    border: 1.3px solid $ligtBlue;
+    border-radius: 35px;
+    color: #fff;
+    font-weight: 500;
+    &:hover {
+        background-color: $ligtBlue;
+        color: #fff;
+    }
 }
-   
+
  
