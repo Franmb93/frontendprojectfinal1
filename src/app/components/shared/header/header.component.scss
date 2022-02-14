@@ -45,9 +45,11 @@ $white-color: #fff;
     border: none;
 }
 
-#login-button {
+.login-button {
+    min-width: 120px;
     background-color: #fff;
     border: 1.3px solid $corporative-color;
+    font-size: 1rem;
     border-radius: 35px;
     color: $corporative-color;
     font-weight: 500;
@@ -57,7 +59,7 @@ $white-color: #fff;
     }
 }
 
-#edit {
+.new-product-button{
     min-width: 120px;
     font-weight: 500;
     font-size: 1rem;

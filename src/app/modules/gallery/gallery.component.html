@@ -1,7 +1,17 @@
 <app-user-card *ngIf="isUserType"></app-user-card>
 
 <div class="product-gallery">
-	<app-product-card *ngFor="let product of products" [product]="product"></app-product-card>
+    <div class="row-wrapper">
+        <div class="first-row">
+            <app-product-card *ngFor="let product of products | slice:0:4" [product]="product"></app-product-card>
+        </div>
+        <div class="second-row">
+            <app-product-card *ngFor="let product of products | slice:4:8" [product]="product"></app-product-card>
+        </div>
+    </div>
+
+
+
 </div>
 <!-- <div class="mainContainer">
 	<div class="container">
