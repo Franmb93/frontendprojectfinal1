@@ -19,6 +19,7 @@ import { FormsModule } from '@angular/forms';
 import { ProductEditModule } from './modules/product-edit/product-edit.module';
 import { UserEditModule } from './modules/user-edit/user-edit.module';
 import { InfoPageModule } from './modules/info-page/info-page.module';
+import { PurchaseComponent } from './components/modals/purchase/purchase.component';
 
 @NgModule({
 	declarations: [
@@ -31,7 +32,9 @@ import { InfoPageModule } from './modules/info-page/info-page.module';
 		HomeComponent,
 		CategoryBannerComponent,
 		FeaturedProductsComponent,
-		LoginComponent
+		LoginComponent,
+  		PurchaseComponent
+		  
 	],
 	imports: [
 		BrowserModule,

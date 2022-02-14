@@ -19,6 +19,10 @@ export class UserService {
 		return this.http.get<any>(`${this.url}/${id}`);
 	}
 
+	getOwner(id: any): Observable<any> {		
+		return this.http.get<any>(`${this.url}/pro/${id}`);
+	}
+
 	postUser(body: any): Observable<any> {
 		const headers = { 'Content-Type': 'Application/json' };
 
