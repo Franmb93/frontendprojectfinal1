@@ -36,28 +36,27 @@ export class PurchaseComponent implements OnInit {
 
 	purchase(): void {
 		this.updateWallets();
-		this.postDeal();
 	}
 
 	updateWallets(): void {
-		this.self.wallet -= this.product.price;
-		this.service.putUser(this.self.id, this.self).subscribe();
+		if ((this.self.wallet - this.product.price) > 0) {
+			this.self.wallet -= this.product.price;
+			this.service.putUser(this.self.id, this.self).subscribe();
 
-		this.owner.wallet += this.product.price;
-		this.service.putUser(this.owner.id, this.owner).subscribe();
+			this.owner.wallet += this.product.price;
+			this.service.putUser(this.owner.id, this.owner).subscribe();
+
+
+			this.postDeal();
+		}
 	}
 
 	postDeal(): void {
-
-		
 		const deal = {
 			price: this.product?.price,
 			product: { id: this.product.id },
 			user: { id: this.self.id }
 		}
-
-		console.log(deal);
-		
 
 		this.dealService.postDeal(deal).subscribe(
 			response => {
