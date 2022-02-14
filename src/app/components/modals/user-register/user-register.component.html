@@ -1,52 +1,131 @@
 <form class="form" #userForm="ngForm">
-
-	<h1>Editar usuario</h1>
 	
-	<input matInput  [(ngModel)]="user.id" name="id" #id="ngModel" hidden>
-
+	<h1>Registrar usuario</h1>
+	
 	<div class="username">
 		<label for="username">Nombre de usuario</label>
-  		<input type="text" class="form-control" id="username" required [(ngModel)]="user.username" name="username">
+		<input type="text" class="form-control" id="username" name="username"
+		required minlength="4" maxlength="16" 
+		[(ngModel)]="form.username"  #username="ngModel">
+
+		<div *ngIf="username.invalid && (username.dirty || username.touched)" class="alert alert-danger">
+			<div *ngIf="username.errors?.['required']">
+				Es necesario introducir su nombre de usuario
+			</div>
+			<div *ngIf="username.errors?.['minlength']">
+				Su nombre de usuario debe tener mínimo 4 caracteres
+			</div>
+			<div *ngIf="username.errors?.['maxlength']">
+				Su nombre de usuario debe tener máximo 16 caracteres
+			</div>
+		</div>
 	</div>
+
 	<div class="password">
 		<label for="password">Contraseña</label>
-  		<input type="text" class="form-control" id="password" required [(ngModel)]="user.password" name="password">
+		<input type="text" class="form-control" id="password" name="password"
+		required minlength="6"
+		[(ngModel)]="form.password" #password="ngModel">
+
+		<div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
+			<div *ngIf="password.errors?.['required']">
+				Es necesario introducir una contraseña
+			</div>
+			<div *ngIf="password.errors?.['minlength']">
+				Su contraseña debe tener mínimo 6 caracteres
+			</div>
+		</div>
 	</div>
+	
 	<div class="first_name">
 		<label for="first_name">Nombre</label>
-  		<input type="text" class="form-control" id="first_name" required [(ngModel)]="user.first_name" name="first_name">
+		<input type="text" class="form-control" id="first_name" name="first_name"
+		required minlength="4" maxlength="16" 
+		[(ngModel)]="form.first_name" #first_name="ngModel">
+
+		<div *ngIf="first_name.invalid && (first_name.dirty || first_name.touched)" class="alert alert-danger">
+			<div *ngIf="first_name.errors?.['required']">
+				Es necesario introducir su nombre
+			</div>
+			<div *ngIf="first_name.errors?.['minlength']">
+				Su nombre debe tener mínimo 4 caracteres
+			</div>
+			<div *ngIf="first_name.errors?.['maxlength']">
+				Su nombre debe tener máximo 16 caracteres
+			</div>
+		</div>
 	</div>
+
 	<div class="last_name">
 		<label for="last_name">Apellidos</label>
-  		<input type="text" class="form-control" id="last_name" required [(ngModel)]="user.last_name" name="last_name">
+		<input type="text" class="form-control" id="last_name" name="last_name"
+		required minlength="4" maxlength="32" 
+		[(ngModel)]="form.last_name" #last_name="ngModel">
+
+		<div *ngIf="last_name.invalid && (last_name.dirty || last_name.touched)" class="alert alert-danger">
+			<div *ngIf="last_name.errors?.['required']">
+				Es necesario introducir sus apellidos
+			</div>
+			<div *ngIf="last_name.errors?.['minlength']">
+				Sus apellidos deben tener mínimo 4 caracteres
+			</div>
+			<div *ngIf="last_name.errors?.['maxlength']">
+				Sus apellidos deben tener máximo 32 caracteres
+			</div>
+		</div>
 	</div>
+	
 	<div class="email">
 		<label for="email">Email</label>
-  		<input type="text" class="form-control" id="email" required [(ngModel)]="user.email" name="email">
+		<input type="text" class="form-control" id="email" name="email"
+		required  email="true"
+		[(ngModel)]="form.email" #email="ngModel">
+
+		<div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+			<div *ngIf="email.errors?.['required']">
+				Es necesario introducir un correo electrónico
+			</div>
+			<div *ngIf="email.errors?.['email']">
+				Debe introducir un correo electrónico
+			</div>
+		</div>
 	</div>
+
 	<div class="phone">
 		<label for="phone">Teléfono</label>
-  		<input type="text" class="form-control" id="phone" required [(ngModel)]="user.phone" name="phone">
+		<input type="text" class="form-control" id="phone" name="phone"
+		required minlength="9" maxlength="9" pattern="[0-9]+"
+		[(ngModel)]="form.phone" #phone="ngModel">
+
+		<div *ngIf="phone.invalid && (phone.dirty || phone.touched)" class="alert alert-danger">
+			<div *ngIf="phone.errors?.['required']">
+				Es necesario introducir un número de teléfono
+			</div>
+			<div *ngIf="phone.errors?.['minlength']">
+				Debe introducir un número de teléfono español (Ej. 678912345)
+			</div>
+			<div *ngIf="phone.errors?.['pattern']">
+				Debe introducir un número de teléfono correcto
+			</div>
+		</div>
 	</div>
-	<div class="image">
-		<label for="image">Imagen</label>
-  		<input type="text" class="form-control" id="image" required [(ngModel)]="user.image" name="image">
-	</div>
-	<div class="billing_address">
-		<label for="billing_address">Dirección de facturación</label>
-  		<input type="text" class="form-control" id="billing_address" required [(ngModel)]="user.billing_address" name="billing_address">
-	</div>
+	
 	<div class="shipping_address">
 		<label for="shipping_address">Dirección de envío</label>
-  		<input type="text" class="form-control" id="shipping_address" required [(ngModel)]="user.shipping_address" name="shipping_address">
-	</div>
+		<input type="text" class="form-control" id="shipping_address" name="shipping_address"
+		required maxlength="255"
+		[(ngModel)]="form.shipping_address" #shipping_address="ngModel">
 
-	<button mat-raised-button color="primary" class="actions__btn" type="submit" (click)="onSubmit(userForm)">Aceptar</button>
-
-	<!-- <input matInput  [(ngModel)]="product.id" name="id" #id="ngModel" hidden>
-	<mat-form-field class="form_element">
-		<input matInput placeholder="Name" required [(ngModel)]="product.name" name="name" #name="ngModel">
-		<mat-error *ngIf="!name.valid || name.pristine">Nombre del producto incorrecto</mat-error>
-	</mat-form-field>
--->
+		<div *ngIf="shipping_address.invalid && (shipping_address.dirty || shipping_address.touched)" class="alert alert-danger">
+			<div *ngIf="shipping_address.errors?.['required']">
+				Es necesario introducir una dirección de envío
+			</div>
+		</div>
+	</div> 
+	
 </form>
+
+<div class="buttons">
+	<button (click)="postUser(userForm)" class="btn btn-success register">Registrarse</button>
+	<button (click)="closeSelf()" class="btn btn-danger close">Cerrar</button>
+</div>

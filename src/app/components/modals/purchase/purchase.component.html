@@ -1,0 +1,17 @@
+<div class="container">
+	Está a punto de comprar a <strong>{{ owner?.username }}</strong> el artículo <strong>{{ product?.name }}</strong> por <strong>{{ product?.price }}€</strong>
+	
+	<div class="summary">
+		<div class="wallet">Su billetera</div>
+		{{ self?.wallet }}
+		<div class="price">Precio del producto</div>
+		{{ product?.price }}
+		<div class="rest">Restante</div>
+		{{ owner?.username }}
+	</div>
+
+	<div class="buttons">
+		<button (click)="purchase()" class="btn btn-success register">Registrarse</button>
+		<button (click)="closeSelf()" class="btn btn-danger close">Cerrar</button>
+	</div>
+</div>

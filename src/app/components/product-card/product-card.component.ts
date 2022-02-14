@@ -17,7 +17,7 @@ export class ProductCardComponent implements OnInit {
 	@Output() featuredEvent = new EventEmitter();
 
 	
-	
+	public url: string = "http://localhost:8080/files"
 	public image!: string;
 	
 	constructor() {
@@ -26,7 +26,7 @@ export class ProductCardComponent implements OnInit {
 	
 	ngOnInit(): void {
 		if(this.product.image != undefined){
-			this.image = `${environment.apiURL}resources/images/${this.product.image}`;
+			this.image = `${this.url}/${this.product.image}`;
 		}
 	}
 

@@ -5,7 +5,7 @@ import { UserEditRoutingModule } from './user-edit-routing.module';
 import { UserEditComponent } from './user-edit.component';
 import { MaterialModule } from 'src/app/modules/material/material.module';
 import { UserRegisterComponent } from 'src/app/components/modals/user-register/user-register.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -17,7 +17,9 @@ import { FormsModule } from '@angular/forms';
 		CommonModule,
 		MaterialModule,
 		FormsModule,
-		UserEditRoutingModule
+		UserEditRoutingModule,
+
+		ReactiveFormsModule
 	],
 	exports: [
 		UserRegisterComponent
