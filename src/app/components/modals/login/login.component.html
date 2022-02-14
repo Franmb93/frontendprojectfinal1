@@ -1,18 +1,35 @@
 <div class="container">
-    <div>
-        <p>Username</p> <input type="text" name="username" [(ngModel)]="username">
-        <p>Password</p><input type="password" name="password" [(ngModel)]="password">
+    <div class="input-wrapper">
+        <div class="username-input">
+            <mat-form-field class="form_element">
+                <input matInput type="text" name="username" placeholder="Username" [(ngModel)]="username">
+            </mat-form-field>
+            
+        </div>
+        <div class="password-input">
+            <mat-form-field class="form_element">
+                  <input matInput placeholder="password" type="password" name="password" [(ngModel)]="password">
+            </mat-form-field>
+          
+        </div>
+            <mat-error *ngIf="validLogin == false && loginCount > 0">
+                 <p id="error-form">Error al meter la contraseña.</p>
+            </mat-error>     
     </div>
-    <div *ngIf="validLogin == false && loginCount > 0">
-        <p>Error al meter la contraseña.</p>
+
+<div class="buttons">
+    <div class="button-wrapper">
+        <button (click)=checkLogin() class="btn btn-success">
+            Login
+        </button>
+        <button (click)="onNoClick()" class="btn btn-success">Cerrar</button>
+
     </div>
 </div>
-<button (click)=checkLogin() class="btn btn-success">
-    Login
-  </button>
+    
 
-<button (click)=logOut() class="btn btn-success">
+</div>
+
+<!-- <button (click)=logOut() class="btn btn-success">
     Logout
-</button>
-
-<button (click)="onNoClick()">Cerrar</button>
+</button> -->
