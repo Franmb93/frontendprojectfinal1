@@ -10,6 +10,16 @@
 		display: flex;
 		flex-direction: column;
 
+		.peepoimg {
+			width: 3rem;
+			float: left;
+			margin-right: 2rem;
+			border: 1px solid #b2babb;
+			border-radius: 100%;
+		}
+	
+
+
 		.chaquetita {
 			width: 50px;
 		}
@@ -99,6 +109,8 @@
 				margin: 0;
 				object-fit: cover;
 			}
+
+			
 		}
 
 		.product-details {

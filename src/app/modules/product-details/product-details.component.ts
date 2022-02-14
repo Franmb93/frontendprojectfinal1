@@ -48,7 +48,7 @@ export class ProductDetailsComponent implements OnInit {
 		this.service.getProduct(id).subscribe(
 			data => {
 				this.product = data;
-				this.image = `${environment.apiURL}resources/images/${this.product.image}`;
+				this.image = `http://localhost:8080/files/${this.product.image}`;
 			}
 		);
 	}

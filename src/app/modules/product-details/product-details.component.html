@@ -3,7 +3,8 @@
 		<div class="user-details">
 			<mat-card-content>
 				<div class="image">
-					{{ owner?.image }}			
+					<!-- {{ owner?.image }}			 -->
+					<img class="peepoimg" src="./assets/peepo3.jpg" alt="ImagenDePrueba">
 				</div>
 				<div class="name">
 					{{ owner?.username }} 
@@ -24,13 +25,13 @@
 			</mat-card-content>
 		</div>
 		<div class="photo-container">
-			<div *ngIf="image != null">
+			<div *ngIf="image == null">
 				<img mat-card-image src="assets/chaqueta.jpg" alt="Foto1">
 			</div>
 
 
 
-			<div *ngIf="image == null">
+			<div *ngIf="image != null">
 				<img mat-card-image src="{{ image }}" alt="Foto1Null">
 			</div>
 
