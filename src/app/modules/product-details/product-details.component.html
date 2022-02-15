@@ -54,7 +54,7 @@
                 <button class="new-product-button" (click)="openPurchaseModal()" mat-raised-button color="secundary">Comprar</button>
             </div>
             <div class="btnEdit" *ngIf="isEqualLoggedThanThisUser()">
-                <a [routerLink]="['/producto/', product?.id, 'editar']"><button class="new-product-button" mat-raised-button color="secundary">Editar</button></a>
+                <button (click)="openDialogEditar(product.id)" class="new-product-button" mat-raised-button color="secundary">Editar</button>
             </div>
         </div>
     </mat-card>

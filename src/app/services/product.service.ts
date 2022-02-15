@@ -23,14 +23,6 @@ export class ProductService {
 	}
 
 	saveProduct(product: any): Observable<any> {
-		// const headers = {
-		// 	'content-type': 'multipart/form-data;',
-			// "Access-Control-Allow-Origin": 'http://localhost:8080/api/products',
-			// 'Access-Control-Request-Method': 'POST'
-
-			// 'content-type': 'multipart/form-data;',
-		// }
-		// 'content-type': 'multipart/form-data; boundary=l3iPy71otz',
 
 		const headers = new HttpHeaders({
       Authorization: 'Bearer ' + sessionStorage.getItem("authToken")
@@ -40,6 +32,18 @@ export class ProductService {
 		const json = JSON.stringify(product)
 
 		return this.http.post<any>(this.url, product, {headers: headers});
+	}
+
+	updateProduct(product: any): Observable<any> {
+
+		const headers = new HttpHeaders({
+      Authorization: 'Bearer ' + sessionStorage.getItem("authToken")
+    });
+    headers.set('Content-Type', 'multipart/form-data');
+
+		const json = JSON.stringify(product)
+
+		return this.http.put<any>(this.url, product, {headers: headers});
 	}
 
 }
