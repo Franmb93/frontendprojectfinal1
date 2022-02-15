@@ -1,81 +1,78 @@
-$corporative-color: #00B6D3;
-$white-color: #fff;
+@import 'src/variables.scss';
+
 #header-toolbar {
+	height: 10vh;
+	justify-content: space-around;
     background-color: #fff;
     margin-bottom: 32px;
-}
+	border-bottom: 2px solid $m-c-p;
 
-.wrapper {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    flex: 0.8 1 auto;
-}
+	.wrapper {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		flex: 0.8 1 auto;
+	
+		.main-wrapper {
+			display: flex;
+			align-items: center;
+	
+			.icon-wrapper {
+				margin-right: 20px;
+			
+				img {
+					width: 65px;
+					height: 65px;
+				}
+			}
+		}
+	
+		.buttons-wrapper {
+			display: flex;
+			flex-direction: row;
+			gap: 32px;
+			justify-content: center;
+			align-items: center;
+			// min-width: 20vw;
+			// align-self: flex-end;
 
-.mat-divider {
-    min-width: 15rem;
-    border: none;
-}
-
-.iconsearchwrapper {
-    display: flex;
-    align-items: center;
-}
-
-.button-wrapper {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    min-width: 20vw;
-    align-self: flex-end;
-}
-
-.button-wrapper button {
-    max-width: 145px;
-    max-height: 30px;
-    margin: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: 0.5s;
-}
-
-#searchbar-buttons {
-    // min-width: 33vw;
-    border: none;
-}
-
-.login-button {
-    min-width: 120px;
-    background-color: #fff;
-    border: 1.3px solid $corporative-color;
-    font-size: 1rem;
-    border-radius: 35px;
-    color: $corporative-color;
-    font-weight: 500;
-    &:hover {
-        background-color: $corporative-color;
-        color: $white-color;
-    }
-}
-
-.new-product-button {
-    min-width: 120px;
-    font-weight: 500;
-    font-size: 1rem;
-    color: $white-color;
-    background-color: $corporative-color;
-    border: 1.3px solid $corporative-color;
-    border-radius: 35px;
-    &:hover {
-        background-color: $white-color;
-        color: $corporative-color;
-    }
-}
-
-.icon-wrapper img {
-    width: 65px;
-    height: 65px;
-    margin-right: 20px;
+			// button {
+			// 	max-width: 145px;
+			// 	max-height: 30px;
+			// 	margin: 10px;
+			// 	display: flex;
+			// 	justify-content: center;
+			// 	align-items: center;
+			// 	transition: 0.5s;
+			// }
+		
+			// .login-button {
+			// 	min-width: 120px;
+			// 	background-color: #fff;
+			// 	border: 1.3px solid $m-c-p;
+			// 	font-size: 1rem;
+			// 	border-radius: 35px;
+			// 	color: $m-c-p;
+			// 	font-weight: 500;
+			// 	&:hover {
+			// 		background-color: $m-c-p;
+			// 		color: $white-color;
+			// 	}
+			// }
+			
+			// .new-product-button {
+			// 	min-width: 120px;
+			// 	font-weight: 500;
+			// 	font-size: 1rem;
+			// 	color: $white-color;
+			// 	background-color: $m-c-p;
+			// 	border: 1.3px solid $m-c-p;
+			// 	border-radius: 35px;
+			// 	&:hover {
+			// 		background-color: $white-color;
+			// 		color: $m-c-p;
+			// 	}
+			// }
+		}
+	}
 }

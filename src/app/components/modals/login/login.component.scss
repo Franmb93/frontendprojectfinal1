@@ -1,5 +1,4 @@
-$corporative-color: #00B6D3;
-$white-color: #fff;
+@import 'src/variables.scss';
 
 .container{
     min-width: 320px;
@@ -41,13 +40,13 @@ $white-color: #fff;
     align-items: center;
     transition: 0.5s;   
     background-color: #fff;
-    border: 1.3px solid $corporative-color;
+    border: 1.3px solid $m-c-p;
     border-radius: 35px;
-    color: $corporative-color;
+    color: $m-c-p;
     font-weight: 500;
 
     &:hover {
-        background-color: $corporative-color;
+        background-color: $m-c-p;
         color: $white-color;
     }
 }

@@ -1,5 +1,4 @@
-$corporative-color: #00B6D3;
-$white-color: #fff;
+@import 'src/variables.scss';
 .searchbar {
     display: flex;
     align-items: center;
@@ -24,7 +23,7 @@ $white-color: #fff;
 
 .md-form input:focus {
     outline: none;
-    border: 0.2px solid $corporative-color;
+    border: 0.2px solid $m-c-p;
     background-color: white;
     transition: 0.5s;
 }

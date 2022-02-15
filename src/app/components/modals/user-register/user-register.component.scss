@@ -1,5 +1,4 @@
-$corporative-color: #00B6D3;
-$white-color: #fff;
+@import 'src/variables.scss';
 form {
     display: flex;
     flex-direction: column;
@@ -51,13 +50,13 @@ div.buttons {
     .login-button {
         min-width: 120px;
         background-color: #fff;
-        border: 1.3px solid $corporative-color;
+        border: 1.3px solid $m-c-p;
         font-size: 1rem;
         border-radius: 35px;
-        color: $corporative-color;
+        color: $m-c-p;
         font-weight: 500;
         &:hover {
-            background-color: $corporative-color;
+            background-color: $m-c-p;
             color: $white-color;
         }
     }
@@ -66,12 +65,12 @@ div.buttons {
         font-weight: 500;
         font-size: 1rem;
         color: $white-color;
-        background-color: $corporative-color;
-        border: 1.3px solid $corporative-color;
+        background-color: $m-c-p;
+        border: 1.3px solid $m-c-p;
         border-radius: 35px;
         &:hover {
             background-color: $white-color;
-            color: $corporative-color;
+            color: $m-c-p;
         }
     }
 }

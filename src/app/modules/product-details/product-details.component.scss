@@ -1,4 +1,4 @@
-    $corporative-color: #00B6D3;
+    $m-c-p: #00B6D3;
     $white-color: #fff;
     .container {
         max-width: 100vw;
@@ -97,13 +97,13 @@
         .login-button {
             min-width: 120px;
             background-color: #fff;
-            border: 1.3px solid $corporative-color;
+            border: 1.3px solid $m-c-p;
             font-size: 1rem;
             border-radius: 35px;
-            color: $corporative-color;
+            color: $m-c-p;
             font-weight: 500;
             &:hover {
-                background-color: $corporative-color;
+                background-color: $m-c-p;
                 color: $white-color;
             }
         }
@@ -112,12 +112,12 @@
             font-weight: 500;
             font-size: 1rem;
             color: $white-color;
-            background-color: $corporative-color;
-            border: 1.3px solid $corporative-color;
+            background-color: $m-c-p;
+            border: 1.3px solid $m-c-p;
             border-radius: 35px;
             &:hover {
                 background-color: $white-color;
-                color: $corporative-color;
+                color: $m-c-p;
             }
         }
     }

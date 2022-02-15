@@ -32,17 +32,14 @@ export class HeaderComponent implements OnInit {
 			case 1:
 			dialogRef = this.dialog.open(UserRegisterComponent, {});
 			break;
+
+			case 2:
+			dialogRef = this.dialog.open(ProductRegisterComponent, {});
+			break;
 			
 			default:
 			break;
 		}
-	}
-	
-	openDialog2(): void {
-		const dialogRef = this.dialog.open(ProductRegisterComponent, {});
-		dialogRef.afterClosed().subscribe(res => {
-			console.log("res", res)
-		})
 	}
 	
 	logOut() {

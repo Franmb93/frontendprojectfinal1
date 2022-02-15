@@ -1,4 +1,4 @@
-$corporativeColor: #00B6D3;
+@import 'src/variables.scss';
 
 .container {
     display: flex;
@@ -17,6 +17,6 @@ $corporativeColor: #00B6D3;
 
 h2 {
     margin-top: 1.5rem;
-    color: $corporativeColor;
+    color: $m-c-p;
 }
 
