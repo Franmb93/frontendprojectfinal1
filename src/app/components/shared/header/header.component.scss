@@ -17,10 +17,6 @@ $white-color: #fff;
     border: none;
 }
 
-.icon-wrapper {
-    background-color: red;
-}
-
 .iconsearchwrapper {
     display: flex;
     align-items: center;
@@ -76,4 +72,10 @@ $white-color: #fff;
         background-color: $white-color;
         color: $corporative-color;
     }
+}
+
+.icon-wrapper img {
+    width: 65px;
+    height: 65px;
+    margin-right: 20px;
 }

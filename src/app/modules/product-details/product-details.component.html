@@ -20,7 +20,7 @@
 					<p><strong>{{ owner?.n_valorations }}</strong> Valoraciones</p>
 				</div>
 				<div class="chat">
-					<button mat-raised-button color="primary">Comenzar chat</button>
+					<button mat-raised-button class="new-product-button" color="primary">Comenzar chat</button>
 				</div>
 			</mat-card-content>
 		</div>
@@ -37,26 +37,26 @@
 
 
 
-			<div *ngIf="image == null">
-				<img mat-card-image src="assets/no-disponible.jpg" alt="Foto">
-			</div>
-		</div>
-		<div class="product-details">
-			<mat-card-title>{{ product?.price }} EUR</mat-card-title>
-			<mat-card-content>
-				<h1>{{ product?.name }}</h1>
-				<button mat-raised-button color="primary">{{ product?.category?.name }}</button>
-				<p>{{ product?.description }}</p>
-			</mat-card-content>
-		</div>
+            <div *ngIf="image == null">
+                <img mat-card-image src="assets/no-disponible.jpg" alt="Foto">
+            </div>
+        </div>
+        <div class="product-details">
+            <mat-card-title>{{ product?.price }} EUR</mat-card-title>
+            <mat-card-content>
+                <h1>{{ product?.name }}</h1>
+                <button mat-raised-button class="new-product-button" color="primary">{{ product?.category?.name }}</button>
+                <p>{{ product?.description }}</p>
+            </mat-card-content>
+        </div>
 
-		<div class="btn2">
-			<div class="btnComprar" *ngIf="isUserLogged() && !isEqualLoggedThanThisUser()">
-				<button (click)="openPurchaseModal()" mat-raised-button color="secundary">Comprar</button>
-			</div>
-			<div class="btnEdit" *ngIf="isEqualLoggedThanThisUser()">
-				<a [routerLink]="['/producto/', product?.id, 'editar']"><button mat-raised-button color="secundary">Editar</button></a>
-			</div>
-		</div>
-	</mat-card>
+        <div class="btn2">
+            <div class="btnComprar" *ngIf="isUserLogged() && !isEqualLoggedThanThisUser()">
+                <button class="new-product-button" (click)="openPurchaseModal()" mat-raised-button color="secundary">Comprar</button>
+            </div>
+            <div class="btnEdit" *ngIf="isEqualLoggedThanThisUser()">
+                <a [routerLink]="['/producto/', product?.id, 'editar']"><button class="new-product-button" mat-raised-button color="secundary">Editar</button></a>
+            </div>
+        </div>
+    </mat-card>
 </div>

@@ -16,13 +16,13 @@ import { environment } from 'src/environments/environment';
 	styleUrls: ['./product-details.component.scss']
 })
 export class ProductDetailsComponent implements OnInit {
-	
+
 	public id!: number;
 	public product!: Product;
 	public owner!: User;
 	public image!: string;
-	public valoration!: number;	
-	
+	public valoration!: number;
+
 	constructor(
 		public dialog: MatDialog,
 		private service: ProductService,
@@ -30,20 +30,20 @@ export class ProductDetailsComponent implements OnInit {
 		private authService: AuthenticationService,
 		private categoryService: CategoryService,
 		private route: ActivatedRoute) {
-			
+
 			this.route.params.subscribe(
 				params => {
-					this.id = +params['id'];			
+					this.id = +params['id'];
 					this.getProduct(this.id);
 					this.getOwner(this.id);
 				}
 			);
 	}
-	
+
 	ngOnInit(): void {
-		
+
 	};
-	
+
 	getProduct(id: number) {
 		this.service.getProduct(id).subscribe(
 			data => {
@@ -61,7 +61,7 @@ export class ProductDetailsComponent implements OnInit {
 			}
 		);
 	}
-	
+
 	openPurchaseModal() {
 		const dialogRef = this.dialog.open(PurchaseComponent, { data: { product: this.product, owner: this.owner } });
 		dialogRef.afterClosed().subscribe(res => {
@@ -80,17 +80,17 @@ export class ProductDetailsComponent implements OnInit {
 			this.product.price = this.product.price + 7.95;
 		}
 	}
-	
+
 	isEqualLoggedThanThisUser() : Boolean{
 		if(this.owner?.username === localStorage.getItem('currentUser')){
 			return true;
 		} else { return false; }
 	}
-	
+
 	isUserLogged() : Boolean {
 		if(localStorage.getItem('currentUser')){
 			return true;
 		} else { return false;}
 	}
-	
-}		
+
+}
