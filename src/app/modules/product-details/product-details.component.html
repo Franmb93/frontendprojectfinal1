@@ -7,7 +7,10 @@
 					<img class="peepoimg" src="./assets/peepo3.jpg" alt="ImagenDePrueba">
                 </div>
                 <div class="name">
-                    {{ owner?.username }}
+                    <a [routerLink]="['/usuario', owner?.id]">
+                        {{ owner?.username }}
+                    </a>
+                    
                 </div>
                 <div class="products gray">
                     {{ owner?.products?.length }} Productos
@@ -55,7 +58,7 @@
                 <button class="m-btn-primary" (click)="openPurchaseModal()" mat-raised-button color="secundary">Comprar</button>
             </div>
             <div class="btnEdit" *ngIf="isEqualLoggedThanThisUser()">
-                <a [routerLink]="['/producto/', product?.id, 'editar']"><button class="m-btn-primary-i" mat-raised-button color="secundary">Editar</button></a>
+                <button class="m-btn-primary-i" mat-raised-button color="secundary" [routerLink]="['/producto/', product?.id, 'editar']">Editar</button>
             </div>
         </div>
     </mat-card>

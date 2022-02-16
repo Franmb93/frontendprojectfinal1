@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
+import { ProductRegisterComponent } from 'src/app/components/modals/product-register/product-register.component';
 import { PurchaseComponent } from 'src/app/components/modals/purchase/purchase.component';
 import { Product } from 'src/app/interfaces/product';
 import { User } from 'src/app/interfaces/user';
@@ -9,6 +10,7 @@ import { CategoryService } from 'src/app/services/category.service';
 import { ProductService } from 'src/app/services/product.service';
 import { UserService } from 'src/app/services/user.service';
 import { environment } from 'src/environments/environment';
+import { ProductEditComponent } from '../product-edit/product-edit.component';
 
 @Component({
 	selector: 'app-product-details',
@@ -91,6 +93,11 @@ export class ProductDetailsComponent implements OnInit {
 		if(localStorage.getItem('currentUser')){
 			return true;
 		} else { return false;}
+	}
+
+
+	openDialogEditar(productId: any): void {
+		this.dialog.open(ProductEditComponent, { data: productId });
 	}
 
 }

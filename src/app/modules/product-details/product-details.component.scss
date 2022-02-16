@@ -1,151 +1,123 @@
-    @import 'src/variables.scss';
+@import 'src/variables.scss';
 
-    .container {
-		// max-width: 100vw;
-		// min-width: 50vw;
-		width: 50vw;
-		height: 85vh;
-		padding: 0;
-		// margin: 5px;
+.container {
+	// max-width: 100vw;
+	// min-width: 50vw;
+	width: 50vw;
+	height: 85vh;
+	padding: 0;
+	// margin: 5px;
+	
+	border-radius: 4px;
+	box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+	
+	.product-card {
+		height: 100%;
+		display: flex;
+		flex-direction: column;
 		
-		border-radius: 4px;
-		box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+		transition: box-shadow .3s;
 		
-		.product-card {
-			height: 100%;
-			display: flex;
-			flex-direction: column;
-			
-			transition: box-shadow .3s;
-			
-			.chaquetita {
-				width: 50px;
-			}
-			
-			button {
-				text-transform: capitalize;
-				border-radius: 20px;
-			}
-			
-			&:hover {
-				box-shadow: 0 0 11px rgba(33, 33, 33, .2);
-			}
-			.user-details {
-				height: 45px;
-				margin-bottom: 16px;
-				mat-card-content {
+		.chaquetita {
+			width: 50px;
+		}
+		
+		button {
+			text-transform: capitalize;
+			border-radius: 20px;
+		}
+		
+		&:hover {
+			box-shadow: 0 0 11px rgba(33, 33, 33, .2);
+		}
+		.user-details {
+			height: 45px;
+			margin-bottom: 16px;
+			mat-card-content {
+				display: grid;
+				grid-template-rows: 1fr 1fr;
+				grid-template-columns: 0.5fr 1fr 1fr 1.5fr;
+				grid-template-areas: "image name valoration chat" "image products n_valorations chat";
+				row-gap: 4px;
+				.image {
+					grid-area: image;
+					
+					display: flex;
+					justify-content: center;
+					
+					cursor: pointer;
+					
+					.peepoimg {
+						width: 5vh;
+						height: 5vh;
+						border: 2px solid $m-c-p;
+						border-radius: 100%;
+					}
+				}
+				.name {
+					grid-area: name;
+					font-size: 20px;
+					font-weight: 700;
+				}
+				.products {
+					grid-area: products;
+				}
+				.valoration {
+					grid-area: valoration;
 					display: grid;
-					grid-template-rows: 1fr 1fr;
-					grid-template-columns: 0.5fr 1fr 1fr 1.5fr;
-					grid-template-areas: "image name valoration chat" "image products n_valorations chat";
-					row-gap: 4px;
-					.image {
-						grid-area: image;
-
-						display: flex;
-						justify-content: center;
-
-						cursor: pointer;
-
-						.peepoimg {
-							width: 5vh;
-							height: 5vh;
-							border: 2px solid $m-c-p;
-							border-radius: 100%;
-						}
-					}
-					.name {
-						grid-area: name;
-						font-size: 20px;
-						font-weight: 700;
-					}
-					.products {
-						grid-area: products;
-					}
-					.valoration {
-						grid-area: valoration;
-						display: grid;
-						grid-template: 1fr / 1fr 5fr;
-						align-items: center;
-					}
-					.n_valorations {
-						grid-area: n_valorations;
-						p {
-							margin: 0;
-						}
-					}
-					.chat {
-						height: 40px;
-						grid-area: chat;
-						display: flex;
-						justify-content: right;
-						align-self: center;
-						button {
-							width: 75%;
-						}
-					}
+					grid-template: 1fr / 1fr 5fr;
+					align-items: center;
 				}
-			}
-			.photo-container {
-				height: 477px;
-				display: flex;
-				justify-content: center;
-				overflow: hidden;
-				border-radius: 12px;
-				padding: 4px;
-				box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
-				img {
-					max-height: 100%;
-					border-radius: 10px;
-					margin: 0;
-					object-fit: cover;
-				}
-			}
-			.product-details {
-				margin-top: 20px;
-				mat-card-content {
-					margin: 0;
-					h1 {
-						margin: 0;
-						padding-bottom: 8px;
-					}
+				.n_valorations {
+					grid-area: n_valorations;
 					p {
-						padding-top: 20px;
+						margin: 0;
 					}
 				}
-			}
-
-			.buttons-container {
-				display: flex;
-				justify-content: flex-end;
+				.chat {
+					height: 40px;
+					grid-area: chat;
+					display: flex;
+					justify-content: right;
+					align-self: center;
+					button {
+						width: 75%;
+					}
+				}
 			}
 		}
-
-		// .login-button {
-		// 	min-width: 120px;
-		// 	background-color: #fff;
-		// 	border: 1.3px solid $m-c-p;
-		// 	font-size: 1rem;
-		// 	border-radius: 35px;
-		// 	color: $m-c-p;
-		// 	font-weight: 500;
-		// 	&:hover {
-		// 		background-color: $m-c-p;
-		// 		color: $white-color;
-		// 	}
-		// }
+		.photo-container {
+			height: 477px;
+			display: flex;
+			justify-content: center;
+			overflow: hidden;
+			border-radius: 12px;
+			padding: 4px;
+			box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+			img {
+				max-height: 100%;
+				border-radius: 10px;
+				margin: 0;
+				object-fit: cover;
+			}
+		}
+		.product-details {
+			margin-top: 20px;
+			mat-card-content {
+				margin: 0;
+				h1 {
+					margin: 0;
+					padding-bottom: 8px;
+				}
+				p {
+					padding-top: 20px;
+				}
+			}
+		}
 		
-		// .new-product-button {
-		// 	min-width: 120px;
-		// 	font-weight: 500;
-		// 	font-size: 1rem;
-		// 	color: $white-color;
-		// 	background-color: $m-c-p;
-		// 	border: 1.3px solid $m-c-p;
-		// 	border-radius: 35px;
-		// 	&:hover {
-		// 		background-color: $white-color;
-		// 		color: $m-c-p;
-		// 	}
-		// }
+		.buttons-container {
+			display: flex;
+			justify-content: flex-end;
+		}
 	}
+}					
