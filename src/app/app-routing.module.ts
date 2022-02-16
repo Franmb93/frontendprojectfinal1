@@ -20,6 +20,7 @@ const routes: Routes = [
 	{ path: 'register', loadChildren: () => import('./modules/user-edit/user-edit.module').then(m => m.UserEditModule) },
 	
 	{ path: 'home', component: HomeComponent },
+	{ path: '**', redirectTo: 'home', pathMatch: 'full' }
 ];
 
 @NgModule({

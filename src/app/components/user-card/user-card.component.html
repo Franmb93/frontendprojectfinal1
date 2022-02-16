@@ -11,16 +11,20 @@
                 </div>
                 <div id="valoration">
                     <!-- TODO Añadir valoraciones/estrellas -->
-                {{ user?.valoration }}
+                	{{ user?.valoration }} valoraciones
+					<div class="score">
+						{{ valoration }}
+            			<mat-progress-bar mode="determinate" [value]="valoration"></mat-progress-bar>
+					</div>
                 </div>
                 
             </div>
         </div>
-        <div class="user-valorations"></div>
+        
         <div class="button-wrapper">
             <div class="btn_userCard" *ngIf="isEqualLoggedThanThisUser()">
-            <a [routerLink]="['/usuario', user?.id, 'editar']"><button mat-raised-button id="edit" type="submit">Edit user</button></a>
-            <a><button mat-raised-button id="create" type="submit">Create product</button></a>
+            <a [routerLink]="['/usuario', user?.id, 'editar']"><button mat-raised-button id="edit" type="submit">Editar usuario</button></a>
+            <!-- <a><button mat-raised-button id="create" type="submit">Crear producto</button></a> -->
         </div>
         </div>
         

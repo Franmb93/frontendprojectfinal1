@@ -113,7 +113,7 @@
 			</div>
 		</div>
 		
-		<div class="image">
+		<!-- <div class="image">
 			<label for="image">Imagen</label>
 			  <input type="text" class="form-control" id="image" required [(ngModel)]="user.image" name="image">
 		</div>
@@ -129,7 +129,7 @@
 					Es necesario introducir una dirección de facturación
 				</div>
 			</div>
-		</div>
+		</div> -->
 
 		<div class="shipping_address">
 			<label for="shipping_address">Dirección de envío</label>
@@ -144,7 +144,10 @@
 			</div>
 		</div>
 	
-		<button mat-raised-button color="primary" class="actions__btn" type="submit" (click)="putUser(userForm)">Aceptar</button>
+		<div class="buttons-container">
+			<button mat-raised-button color="primary" class="actions__btn m-btn-primary" type="submit" (click)="putUser(userForm)">Aceptar</button>
+			<button mat-raised-button color="primary" class="actions__btn m-btn-primary-c" [routerLink]="['/usuario', user?.id]">Cancelar</button>
+		</div>
 	
 	</form>
 </div>

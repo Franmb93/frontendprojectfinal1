@@ -1,12 +1,12 @@
 <div class="container">
 	<h2 class="featurerTitle">Productos destacados</h2>
 	<div class="featured">
-		<app-product-card *ngFor="let f of products1" [product]="f" [routerLink]="['/producto', product?.id]"></app-product-card>
+		<app-product-card *ngFor="let f of products1" [product]="f" [routerLink]="['/producto', f?.id]"></app-product-card>
 	</div>
 	
 	
 	<h2 class="featurerTitle">Destacados en nombrecategoria</h2>
 	<div class="featured" >
-		<app-product-card *ngFor="let f of products2" [product]="f" [routerLink]="['/producto', product?.id]"></app-product-card>
+		<app-product-card *ngFor="let f of products2" [product]="f" [routerLink]="['/producto', f?.id]"></app-product-card>
 	</div>
 </div>

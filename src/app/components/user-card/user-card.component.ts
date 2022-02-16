@@ -15,6 +15,7 @@ export class UserCardComponent implements OnInit {
     public user!: User;
     public image!: string;
     public userNow!: User;
+	public valoration!: number;
 
   constructor(private service: UserService,  private route: ActivatedRoute) {
     this.route.params.subscribe(
@@ -35,7 +36,9 @@ export class UserCardComponent implements OnInit {
 			data => {
 				this.user = data;
 
-				this.image = `${environment.apiURL}resources/images/${this.user.image}`
+				this.image = `${environment.apiURL}resources/images/${this.user.image}`;
+
+				this.valoration = this.user.valoration * 20;
 			}
 		);
 	}

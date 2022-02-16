@@ -2,8 +2,9 @@
     <mat-card class="product-card">
         <div class="user-details">
             <mat-card-content>
-                <div class="image">
-                    {{ owner?.image }}
+                <div class="image" [routerLink]="['/usuario', owner?.id]">
+                    <!-- {{ owner?.image }} -->
+					<img class="peepoimg" src="./assets/peepo3.jpg" alt="ImagenDePrueba">
                 </div>
                 <div class="name">
                     {{ owner?.username }}
@@ -19,7 +20,7 @@
                     <p><strong>{{ owner?.n_valorations }}</strong> Valoraciones</p>
                 </div>
                 <div class="chat">
-                    <button mat-raised-button class="new-product-button" color="primary">Comenzar chat</button>
+                    <button mat-raised-button class="m-btn-primary" color="primary">Comenzar chat</button>
                 </div>
             </mat-card-content>
         </div>
@@ -44,17 +45,17 @@
             <mat-card-title>{{ product?.price }} EUR</mat-card-title>
             <mat-card-content>
                 <h1>{{ product?.name }}</h1>
-                <button mat-raised-button class="new-product-button" color="primary">{{ product?.category?.name }}</button>
+                <button mat-raised-button class="m-btn-primary-i" color="primary">{{ product?.category?.name }}</button>
                 <p>{{ product?.description }}</p>
             </mat-card-content>
         </div>
 
-        <div class="btn2">
+        <div class="buttons-container">
             <div class="btnComprar" *ngIf="isUserLogged() && !isEqualLoggedThanThisUser()">
-                <button class="new-product-button" (click)="openPurchaseModal()" mat-raised-button color="secundary">Comprar</button>
+                <button class="m-btn-primary" (click)="openPurchaseModal()" mat-raised-button color="secundary">Comprar</button>
             </div>
             <div class="btnEdit" *ngIf="isEqualLoggedThanThisUser()">
-                <a [routerLink]="['/producto/', product?.id, 'editar']"><button class="new-product-button" mat-raised-button color="secundary">Editar</button></a>
+                <a [routerLink]="['/producto/', product?.id, 'editar']"><button class="m-btn-primary-i" mat-raised-button color="secundary">Editar</button></a>
             </div>
         </div>
     </mat-card>

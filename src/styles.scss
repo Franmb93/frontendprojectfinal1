@@ -32,10 +32,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 
 .m-btn-primary {
-	background: $m-c-p;
-	color: #FFFFFF;
+	background: $m-c-p !important;
+	color: #FFFFFF !important;
 	&:hover {
-		color: #FFFFFF;
+		color: #FFFFFF !important;
 		box-shadow: $m-c-p-h 0 1px 15px;
 		transition-duration: .1s;
 	}
@@ -43,9 +43,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 
 .m-btn-primary-i {
-	background: #FFFFFF;
-	color: $m-c-p;
-	border: 1px solid $m-c-p ;
+	background: #FFFFFF !important;
+	color: $m-c-p !important;
+	border: 1px solid $m-c-p !important;
 	&:hover {
 		
 		box-shadow: $m-c-p-h 0 1px 15px;
@@ -54,10 +54,21 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 
 .m-btn-secondary {
-	background: $m-c-s;
-	color: #FFFFFF;
+	background: $m-c-s !important;
+	color: #FFFFFF !important;
 	&:hover {
 		box-shadow: $m-c-s-h 0 1px 15px;
+		transition-duration: .25s;
+	}
+}
+
+.m-btn-primary-c {
+	background: #FFFFFF !important;
+	color: red !important;
+	border: 1px solid red !important;
+	&:hover {
+		
+		box-shadow: #ff000080 0 1px 15px;
 		transition-duration: .25s;
 	}
 }
