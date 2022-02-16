@@ -81,6 +81,9 @@
 
 				.n_valorations {
 					grid-area: n_valorations;
+					display: grid;
+					grid-template: 1fr / 1fr 5fr;
+					align-items: center;
 					p {
 						margin: 0;
 					}
