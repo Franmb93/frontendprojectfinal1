@@ -45,7 +45,7 @@ export class ProductEditComponent implements OnInit {
 		private categoryService: CategoryService,
 		private router: Router,
 		private uploadService: FileUploadService,
-		public dialogRef: MatDialogRef<ProductEditComponent>,
+		// public dialogRef: MatDialogRef<ProductEditComponent>,
         @Inject(MAT_DIALOG_DATA) public data: any,
 	) { }
 		
@@ -146,7 +146,7 @@ export class ProductEditComponent implements OnInit {
 			})
 		).subscribe();
 		// this.router.navigate(['/home'])
-		this.dialogRef.close();
+		// this.dialogRef.close();
 	}
 
 	//get una categoría o ya me la trae el producto

@@ -35,13 +35,14 @@
 			}
 		}
 	
-		div:last-of-type{
-			margin-bottom: 24px;
-		}
+		// div:last-of-type{
+		// 	margin-bottom: 24px;
+		// }
 
 		.buttons-container {
 			display: flex;
 			justify-content: space-between;
+			margin: 8px 0 0;
 		}
 	}
 }
