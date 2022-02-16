@@ -1,7 +1,8 @@
 import { HttpEventType, HttpResponse } from '@angular/common/http';
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, EventEmitter, Inject, Input, OnInit, Output } from '@angular/core';
 import { waitForAsync } from '@angular/core/testing';
 import { NgForm } from '@angular/forms';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable, pipe, switchMap, tap, timeout } from 'rxjs';
 import { Category } from 'src/app/interfaces/category';
@@ -19,27 +20,13 @@ import { environment } from 'src/environments/environment';
 })
 export class ProductEditComponent implements OnInit {
 
+	@Output() newItemEvent = new EventEmitter<any>();
 
 	public id!: number;
-	// public product!: Product;
-	// public product: Product = {
-	// 	id: 0,
-	// 	name: "",
-	// 	description: "",
-	// 	price: number,
-	// 	weight: number,
-	// 	image: string,
-	// 	published_date: string,
-	// 	user: User,
-	// 	category: number,
-	// 	deal: Deal,
-	// };
 	public category!: number;
 	public selectedOption!: number;
-	public valoration!: number;
 
-	user = true;
-	products: Product[] = [];
+	
 	image!: string;
 	categories: Category[] = [];
 	selectedFiles?: FileList;
@@ -49,93 +36,82 @@ export class ProductEditComponent implements OnInit {
 	fileInfos?: Observable<any>;
 	fileName?: String;
 
-	model: any = {
-		name: "",
-		description: "",
-		price: "",
-		weight: "",
-		image: ""
-	}
-	product: any = {}
-	// product: any = {
-	// 	name: "Adidas",
-	// 	description: "Zapatillas",
-	// 	price: "13",
-	// 	weight: "2",
-	// }
+	// /Hacer llamada con id al producto para que se rellene el formulario
+	product: any = {};
+	
 
 	constructor(
 		private service: ProductService,
 		private categoryService: CategoryService,
 		private router: Router,
-		private uploadService: FileUploadService
+		private uploadService: FileUploadService,
+		public dialogRef: MatDialogRef<ProductEditComponent>,
+        @Inject(MAT_DIALOG_DATA) public data: any,
 	) { }
-
+		
 	ngOnInit(): void {
 		this.getCategories();
+		this.getProduct(this.data)
 	}
 
-
+	
 
 	private getCurrentDate(): string {
 		return new Date().toLocaleDateString();
 	}
 
+	
 
 	selectFile(event: any): void {
 		this.selectedFiles = event.target.files;
 	}
 
-	upload(): void {
-		this.progress = 0;
-		if (this.selectedFiles) {
-			const file: File | null = this.selectedFiles.item(0);
-			if (file) {
-				this.currentFile = file;
-				this.uploadService.upload(this.currentFile).subscribe({
-					next: (event: any) => {
-						if (event.type === HttpEventType.UploadProgress) {
-							this.progress = Math.round(100 * event.loaded / event.total);
-							this.fileName = this.currentFile?.name;
+	// upload(): void {
+	// 	this.progress = 0;
+	// 	if (this.selectedFiles) {
+	// 		const file: File | null = this.selectedFiles.item(0);
+	// 		if (file) {
+	// 			this.currentFile = file;
+	// 			this.uploadService.upload(this.currentFile).subscribe({
+	// 				next: (event: any) => {
+	// 					if (event.type === HttpEventType.UploadProgress) {
+	// 						this.progress = Math.round(100 * event.loaded / event.total);
+	// 						this.fileName = this.currentFile?.name;
 
-						} else if (event instanceof HttpResponse) {
-							this.message = event.body.message;
-							this.fileInfos = this.uploadService.getFiles();
-						}
-					},
-					error: (err: any) => {
-						console.log(err);
-						this.progress = 0;
-						if (err.error && err.error.message) {
-							this.message = err.error.message;
-						} else {
-							this.message = 'Could not upload the file!';
-						}
-						this.currentFile = undefined;
-					}
-				});
-			}
-			this.selectedFiles = undefined;
-		}
-	}
+	// 					} else if (event instanceof HttpResponse) {
+	// 						this.message = event.body.message;
+	// 						// this.fileInfos = this.uploadService.getFiles();
+	// 					}
+	// 				},
+	// 				error: (err: any) => {
+	// 					console.log(err);
+	// 					this.progress = 0;
+	// 					if (err.error && err.error.message) {
+	// 						this.message = err.error.message;
+	// 					} else {
+	// 						this.message = 'Could not upload the file!';
+	// 					}
+	// 					this.currentFile = undefined;
+	// 				}
+	// 			});
+	// 		}
+	// 		this.selectedFiles = undefined;
+	// 	}
+		
+	// }
 
 
 	onSubmit({ value: formData }: NgForm): void {
-
+		
 		let arrayImages: any[] = [];
 		let url: any;
 		this.uploadService.getFiles().pipe(
 			tap(
 				(files) => {
 					arrayImages = files;
-
-
 				for (let e of arrayImages) {
 					if (e.name === this.fileName) {
-						// let arrayUrl = e.url.split("/");
 						url = e.url.substr(-36)
-						// console.log("url dentro ", arrayUrl[4])
-						// console.log("mierdaaa ", mierda)
 					}
 				}
 				let price: number = +formData.price;
@@ -147,13 +123,12 @@ export class ProductEditComponent implements OnInit {
 					image: url,
 					// published_date: this.getCurrentDate(),
 					// published_date: "2021-01-01",
-					// user: {id: localStorage.getItem('currentUserId')},
-					user: { id: localStorage.getItem('currentUserId') },
+					user: {id: localStorage.getItem('currentUserId')},
 					category: { id: 1 },
 				}
 				console.log("el jason: ", JSON.stringify(this.product))
 
-				this.service.saveProduct(this.product)
+				this.service.updateProduct(this.product)
 					.pipe(
 						// 	tap( res => console.log("la orden", res)),
 
@@ -165,22 +140,16 @@ export class ProductEditComponent implements OnInit {
 
 						//   delay(5000),
 						//   tap( () => this.shoppingCartService.resetCart())
-						tap(() => this.router.navigate(['/home'])),
+						// tap(() => this.router.navigate(['/home'])),
 
 					).subscribe();
 			})
 		).subscribe();
-		// const splite = url[0].split("/")
-
-		if(true){
-
-			console.log("url fuera ", url);
-		}
-
-
-
+		// this.router.navigate(['/home'])
+		this.dialogRef.close();
 	}
 
+	//get una categoría o ya me la trae el producto
 	getCategories() {
 		this.categoryService.getCategories().subscribe(
 			data => {
@@ -190,32 +159,23 @@ export class ProductEditComponent implements OnInit {
 		)
 	}
 
-	handleFileUpload() {
-		console.log("image")
+
+	getProduct(id: number) {
+		this.service.getProduct(id).subscribe(
+			productData => {
+				this.product = productData;
+			}
+		);
 	}
 
-	// getProduct(id: number) {
-	// 	this.service.getProduct(id).subscribe(
-	// 		data => {
-	// 			this.product = data;
-	// 			this.getCategory(this.product.category);
-	// 			console.log(data);
-	// 			this.image = `${environment.apiURL}resources/images/${this.product.image}`;
-	// 			console.log(this.product.user.valoration);
-	// 			this.valoration = this.product.user.valoration * 20;
-	// 			console.log(this.valoration);
-	// 		}
-	// 	);
-	// }
-
-	// getCategory(id: number) {
-	// 	this.categoryService.getCategory(id).subscribe(
-	// 		data => {
-	// 			this.category = data;
-	// 			console.log(data);
-	// 		}
-	// 	);
-	// }
+	getCategory(id: number) {
+		this.categoryService.getCategory(id).subscribe(
+			data => {
+				this.category = data;
+				console.log(data);
+			}
+		);
+	}
 
 
 }

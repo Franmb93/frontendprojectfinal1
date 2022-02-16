@@ -1,6 +1,59 @@
-<app-product-edit></app-product-edit>
-<button
-            mat-raised-button
-            class="actions__btn_close" 
-            (click)="onNoClick()"
-        >Cerrar</button>
+<div class="container">
+    <mat-label>Subir producto</mat-label>
+    <form class="form" #submitForm="ngForm" enctype="multipart/form-data">
+        <mat-form-field class="form_element">
+            <input matInput placeholder="Name" required [(ngModel)]="model.name" name="name" #name="ngModel" />
+            <mat-error *ngIf="!name.valid || name.pristine">Nombre del producto incorrecto</mat-error>
+        </mat-form-field>
+        <mat-form-field class="form_element">
+            <input matInput placeholder="Descripción" required [(ngModel)]="model.description" name="description"
+                #description="ngModel" />
+            <mat-error *ngIf="!description.valid || description.pristine">Descripción del producto incorrecta
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field class="form_element">
+            <input matInput placeholder="Precio" required [(ngModel)]="model.price" name="price" #price="ngModel" />
+            <mat-error *ngIf="!price.valid || price.pristine">Precio del producto incorrecto</mat-error>
+        </mat-form-field>
+        <mat-form-field class="form_element">
+            <input matInput placeholder="Peso" required [(ngModel)]="model.weight" name="weight" #weight="ngModel" />
+            <mat-error *ngIf="!weight.valid || weight.pristine">Peso del producto incorrecto</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="category-select">
+            <mat-label>Categoría</mat-label>
+            <mat-select>
+                <mat-option *ngFor="let category of categories" [value]="category.id">
+                    {{ category.name }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <div>
+            <div class="row">
+                <div class="col-8">
+                    <label class="btn btn-default p-0">
+                        <input type="file" (change)="selectFile($event)" />
+                    </label>
+                </div>
+                <div class="col-4">
+                    <button class="btn btn-success btn-sm" [disabled]="!selectedFiles" (click)="upload()">
+                        Cargar foto
+                    </button>
+                </div>
+            </div>
+            <div *ngIf="currentFile" class="progress my-3">
+                <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar"
+                    attr.aria-valuenow="{{ progress }}" aria-valuemin="0" aria-valuemax="100"
+                    [ngStyle]="{ width: progress + '%' }">
+                    {{ progress }}%
+                </div>
+            </div>
+            <div *ngIf="message" class="alert alert-secondary" role="alert">{{ message }}</div>
+        </div>
+    </form>
+    <div class="actions">
+        <button id="send-button" mat-raised-button color="primary" class="actions__btn" type="submit"
+            (click)="onSubmit(submitForm)">
+            Enviar
+        </button>
+    </div>
+</div>
