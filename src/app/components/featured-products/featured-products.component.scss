@@ -9,10 +9,11 @@
 }
 
 .featured {
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-    // margin-bottom: .5rem;
+    // width: 85vw;
+	margin: 0 auto;
+    display: grid;
+    grid-template: auto / 1fr 1fr 1fr;
+	gap: 32px;
 }
 
 h2 {
