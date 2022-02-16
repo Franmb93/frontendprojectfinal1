@@ -27,19 +27,17 @@
                 </mat-option>
             </mat-select>
         </mat-form-field>
-        <div>
-            <div class="row">
-                <div class="col-8">
-                    <label class="btn btn-default p-0">
-                        <input class="form-control" type="file" (change)="selectFile($event)" />
-                    </label>
-                </div>
-                <div class="col-4">
-                    <button class="btn btn-success btn-sm" [disabled]="!selectedFiles" (click)="upload()">
-                        Cargar foto
-                    </button>
-                </div>
-            </div>
+
+        <div class="select-file">
+			<label class="btn btn-default p-0">
+				<input class="form-control" type="file" (change)="selectFile($event)" />
+			</label>
+			<button class="btn btn-success btn-sm" [disabled]="!selectedFiles" (click)="upload()">
+				Cargar foto
+			</button>
+		</div>
+
+		<div>
             <div *ngIf="currentFile" class="progress my-3">
                 <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar"
                     attr.aria-valuenow="{{ progress }}" aria-valuemin="0" aria-valuemax="100"
@@ -49,11 +47,10 @@
             </div>
             <div *ngIf="message" class="alert alert-secondary" role="alert">{{ message }}</div>
         </div>
+
     </form>
     <div class="actions">
-        <button id="send-button" mat-raised-button color="primary" class="actions__btn" type="submit"
-            (click)="onSubmit(submitForm)">
-            Enviar
-        </button>
+        <button mat-raised-button color="primary" class="m-btn-primary" type="submit" (click)="onSubmit(submitForm)">Enviar</button>
+		<button mat-raised-button color="primary" class="m-btn-primary-c" (click)="closeSelf()" >Cancelar</button>
     </div>
 </div>

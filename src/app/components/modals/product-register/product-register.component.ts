@@ -150,8 +150,9 @@ export class ProductRegisterComponent implements OnInit {
 		)
 	}
 
-
-
+	closeSelf(): void {
+		this.dialogRef.close();
+	}
 
 }
 
