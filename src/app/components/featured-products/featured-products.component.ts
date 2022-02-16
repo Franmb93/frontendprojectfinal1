@@ -38,9 +38,9 @@ export class FeaturedProductsComponent implements OnInit {
 				featuredProducts = data._embedded.productList;
 
 				for (let i = 0; i < 3; i++) {
-					this.products1.push(featuredProducts[i])
-					console.log(featuredProducts[i]);
-					
+					if(featuredProducts[i]) {
+						this.products1.push(featuredProducts[i])
+					}
 				}
 				
 				for (let i = 3; i < 6; i++) {
