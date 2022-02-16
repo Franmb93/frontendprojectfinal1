@@ -44,14 +44,19 @@ export class ProductEditComponent implements OnInit {
 		private service: ProductService,
 		private categoryService: CategoryService,
 		private router: Router,
-		private uploadService: FileUploadService,
-		// public dialogRef: MatDialogRef<ProductEditComponent>,
-        @Inject(MAT_DIALOG_DATA) public data: any,
-	) { }
+		private route: ActivatedRoute,
+		private uploadService: FileUploadService) {
+		this.route.params.subscribe(
+			params => {
+				this.id = +params['id'];
+				this.getProduct(this.id);
+			}
+		);
+	 }
 		
 	ngOnInit(): void {
 		this.getCategories();
-		this.getProduct(this.data)
+		// this.getProduct(this.data)
 	}
 
 	
