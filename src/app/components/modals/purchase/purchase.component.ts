@@ -17,6 +17,10 @@ export class PurchaseComponent implements OnInit {
 	public owner!: User;
 	public self!: User;
 
+	public total!: number;
+	public rest!: number;
+
+
 	constructor(private service: UserService, private dealService: DealService, public dialogRef: MatDialogRef<PurchaseComponent>, @Inject(MAT_DIALOG_DATA) public data: any) { }
 	
 	ngOnInit(): void {
@@ -26,6 +30,8 @@ export class PurchaseComponent implements OnInit {
 		this.service.getUser(localStorage.getItem('currentUserId')).subscribe(
 			data => {
 				this.self = data;
+				this.total = this.product.price + this.priceShipping();
+				this.rest = this.self.wallet - this.total;
 			}
 		);
 	}
@@ -38,14 +44,25 @@ export class PurchaseComponent implements OnInit {
 		this.updateWallets();
 	}
 
+	priceShipping() {
+		if (this.product.weight <= 2) {
+			return 2.95;
+		}
+		else if (2 > this.product.weight && this.product.weight <= 5) {
+			return 4.95;
+		}
+		else {
+			return 7.95;
+		}
+	}
+
 	updateWallets(): void {
 		if ((this.self.wallet - this.product.price) > 0) {
-			this.self.wallet -= this.product.price;
+			this.self.wallet -= this.total;
 			this.service.putUser(this.self.id, this.self).subscribe();
 
 			this.owner.wallet += this.product.price;
 			this.service.putUser(this.owner.id, this.owner).subscribe();
-
 
 			this.postDeal();
 		}
@@ -60,8 +77,7 @@ export class PurchaseComponent implements OnInit {
 
 		this.dealService.postDeal(deal).subscribe(
 			response => {
-				console.log(response);
-				
+				this.closeSelf();
 			}
 		);
 	}

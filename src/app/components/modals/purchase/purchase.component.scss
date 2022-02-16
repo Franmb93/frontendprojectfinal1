@@ -6,26 +6,32 @@
 
 	.summary {
 		display: grid;
-		grid-template: 1fr 1fr 1fr / 3fr 1fr;
+		grid-template-rows: 1fr 1fr 1fr;
+		gap: 8px;
+
+		margin-bottom: 16px;
+
+		.summary-row {
+			display: grid;
+			grid-template-columns: 3fr 1fr;
+			justify-items: end;
+
+			font-weight: 500;
+
+			&:nth-child(1), &:nth-child(4), &:nth-child(5) {
+				border-bottom: 2px solid black;
+				padding-bottom: 4px;
+			}
+
+			div {
+				justify-self: start;
+				font-weight: 400;
+			}
+		}
 	}
 
-	.buttons {
-
-		.register {
-			
-		}
-	
-		.close {
-			float: right;
-	
-			color: #dc3545;
-			background-color: #fff;
-		}
-	
-		.close:hover {
-			color: #fff;
-			background-color: #bb2d3b;
-			border-color: #bb2d3b;
-		}
+	.buttons-container {
+		display: flex;
+		justify-content: space-between;
 	}
 }

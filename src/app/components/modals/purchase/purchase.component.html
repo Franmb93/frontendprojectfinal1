@@ -1,17 +1,36 @@
 <div class="container">
-	Está a punto de comprar a <strong>{{ owner?.username }}</strong> el artículo <strong>{{ product?.name }}</strong> por <strong>{{ product?.price }}€</strong>
+	<h3>Está a punto de comprar a <strong>{{ owner?.username }}</strong> el artículo <strong>{{ product?.name }}</strong> por <strong>{{ total }}€</strong></h3>
 	
 	<div class="summary">
-		<div class="wallet">Su billetera</div>
-		{{ self?.wallet }}
-		<div class="price">Precio del producto</div>
-		{{ product?.price }}
-		<div class="rest">Restante</div>
-		{{ owner?.username }}
-	</div>
+		<div class="summary-row">
+			<div class="wallet">Su billetera</div>
+			{{ self?.wallet }} €
+		</div>
 
-	<div class="buttons">
-		<button (click)="purchase()" class="btn btn-success register">Registrarse</button>
-		<button (click)="closeSelf()" class="btn btn-danger close">Cerrar</button>
+		<div class="summary-row">
+			<div class="price">Precio del producto</div>
+			{{ product?.price }} €
+		</div>
+		
+		<div class="summary-row">
+			<div class="shipping">Precio del envío</div>
+			{{ priceShipping() }} €
+		</div>
+		
+		<div class="summary-row">
+			<div class="total">Total</div>
+			{{ total }} €
+		</div>
+		
+		<div class="summary-row">
+			<div class="rest">Restante</div>
+			{{ rest }} €
+		</div>
+		
+	</div>
+	
+	<div class="buttons-container">
+		<button mat-raised-button (click)="purchase()" class="m-btn-primary">Comprar</button>
+		<button mat-raised-button (click)="closeSelf()" class="m-btn-primary-c">Cerrar</button>
 	</div>
 </div>
