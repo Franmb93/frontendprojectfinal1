@@ -130,7 +130,7 @@ export class ProductRegisterComponent implements OnInit {
 					weight: weight,
 					image: url,
 					user: {id: localStorage.getItem('currentUserId')},
-					category: { id: this.category },
+					category: { id: 1 },
 				}
 				console.log("el jason: ", JSON.stringify(this.product))
 
