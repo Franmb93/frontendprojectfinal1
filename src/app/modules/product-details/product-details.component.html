@@ -6,7 +6,10 @@
                     {{ owner?.image }}
                 </div>
                 <div class="name">
-                    {{ owner?.username }}
+                    <a [routerLink]="['/usuario', owner?.id]">
+                        {{ owner?.username }}
+                    </a>
+                    
                 </div>
                 <div class="products gray">
                     {{ owner?.products?.length }} Productos

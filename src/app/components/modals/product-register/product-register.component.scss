@@ -1,56 +1,47 @@
-$corporativeColor: #00B6D3;
+$corporativeColor: #00b6d3;
 $ligtBlue: #74cdd1;
-
 .container {
-    width: 25rem;
+  width: 25rem;
 }
-
 .form {
-    display: flex;
-    flex-direction: column;
-    &__element {
-        margin-bottom: .5rem;
-        width: 100%;
-    }
-    mat-radio-group {
-        display: block;
-        margin-bottom: .5rem;
-    }
-
-    mat-radio-button{
-        margin-right: 1rem;
-    }
+  display: flex;
+  flex-direction: column;
+  &__element {
+    margin-bottom: 0.5rem;
+    width: 100%;
+  }
+  mat-radio-group {
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+  mat-radio-button {
+    margin-right: 1rem;
+  }
 }
-
 .actions {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    
-    &__btn {
-        width: 100%;
-        margin-top: 5px;
-        background-color: $corporativeColor;
-        
-    }
-    &__btn_close {
-        width: 100%;
-        margin-top: 5px;
-        background-color: $ligtBlue;
-        color: white;
-    }
-}
-
-#send-button {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  &__btn {
+    width: 100%;
+    margin-top: 5px;
     background-color: $corporativeColor;
-    border: 1.3px solid $ligtBlue;
-    border-radius: 35px;
-    color: #fff;
-    font-weight: 500;
-    &:hover {
-        background-color: $ligtBlue;
-        color: #fff;
-    }
+  }
+  &__btn_close {
+    width: 100%;
+    margin-top: 5px;
+    background-color: $ligtBlue;
+    color: white;
+  }
 }
-
- 
+#send-button {
+  background-color: $corporativeColor;
+  border: 1.3px solid $ligtBlue;
+  border-radius: 35px;
+  color: #fff;
+  font-weight: 500;
+  &:hover {
+    background-color: $ligtBlue;
+    color: #fff;
+  }
+}

@@ -1,13 +1,19 @@
-    $m-c-p: #00B6D3;
-    $white-color: #fff;
+@import'src/variables.scss';
+
+
     .container {
+        display:flex;
+        justify-content: center;
         max-width: 100vw;
         min-width: 50vw;
-        height: 450px;
+        height: 45rem; 
         padding: 0;
         margin: 5px;
         .product-card {
             height: 100%;
+            max-width: 80vw;
+            min-width: 65vw;
+
             display: flex;
             flex-direction: column;
             .chaquetita {
@@ -120,4 +126,9 @@
                 color: $m-c-p;
             }
         }
+    }
+
+    .name a{
+        text-decoration: none;
+        color: $m-c-p;
     }

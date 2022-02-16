@@ -1,5 +1,6 @@
-$purpleDark: #672c67;
-$ligtBlue: #74cdd1;
+@import'src/variables.scss';
+
+;
 .categoryContainer {
     // display: flex;
     // justify-content: center;
@@ -29,10 +30,10 @@ $ligtBlue: #74cdd1;
     align-items: center;
     font-size: 3rem !important;
     // width: 100px;
-    color: #00B6D3;
+    color: $m-c-p;
     transition: 0.1s;
     &:hover {
-        color: $ligtBlue;
+        color: $m-c-pl;
     }
 }
 
