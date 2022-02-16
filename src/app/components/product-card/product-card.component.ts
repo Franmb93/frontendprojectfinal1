@@ -23,12 +23,13 @@ export class ProductCardComponent implements OnInit {
 	public sold: boolean = false;
 	
 	constructor() {
-
+		console.log(this.product);
+		
 	}
 	
 	ngOnInit(): void {
 		if(this.product.image != undefined){
-			this.image = `${this.url}/${this.product.image}`;
+			this.image = `${this.url}/${this.product?.image}`;
 		}
 		
 		if (this.product.deal) {

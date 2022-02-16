@@ -1,38 +1,5 @@
 <app-user-card *ngIf="isUserType"></app-user-card>
 
 <div class="product-gallery">
-    <div class="row-wrapper">
-        <div class="first-row">
-            <app-product-card *ngFor="let product of products | slice:0:4" [product]="product"></app-product-card>
-        </div>
-        <div class="second-row">
-            <app-product-card *ngFor="let product of products | slice:4:8" [product]="product"></app-product-card>
-        </div>
-    </div>
-
-
-
+    <app-product-card *ngFor="let product of products" [product]="product" [routerLink]="['/producto', product?.id]"></app-product-card>
 </div>
-<!-- <div class="mainContainer">
-	<div class="container">
-		<div *ngFor="let product of products">
-			
-		</div>
-	</div>
-</div> -->
-
-<!-- <div id="wrapper">
-    <div id="titulos">
-        <h1>{{ category.name }}</h1>
-    </div>
-    <div id="searchBar">
-        <app-search-bar></app-search-bar>
-        <button mat-button>hola</button>
-    </div>
-
-
-</div>
-
-<div *ngFor="let product of products">
-<app-product-card></app-product-card>
-</div> -->

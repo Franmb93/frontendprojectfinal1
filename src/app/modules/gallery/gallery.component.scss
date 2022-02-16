@@ -1,18 +1,7 @@
 .product-gallery {
 	width: 85vw;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
-
-.first-row{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
-
-.second-row{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+	margin: 0 auto;
+    display: grid;
+    grid-template: auto / 1fr 1fr 1fr;
+	gap: 32px;
 }

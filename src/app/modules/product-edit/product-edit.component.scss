@@ -1,4 +1,4 @@
-$corporativeColor: #00B6D3;
+@import 'src/variables.scss';
 $ligtBlue: #74cdd1;
 
 .container {
@@ -30,7 +30,7 @@ $ligtBlue: #74cdd1;
     &__btn {
         width: 100%;
         margin-top: 5px;
-        background-color: $corporativeColor;
+        background-color: $m-c-p;
         
     }
     &__btn_close {
@@ -42,7 +42,7 @@ $ligtBlue: #74cdd1;
 }
 
 #send-button {
-    background-color: $corporativeColor;
+    background-color: $m-c-p;
     border: 1.3px solid $ligtBlue;
     border-radius: 35px;
     color: #fff;
