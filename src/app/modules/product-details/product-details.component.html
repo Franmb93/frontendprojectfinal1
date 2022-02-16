@@ -10,7 +10,6 @@
                     <a [routerLink]="['/usuario', owner?.id]">
                         {{ owner?.username }}
                     </a>
-                    
                 </div>
                 <div class="products gray">
                     {{ owner?.products?.length }} Productos
@@ -58,7 +57,7 @@
                 <button class="m-btn-primary" (click)="openPurchaseModal()" mat-raised-button color="secundary">Comprar</button>
             </div>
             <div class="btnEdit" *ngIf="isEqualLoggedThanThisUser()">
-                <button class="m-btn-primary-i" mat-raised-button color="secundary" [routerLink]="['/producto/', product?.id, 'editar']">Editar</button>
+                <button class="m-btn-primary-i" mat-raised-button color="secundary" [routerLink]="['/producto', product?.id, 'editar']">Editar</button>
             </div>
         </div>
     </mat-card>

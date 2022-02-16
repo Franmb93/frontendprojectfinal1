@@ -54,11 +54,12 @@
                 <div *ngIf="message" class="alert alert-secondary" role="alert">{{ message }}</div>
     
             </div> -->
+
+			<div class="buttons-container">
+				<button mat-raised-button color="primary" class="m-btn-primary" type="submit" (click)="onSubmit(submitForm)">Aceptar</button>
+				<button mat-raised-button color="primary" class="m-btn-primary-c" [routerLink]="['/producto', product?.id]">Cancelar</button>
+			</div>
         </form>
-        <div class="actions">
-            <button mat-raised-button color="primary" class="actions__btn" type="submit" (click)="onSubmit(submitForm)">
-        Enviar
-      </button>
-        </div>
+        
     </div>
 </div>

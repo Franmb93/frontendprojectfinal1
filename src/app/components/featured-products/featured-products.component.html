@@ -4,7 +4,6 @@
 		<app-product-card *ngFor="let f of products1" [product]="f" [routerLink]="['/producto', f?.id]"></app-product-card>
 	</div>
 	
-	
 	<h2 class="featurerTitle">Vendedores más valorados</h2>
 	<div class="featured" >
 		<app-product-card *ngFor="let f of products2" [product]="f" [routerLink]="['/producto', f?.id]"></app-product-card>

@@ -30,15 +30,18 @@
 		&:hover {
 			box-shadow: 0 0 11px rgba(33, 33, 33, .2);
 		}
+
 		.user-details {
 			height: 45px;
 			margin-bottom: 16px;
+
 			mat-card-content {
 				display: grid;
 				grid-template-rows: 1fr 1fr;
 				grid-template-columns: 0.5fr 1fr 1fr 1.5fr;
 				grid-template-areas: "image name valoration chat" "image products n_valorations chat";
 				row-gap: 4px;
+
 				.image {
 					grid-area: image;
 					
@@ -54,26 +57,35 @@
 						border-radius: 100%;
 					}
 				}
+
 				.name {
 					grid-area: name;
 					font-size: 20px;
 					font-weight: 700;
+					
+					a{
+						color: $m-c-p;
+					}
 				}
+
 				.products {
 					grid-area: products;
 				}
+
 				.valoration {
 					grid-area: valoration;
 					display: grid;
 					grid-template: 1fr / 1fr 5fr;
 					align-items: center;
 				}
+
 				.n_valorations {
 					grid-area: n_valorations;
 					p {
 						margin: 0;
 					}
 				}
+
 				.chat {
 					height: 40px;
 					grid-area: chat;
@@ -86,6 +98,7 @@
 				}
 			}
 		}
+
 		.photo-container {
 			height: 477px;
 			display: flex;
@@ -101,6 +114,7 @@
 				object-fit: cover;
 			}
 		}
+
 		.product-details {
 			margin-top: 20px;
 			mat-card-content {
