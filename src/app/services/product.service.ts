@@ -12,38 +12,31 @@ export class ProductService {
 
 	private url = environment.apiURL + "products";
 	private urele = "http://localhost:8010/proxy/api/products"
-	constructor(private http: HttpClient, private router: Router) {  }
+	constructor(private http: HttpClient, private router: Router) { }
 
-	getProducts(): Observable<any>{
+	getProducts(): Observable<any> {
 		return this.http.get<any>(this.url);
 	}
 
-	getProduct(id: any): Observable<any>{
+	getProduct(id: any): Observable<any> {
 		return this.http.get<any>(`${this.url}/${id}`);
 	}
 
 	saveProduct(product: any): Observable<any> {
-
 		const headers = new HttpHeaders({
-      Authorization: 'Bearer ' + sessionStorage.getItem("authToken")
-    });
-    headers.set('Content-Type', 'multipart/form-data');
-
+			Authorization: 'Bearer ' + sessionStorage.getItem("authToken")
+		});
+		headers.set('Content-Type', 'multipart/form-data');
 		const json = JSON.stringify(product)
-
-		return this.http.post<any>(this.url, product, {headers: headers});
+		return this.http.post<any>(this.url, product, { headers: headers });
 	}
 
 	updateProduct(product: any): Observable<any> {
-
 		const headers = new HttpHeaders({
-      Authorization: 'Bearer ' + sessionStorage.getItem("authToken")
-    });
-    headers.set('Content-Type', 'multipart/form-data');
-
-		const json = JSON.stringify(product)
-
-		return this.http.put<any>(this.url, product, {headers: headers});
+			Authorization: 'Bearer ' + sessionStorage.getItem("authToken")
+		});
+		headers.set('Content-Type', 'multipart/form-data');
+		return this.http.put<any>(this.url, product, { headers: headers });
 	}
 
 }

@@ -1,7 +1,6 @@
 <div class="container">
     <mat-label>Subir producto</mat-label>
     <form class="form" #submitForm="ngForm" enctype="multipart/form-data">
-        <!-- <input matInput [(ngModel)]="product.id" name="id" #id="ngModel" hidden> -->
         <mat-form-field class="form_element">
             <input matInput placeholder="Name" required [(ngModel)]="model.name" name="name" #name="ngModel" />
             <mat-error *ngIf="!name.valid || name.pristine">Nombre del producto incorrecto</mat-error>
@@ -20,11 +19,6 @@
             <input matInput placeholder="Peso" required [(ngModel)]="model.weight" name="weight" #weight="ngModel" />
             <mat-error *ngIf="!weight.valid || weight.pristine">Peso del producto incorrecto</mat-error>
         </mat-form-field>
-        <!-- <mat-form-field class="form_element">
-            <input matInput placeholder="Categoría" required [(ngModel)]="product.category" name="weight" #category="ngModel">
-            <mat-error *ngIf="!category.valid || category.pristine">Peso del producto incorrecto</mat-error>
-        </mat-form-field> -->
-
         <mat-form-field appearance="fill" class="category-select">
             <mat-label>Categoría</mat-label>
             <mat-select>
@@ -54,31 +48,7 @@
                 </div>
             </div>
             <div *ngIf="message" class="alert alert-secondary" role="alert">{{ message }}</div>
-            <!-- <div class="card mt-3">
-                <div class="card-header">List of Files</div>
-                <ul
-                  class="list-group list-group-flush"
-                  *ngFor="let file of fileInfos | async"
-                >
-                  <li class="list-group-item">
-                    <a href="{{ file.url }}">{{ file.name }}</a>
-                  </li>
-                </ul>
-              </div> -->
-
         </div>
-
-
-        <!-- <div class="img_upload">
-            <label for="productPic">Seleccionar archivo</label>
-            <input
-                class="input_file_btn"
-                type="file"
-                id="image" name="image"
-                [(ngModel)]="model.image"
-                #image="ngModel"
-                >
-        </div> -->
     </form>
     <div class="actions">
         <button id="send-button" mat-raised-button color="primary" class="actions__btn" type="submit"

@@ -25,6 +25,8 @@ export class ProductRegisterComponent implements OnInit {
 	public selectedOption!: number;
 	public valoration!: number;
 
+    
+
 	user = true;
 	products: Product[] = [];
 	image!: string;
@@ -59,11 +61,6 @@ export class ProductRegisterComponent implements OnInit {
     }
 
 
-    // handleCloseModal() {
-	// 	this.newItemEvent.emit();
-	// 	console.log("llega al hijo?")
-	// }
-
 	private getCurrentDate(): string {
 		return new Date().toLocaleDateString();
 	}
@@ -91,10 +88,8 @@ export class ProductRegisterComponent implements OnInit {
 						if (event.type === HttpEventType.UploadProgress) {
 							this.progress = Math.round(100 * event.loaded / event.total);
 							this.fileName = this.currentFile?.name;
-
 						} else if (event instanceof HttpResponse) {
 							this.message = event.body.message;
-							// this.fileInfos = this.uploadService.getFiles();
 						}
 					},
 					error: (err: any) => {
@@ -116,7 +111,6 @@ export class ProductRegisterComponent implements OnInit {
 
 
 	onSubmit({ value: formData }: NgForm): void {
-		
 		let arrayImages: any[] = [];
 		let url: any;
 		this.uploadService.getFiles().pipe(
@@ -125,10 +119,7 @@ export class ProductRegisterComponent implements OnInit {
 					arrayImages = files;
 				for (let e of arrayImages) {
 					if (e.name === this.fileName) {
-						// let arrayUrl = e.url.split("/");
 						url = e.url.substr(-36)
-						// console.log("url dentro ", arrayUrl[4])
-						// console.log("mierdaaa ", mierda)
 					}
 				}
 				let price: number = +formData.price;
@@ -138,28 +129,12 @@ export class ProductRegisterComponent implements OnInit {
 					price: price,
 					weight: weight,
 					image: url,
-					// published_date: this.getCurrentDate(),
-					// published_date: "2021-01-01",
 					user: {id: localStorage.getItem('currentUserId')},
-					category: { id: 1 },
+					category: { id: this.category },
 				}
 				console.log("el jason: ", JSON.stringify(this.product))
 
-				this.service.saveProduct(this.product)
-					.pipe(
-						// 	tap( res => console.log("la orden", res)),
-
-						//   switchMap(({id: orderId}) => {
-						// 	const details = this.prepareDetails();
-						// 	return this.dataService.saveDetailsOrder({details, orderId});
-						//   }),
-						//Necesitamos el modulo route
-
-						//   delay(5000),
-						//   tap( () => this.shoppingCartService.resetCart())
-						// tap(() => this.router.navigate(['/home'])),
-
-					).subscribe();
+				this.service.saveProduct(this.product).pipe().subscribe();
 			})
 		).subscribe();
 		this.router.navigate(['/home'])

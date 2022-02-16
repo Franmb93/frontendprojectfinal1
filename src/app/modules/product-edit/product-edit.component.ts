@@ -163,9 +163,7 @@ export class ProductEditComponent implements OnInit {
 	getProduct(id: number) {
 		this.service.getProduct(id).subscribe(
 			productData => {
-				console.log("productdata joder: ", productData)
 				this.product = productData;
-				// this.getCategory(this.product.category);
 			}
 		);
 	}
